@@ -1,10 +1,13 @@
 # Propuesta de web HADA
 Nombre de los Miembros:
-#
 -Sebastian Pasker González(coordinador)
+
 -Santiago Sáez Caselles
+
 Turno:
+
 Martes 11:00-13:00
+
 # Descripción
 Esta web permite a usuarios interactuar entre sí para quedar entre ellos y chatear de
 manera online y mediante web scraping proporcionaremos diferentes planes que se
