@@ -11,9 +11,7 @@ Martes 11:00-13:00
 
 # Descripción
 
-Esta web permite a usuarios interactuar entre sí para quedar entre ellos y chatear de
-manera online y mediante web scraping proporcionaremos diferentes planes que se
-podrán elegir dentro de su área de forma al azar o pueden elegir entre distintas
+Esta web permite a usuarios interactuar entre sí para quedar entre ellos y mediante web scraping proporcionaremos diferentes planes que se podrán elegir dentro de su área de forma al azar o pueden elegir entre distintas
 categorías de plan para poder verse entre ellos.
 
 # Parte pública:
