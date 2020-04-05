@@ -26,6 +26,7 @@ privada de la misma.
 compañero/a.
 
 - Buscador -> Introduce una preferencia y busca usuarios con esa misma preferencia, en la cual se podrá seleccionar el usuario.
+
 Listado de EN públicas:
 
 - ENCategoría-> Tipo de plan, coste simbolizado de 1 a 3 €(cuantas menos símbolos más barato
