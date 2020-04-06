@@ -1,0 +1,8 @@
+CORRECCIÓN HADA WEB: propuesta
+
+El repositorio tiene que llamarse algo descriptivo de vuestra web y con _M11 (por ejemplo, Planes_M11). El readme tiene el formato correcto.
+
+No entiendo que es lo que muestra la web antes de iniciar sesión, te muestra un listado de usuarios, planes a hacer??
+En cuanto a las entidades, la entidad buscador no es una entidad porque no guarda nada en base de datos, y la entidad particulares y usuario en que se diferencian, y lo mismo entre parejas y planes que diferencia tienen? Tenéis que pensar bien y explicarlo correctamente para que se entienda mejor en que consiste vuestra web.  
+
+No habéis creado bien la entrega con la etiqueta "propuesta" (esto es un git tag como habéis visto en prácticas anteriores), y tampoco habéis creado bien el proyecto con milestone y las tareas (tenéis un video explicativo con todo esto, mirad los anuncios del campus virtual).
