@@ -51,3 +51,5 @@ Listado de EN privadas:
 Posibles mejoras:
 - Web scraping para los usuarios en el cual no hayan planes en su ciudad.
 - Horario de disponibilidad en formato agenda (Solo semanal).
+
+º
