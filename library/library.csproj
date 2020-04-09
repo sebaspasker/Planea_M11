@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CADFavoritos.cs" />
     <Compile Include="CADParejas.cs" />
+    <Compile Include="ENFavoritos.cs" />
     <Compile Include="ENParejas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
