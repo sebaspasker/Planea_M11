@@ -20,24 +20,19 @@ Esta página web consistirá en un planificador personal de planes entre diferen
 - Ofrecer el login -> permitirá al usuario registrarse en la web, o si ya lo está acceder a su perfil mediante una contraseña y un usuario.
 privada de la misma.
 
-- Mostrar usuarios -> Mostrar otros usuarios con las mismas preferencias y con una disponibilidad de usuarios en común.
+- Mostrar usuarios -> Mostrar otros usuarios.
 
-- Filtro de categorías -> Filtro de los tipos de planes que puede ofrecerte la web.
-compañero/a.
-
-- Buscador -> Introduce una preferencia y busca usuarios con esa misma preferencia, en la cual se podrá seleccionar el usuario.
+- Mostrar planes -> Muestra una lista de los planes existentes (restaurantes, cines...).
 
 Listado de EN públicas:
 
-- ENCategoría-> Tipo de plan, coste simbolizado de 1 a 3 €(cuantas menos símbolos más barato
-es el plan), apertura, cierre...
+- ENUsuario -> Introducir, Eliminar y modificar usuarios. 
 
-- ENUsuario -> Usuarios que se expondrán públicamente al particular con los que podrá
-interactuar según su preferencia y horario de disponibilidad.
+- ENPlanes -> Introducir, Eliminar y modificar planes.
 
 # Parte privada:
 
-- Selección de plan -> El usuario podrá elegir entre uno de los candidatos.
+- Selección de plan -> El usuario podrá elegir entre uno de los candidatos con la misma disponibilidad y horario en común.
 
 - Lista de favoritos -> Personas con las que volverías a quedar o te han llamado la atención.
 
@@ -49,16 +44,9 @@ interactuar según su preferencia y horario de disponibilidad.
 
 Listado de EN privadas:
 
-- ENBuscador-> Hace el proceso de búsquedad del usuario con preferencia y horario común. 
-
 - ENParejas-> Guadará las parejas con sus nombres(nombre de usuario), sus planes y la hora.
 
-- ENParticular-> El particular tiene la opción de elegir una pareja u otra según su búsqueda o su
-lista de favoritos. Se encargará de gestionar la información del usuario conectándose con ENHistorial y ENBuscador.
-
-- ENPlanes -> Se incargará de introducir, modificar y eliminar nuevos planes.
-
-- ENHistorial -> Gestionará la información de favoritos y el historial de los usuarios.
+- ENFavoritos -> Guardará los usuarios favoritos del individuo.
 
 Posibles mejoras:
 - Web scraping para los usuarios en el cual no hayan planes en su ciudad.
