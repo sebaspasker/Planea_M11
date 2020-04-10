@@ -132,6 +132,24 @@ namespace library {
         }
 
         /// <summary>
+        /// Contraseña del usuario
+        /// </summary>
+        private string _password;
+        public string password
+        {
+            get 
+            {
+                return _password;
+            }
+
+            set
+            {
+                _password = value;
+            }
+        }
+
+
+        /// <summary>
         /// Constructor por defecto
         /// </summary>
         public ENUsuario()
