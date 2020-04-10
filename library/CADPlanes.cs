@@ -79,7 +79,7 @@ namespace library
 		/// </summary>
 		/// <param name="plan"></param>
 		/// <returns>true si ha podido encontrar el plan, sino false</returns>
-		public bool UlrimoPlan(ENPlanes plan)
+		public bool UltimoPlan(ENPlanes plan)
 		{
 			// TODO
 			return false;
