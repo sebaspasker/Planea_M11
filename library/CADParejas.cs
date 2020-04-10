@@ -8,7 +8,6 @@ namespace library {
     class CADParejas {
         private string constring;
         
-        // TODO: Añadir el nombre de la base de datos una vez creada
         public CADParejas()
         {
 //            constring = 

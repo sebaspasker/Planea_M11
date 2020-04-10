@@ -45,8 +45,10 @@
   <ItemGroup>
     <Compile Include="CADFavoritos.cs" />
     <Compile Include="CADParejas.cs" />
+    <Compile Include="CADUsuario.cs" />
     <Compile Include="ENFavoritos.cs" />
     <Compile Include="ENParejas.cs" />
+    <Compile Include="ENUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
