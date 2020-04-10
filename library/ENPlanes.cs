@@ -99,7 +99,7 @@ namespace library
         /// Inserta un Plan en la tabla de planes de la base de datos. Llama a CADPlanes.
         /// </summary>
         /// <returns>true si se ha podido añadir, sino false</returns>
-        public bool insertarPlan()
+        public bool InsertarPlan()
         {
             CADPlan cad = new CADPlan();
             bool insertado = false;
@@ -113,7 +113,7 @@ namespace library
         /// Elimina un Plan en la tabla de planes de la base de datos. Llama a CADPlanes.
         /// </summary>
         /// <returns>true si se ha podido eliminar, sino false</returns>
-        public bool eliminarPlan()
+        public bool EliminarPlan()
         {
             CADPlan cad = new CADPlan();
             bool eliminado = false;
@@ -127,7 +127,7 @@ namespace library
         /// Busca un Plan en la tabla de planes de la base de datos. Llama a CADPlanes.
         /// </summary>
         /// <returns>true si se ha podido encontrar, sino false</returns>
-        public bool buscarPlan()
+        public bool BuscarPlan()
         {
             CADPlan cad = new CADPlan();
             bool buscado = false;
@@ -141,7 +141,7 @@ namespace library
         /// Modifica un Plan en la tabla de planes de la base de datos. Llama a CADPlanes.
         /// </summary>
         /// <returns>true si se ha podido modificar, sino false</returns>
-        public bool modificarPlan()
+        public bool ModificarPlan()
         {
             CADPlan cad = new CADPlan();
             bool modificado = false;
@@ -155,7 +155,7 @@ namespace library
         /// Coge el Plan posterior al indicado en la tabla de planes de la base de datos. Llama a CADPlanes.
         /// </summary>
         /// <returns>true si se ha podido modificar, sino false</returns>
-        public bool siguientePlan()
+        public bool SiguientePlan()
         {
             CADPlan cad = new CADPlan();
             bool leido = false;
@@ -169,7 +169,7 @@ namespace library
         /// Coge el primer Plan en la tabla de planes de la base de datos. Llama a CADPlanes.
         /// </summary>
         /// <returns>true si se ha podido modificar, sino false</returns>
-        public bool primerPlan()
+        public bool PrimerPlan()
         {
             CADPlan cad = new CADPlan();
             bool leido = false;
