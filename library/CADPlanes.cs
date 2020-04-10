@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace library
 {
-	class CADlanes
+	class CADPlanes
 	{
 		private string constring;
 
