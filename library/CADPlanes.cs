@@ -64,7 +64,7 @@ namespace library
 		}
 		/// <summary>
 		/// Busca el primer plan de la tabla de planes.
-		/// Comprueba si existe el plan pedido
+		/// Comprueba si existe el plan pedido.
 		/// </summary>
 		/// <param name="plan"></param>
 		/// <returns>true si ha podido encontrar el plan, sino false</returns>
