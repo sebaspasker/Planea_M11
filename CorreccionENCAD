@@ -1,0 +1,7 @@
+CORRECCIÓN HADA WEB: ENCAD
+
+Los EN tienen que ir en una carpeta llamada EN dentro del proyecto de librería, y los CAD igual (en una carpeta CAD). Todas las EN tienen que tener las operaciones CRUD: por ejemplo favoritos no tiene operación de borrar, y la mayoría no tiene un leer en el que le pasas la clave primaria (es una operación básica y necesaria).
+
+El esquema de la base de datos no está mal considerando que sois solo 2. La entrega tiene el tag ENCAD y el manejo del proyecto con las tareas y entregas es correcto.
+
+Ya podéis empezar a trabajar con la interfaz de la Web, que es la próxima entrega (revisad el enunciado) e ir rellenando los CAD.
