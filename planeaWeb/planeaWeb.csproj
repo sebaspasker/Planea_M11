@@ -75,6 +75,7 @@
     <Content Include="BuscarUsuario.aspx" />
     <Content Include="Estilo_Default1.css" />
     <Content Include="Favoritos.aspx" />
+    <Content Include="Historial.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Registro.css" />
     <Content Include="Web.config" />
@@ -114,6 +115,13 @@
     </Compile>
     <Compile Include="Favoritos.aspx.designer.cs">
       <DependentUpon>Favoritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Historial.aspx.cs">
+      <DependentUpon>Historial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Historial.aspx.designer.cs">
+      <DependentUpon>Historial.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro.aspx.cs">
