@@ -205,10 +205,10 @@ namespace library {
         /// Requiere del nombre_usuario
         /// </summary>
         /// <returns>true si consigue eliminar al usuario, sino false</returns>
-        public bool EliminarUsuario()
+        public bool BorrarUsuario()
         {
             CADUsuario c = new CADUsuario();
-            return c.EliminarUsuario(this);
+            return c.BorrarUsuario(this);
         }
 
         /// <summary>
@@ -216,10 +216,10 @@ namespace library {
         /// Requiere del nombre_usuario
         /// </summary>
         /// <returns>true si consigue encontrar al usuario, sino false</returns>
-        public bool BuscarUsuario()
+        public bool SeleccionarUsuario()
         {
             CADUsuario c = new CADUsuario();
-            return c.BuscarUsuario(this);
+            return c.SeleccionarUsuario(this);
         }
 
         /// <summary>

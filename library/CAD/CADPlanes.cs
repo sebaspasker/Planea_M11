@@ -12,7 +12,7 @@ namespace library
 
 		//<summary> 
 		//Constructor
-		public CADFavoritos()
+		public CADPlanes()
         {
 			// constring =
 			// TODO
@@ -35,7 +35,7 @@ namespace library
 		/// </summary>
 		/// <param name="plan"></param>
 		/// <returns>true si ha podido borrar el plan, sino false</returns>
-		public bool EliminarPlan(ENPlanes plan)
+		public bool BorrarPlan(ENPlanes plan)
 		{
 			// TODO
 			return false;
@@ -46,7 +46,7 @@ namespace library
 		/// </summary>
 		/// <param name="plan"></param>
 		/// <returns>true si ha podido encontrar el plan, sino false</returns>
-		public bool BuscarPlan(ENPlanes plan)
+		public bool SeleccionarPlan(ENPlanes plan)
 		{
 			// TODO
 			return false;
@@ -84,6 +84,18 @@ namespace library
 			// TODO
 			return false;
 		}
+
+		/// <summary>
+		/// Busca el siguiente plan al mencionado.
+		/// </summary>
+		/// <param name="plan"></param>
+		/// <returns></returns>
+		public bool SiguientePlan(ENPlanes plan)
+		{
+			// TODO 
+			return false;
+		}
+
 		/// <summary>
 		/// Devuelve una lista de planes de la BBDD tabla Planes.
 		/// </summary>

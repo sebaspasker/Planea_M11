@@ -101,9 +101,9 @@ namespace library
         /// <returns>true si se ha podido añadir, sino false</returns>
         public bool InsertarPlan()
         {
-            CADPlan cad = new CADPlan();
+            CADPlanes cad = new CADPlanes();
             bool insertado = false;
-            if (cad.insertarPlan(this))
+            if (cad.InsertarPlan(this))
             {
                 insertado = true;
             }
@@ -113,11 +113,11 @@ namespace library
         /// Elimina un Plan en la tabla de planes de la base de datos. Llama a CADPlanes.
         /// </summary>
         /// <returns>true si se ha podido eliminar, sino false</returns>
-        public bool EliminarPlan()
+        public bool BorrarPlan()
         {
-            CADPlan cad = new CADPlan();
+            CADPlanes cad = new CADPlanes();
             bool eliminado = false;
-            if (cad.eliminarPlan(this))
+            if (cad.BorrarPlan(this))
             {
                 eliminado = true;
             }
@@ -127,11 +127,11 @@ namespace library
         /// Busca un Plan en la tabla de planes de la base de datos. Llama a CADPlanes.
         /// </summary>
         /// <returns>true si se ha podido encontrar, sino false</returns>
-        public bool BuscarPlan()
+        public bool SeleccionarPlan()
         {
-            CADPlan cad = new CADPlan();
+            CADPlanes cad = new CADPlanes();
             bool buscado = false;
-            if (cad.buscarPlan(this))
+            if (cad.SeleccionarPlan(this))
             {
                 buscado = true;
             }
@@ -143,9 +143,9 @@ namespace library
         /// <returns>true si se ha podido modificar, sino false</returns>
         public bool ModificarPlan()
         {
-            CADPlan cad = new CADPlan();
+            CADPlanes cad = new CADPlanes();
             bool modificado = false;
-            if (cad.modificarPlan(this))
+            if (cad.ModificarPlan(this))
             {
                 modificado = true;
             }
@@ -157,9 +157,9 @@ namespace library
         /// <returns>true si se ha podido modificar, sino false</returns>
         public bool SiguientePlan()
         {
-            CADPlan cad = new CADPlan();
+            CADPlanes cad = new CADPlanes();
             bool leido = false;
-            if (cad.siguientePlan(this))
+            if (cad.SiguientePlan(this))
             {
                 leido = true;
             }
@@ -171,9 +171,9 @@ namespace library
         /// <returns>true si se ha podido modificar, sino false</returns>
         public bool PrimerPlan()
         {
-            CADPlan cad = new CADPlan();
+            CADPlanes cad = new CADPlanes();
             bool leido = false;
-            if (cad.primerPlan(this))
+            if (cad.PrimerPlan(this))
             {
                 leido = true;
             }
@@ -185,9 +185,9 @@ namespace library
         /// <returns>true si se ha podido modificar, sino false</returns>
         public bool UltimoPlan()
         {
-            CADPlan cad = new CADPlan();
+            CADPlanes cad = new CADPlanes();
             bool leido = false;
-            if (cad.ultimoPlan(this))
+            if (cad.UltimoPlan(this))
             {
                 leido = true;
             }
@@ -199,7 +199,7 @@ namespace library
         /// <returns>Lista de parejas de ENPlanes</returns>
         public List<ENPlanes> ListarPlanes()
         {
-            CADPlanes c = new CADlanes();
+            CADPlanes c = new CADPlanes();
             return c.ListarPlanes();
         }
     }

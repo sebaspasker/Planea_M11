@@ -35,7 +35,7 @@ namespace library {
         /// </summary>
         /// <param name="favorito"></param>
         /// <returns></returns>
-        public bool EliminarFavorito(ENFavoritos favorito)
+        public bool BorrarFavorito(ENFavoritos favorito)
         {
             // TODO 
             return false;
@@ -57,7 +57,7 @@ namespace library {
         /// </summary>
         /// <param name="favorito"></param>
         /// <returns></returns>
-        public bool BuscarFavorito(ENFavoritos favorito)
+        public bool LeerFavorito(ENFavoritos favorito)
         {
             // TODO 
             return false;

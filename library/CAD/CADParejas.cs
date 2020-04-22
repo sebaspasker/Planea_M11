@@ -45,7 +45,7 @@ namespace library {
         /// </summary>
         /// <param name="pareja"></param>
         /// <returns></returns>
-        public bool BuscarPareja(ENParejas pareja)
+        public bool SeleccionarPareja(ENParejas pareja)
         {
             // TODO
             return false;
@@ -57,7 +57,7 @@ namespace library {
         /// </summary>
         /// <param name="pareja"></param>
         /// <returns></returns>
-        public bool EliminarPareja(ENParejas pareja)
+        public bool BorrarPareja(ENParejas pareja)
         {
             // TODO 
             return false;

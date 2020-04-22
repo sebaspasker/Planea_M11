@@ -75,10 +75,10 @@ namespace library {
         /// Precisa de todos los atributos.
         /// </summary>
         /// <returns>true si ha podido eliminar al favorito, si no false</returns>
-        public bool EliminarFavorito()
+        public bool BorrarFavorito()
         {
             CADFavoritos c = new CADFavoritos();
-            return c.EliminarFavorito(this);
+            return c.BorrarFavorito(this);
         }
 
         /// <summary>
@@ -97,10 +97,10 @@ namespace library {
         /// Precisa de todos los atributos.
         /// </summary>
         /// <returns>true si ha podido encontrar al favorito, si no false</returns>
-        public bool BuscarFavorito()
+        public bool LeerFavorito()
         {
             CADFavoritos c = new CADFavoritos();
-            return c.BuscarFavorito(this);
+            return c.LeerFavorito(this);
         }
 
         /// <summary>

@@ -145,20 +145,20 @@ namespace library {
         /// Busca parejas en la base de datos, tabla Parejas. Llama a CADParejas.
         /// </summary>
         /// <returns>true si se ha podido modificar, sino false</returns>
-        public bool BuscarPareja()
+        public bool SeleccionarPareja()
         {
             CADParejas c = new CADParejas();
-            return c.ModificarPareja(this);
+            return c.SeleccionarPareja(this);
         }
 
         /// <summary>
         /// Elimina parejas en la base de datos, tabla Parejas. Llama a CADParejas.
         /// </summary>
         /// <returns>true si se ha podido eliminar, sino false</returns>
-        public bool EliminarPareja()
+        public bool BorrarPareja()
         {
             CADParejas c = new CADParejas();
-            return c.EliminarPareja(this);
+            return c.BorrarPareja(this);
         }
 
         /// <summary>

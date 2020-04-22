@@ -43,17 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CADFavoritos.cs" />
-    <Compile Include="CADParejas.cs" />
-    <Compile Include="CADUsuario.cs" />
-    <Compile Include="ENFavoritos.cs" />
-    <Compile Include="ENParejas.cs" />
-    <Compile Include="ENUsuario.cs" />
+    <Compile Include="CAD\CADFavoritos.cs" />
+    <Compile Include="CAD\CADParejas.cs" />
+    <Compile Include="CAD\CADPlanes.cs" />
+    <Compile Include="CAD\CADUsuario.cs" />
+    <Compile Include="EN\ENFavoritos.cs" />
+    <Compile Include="EN\ENParejas.cs" />
+    <Compile Include="EN\ENPlanes.cs" />
+    <Compile Include="EN\ENUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

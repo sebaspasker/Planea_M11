@@ -47,7 +47,7 @@ namespace library {
         /// </summary>
         /// <param name="usuario"></param>
         /// <returns></returns>
-        public bool EliminarUsuario(ENUsuario usuario)
+        public bool BorrarUsuario(ENUsuario usuario)
         {
             // TODO
             return false;
@@ -58,7 +58,7 @@ namespace library {
         /// </summary>
         /// <param name="usuario"></param>
         /// <returns></returns>
-        public bool BuscarUsuario(ENUsuario usuario)
+        public bool SeleccionarUsuario(ENUsuario usuario)
         {
             // TODO 
             return false;
