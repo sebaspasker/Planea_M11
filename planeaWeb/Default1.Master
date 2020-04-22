@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default1.master.cs" Inherits="planeaWeb.Default1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>PLANEA</title>
+    <link href="Estilo_Default1.css" rel="stylesheet"/>
+    <style type="text/css">
+        .auto-style1 {
+            height: 2px;
+            color: #ffffff;
+        }
+        .auto-style2 {
+            height: 5px;
+            color: #ffffff;
+            width: 1305px;
+        }
+        .auto-style3 {
+            color: #ffffff;
+            height: 10px;
+            width: 1217px;
+        }
+    </style>
+</head>
+<body style="height: 374px; width: 2002px;">
+    <form id="form1" runat="server">
+    <div class="TITLE1" id="corners1">
+        <p>
+           &nbsp;<asp:HyperLink ID="RegisterID" runat="server" NavigateUrl="" CssClass="auto-style1">¿Eres nuevo?</asp:HyperLink><br />
+           &nbsp;<asp:HyperLink ID="LoginID" runat="server" NavigateUrl="" CssClass="auto-style1">Entra</asp:HyperLink>
+        </p>
+        <h1 class="contenedor">Planea</h1>
+        <p style="text-align: right;">
+            <asp:HyperLink ID="BuscarUsuarioID" runat="server" NavigateUrl="" CssClass="auto-style2">Buscar Usuario</asp:HyperLink>&nbsp;<br />
+            <asp:HyperLink ID="BuscarPlanID" runat="server" NavigateUrl="" CssClass="auto-style3">Buscar Plan</asp:HyperLink>&nbsp;<br />
+        </p>
+    </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div> 
+    </form>
+</body>
+</html>
