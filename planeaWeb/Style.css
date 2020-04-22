@@ -1,0 +1,19 @@
+﻿﻿body {
+    background-color: #001B48;
+}
+
+.contenedor {
+    align-content: center;
+    text-align: center;
+    font-style: italic;
+    color: #ffffff;
+}
+
+.TITLE3 {
+    background-color: #004581;
+}
+
+#corners1 {
+    border-radius: 25px;
+    border: 2px solid #ffffff;
+}
