@@ -5,7 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace planeaWeb {
+namespace planeaWeb 
+{
     public partial class Default1 : System.Web.UI.MasterPage {
         protected void Page_Load(object sender, EventArgs e)
         {
