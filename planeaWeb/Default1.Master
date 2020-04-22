@@ -24,11 +24,11 @@
         }
     </style>
 </head>
-<body style="height: 374px; width: 2002px;">
+<body style="height: 374px; width: 1483px;">
     <form id="form1" runat="server">
     <div class="TITLE1" id="corners1">
         <p>
-           &nbsp;<asp:HyperLink ID="RegisterID" runat="server" NavigateUrl="" CssClass="auto-style1">¿Eres nuevo?</asp:HyperLink><br />
+           &nbsp;<asp:HyperLink ID="RegisterID" runat="server" NavigateUrl="~/Registro.aspx" CssClass="auto-style1">¿Eres nuevo?</asp:HyperLink><br />
            &nbsp;<asp:HyperLink ID="LoginID" runat="server" NavigateUrl="" CssClass="auto-style1">Entra</asp:HyperLink>
         </p>
         <h1 class="contenedor">Planea</h1>
