@@ -25,8 +25,8 @@
     <div class="TITLE1" id="corners1">
         <h1 class="contenedor">Planea</h1>
             <p style="text-align:center">
-               <asp:HyperLink ID="FavoritosID" runat="server" NavigateUrl="Favoritos.aspx" CssClass="auto-style1">Favoritos</asp:HyperLink>
-               <asp:HyperLink ID="HistorialID" runat="server" NavigateUrl="" CssClass="auto-style1">Historial</asp:HyperLink>
+               <asp:HyperLink ID="FavoritosID" runat="server" NavigateUrl="~/Favoritos.aspx" CssClass="auto-style1">Favoritos</asp:HyperLink>
+               <asp:HyperLink ID="HistorialID" runat="server" NavigateUrl="~/Historial.aspx" CssClass="auto-style1">Historial</asp:HyperLink>
                <asp:HyperLink ID="PlaneaID" runat="server" NavigateUrl="" CssClass="auto-style1">Planea!</asp:HyperLink>
                <asp:HyperLink ID="Modificar_Perfil" runat="server" NavigateUrl="" CssClass="auto-style1">Modificar Perfil</asp:HyperLink><br />
             </p>
