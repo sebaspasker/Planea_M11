@@ -481,5 +481,6 @@ Debug/
 
 *.cache
 storage.*
+*.ide-wal
 
 # End of https://www.gitignore.io/api/aspnetcore,visualstudio

@@ -71,6 +71,7 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="BuscarPlan.aspx" />
     <Content Include="BuscarUsuario.aspx" />
     <Content Include="Estilo_Default1.css" />
     <Content Include="Favoritos.aspx" />
@@ -79,6 +80,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuscarPlan.aspx.cs">
+      <DependentUpon>BuscarPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuscarPlan.aspx.designer.cs">
+      <DependentUpon>BuscarPlan.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BuscarUsuario.aspx.cs">
       <DependentUpon>BuscarUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

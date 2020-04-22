@@ -10,24 +10,24 @@
 namespace planeaWeb {
 
 
-    public partial class BuscarUsuario {
+    public partial class BuscarPlan {
 
         /// <summary>
-        /// Control nombre.
+        /// Control nombre_plan.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nombre;
+        protected global::System.Web.UI.WebControls.TextBox nombre_plan;
 
         /// <summary>
-        /// Control BuscaUsuarioR.
+        /// Control BuscaPlanR.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label BuscaUsuarioR;
+        protected global::System.Web.UI.WebControls.Label BuscaPlanR;
     }
 }
