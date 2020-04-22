@@ -480,5 +480,6 @@ MigrationBackup/
 Debug/
 
 *.cache
+storage.*
 
 # End of https://www.gitignore.io/api/aspnetcore,visualstudio
