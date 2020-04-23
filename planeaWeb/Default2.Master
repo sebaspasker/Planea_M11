@@ -1,4 +1,4 @@
-﻿﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="planeaWeb.MasterPage2" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default2.Master.cs" Inherits="planeaWeb.Default2" %>
 
 <!DOCTYPE html>
 
