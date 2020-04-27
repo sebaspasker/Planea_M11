@@ -482,5 +482,7 @@ Debug/
 *.cache
 storage.*
 *.ide-wal
+.vs/Planes_M11/v16/.suo
+.vs/Planes_M11/v16/Server/sqlite3/storage.*
 
 # End of https://www.gitignore.io/api/aspnetcore,visualstudio
