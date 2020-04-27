@@ -28,7 +28,8 @@
                <asp:HyperLink ID="FavoritosID" runat="server" NavigateUrl="~/Favoritos.aspx" CssClass="auto-style1">Favoritos</asp:HyperLink>
                <asp:HyperLink ID="HistorialID" runat="server" NavigateUrl="~/Historial.aspx" CssClass="auto-style1">Historial</asp:HyperLink>
                <asp:HyperLink ID="PlaneaID" runat="server" NavigateUrl="" CssClass="auto-style1">Planea!</asp:HyperLink>
-               <asp:HyperLink ID="Modificar_Perfil" runat="server" NavigateUrl="" CssClass="auto-style1">Modificar Perfil</asp:HyperLink><br />
+               <asp:HyperLink ID="Modificar_Perfil" runat="server" NavigateUrl="" CssClass="auto-style1">Modificar Perfil</asp:HyperLink>
+               <asp:HyperLink ID="Solicudes" runat="server" NavigateUrl="" CssClass="auto-style1">Solicitudes</asp:HyperLink>
             </p>
         <p style="text-align: left; color: #ffffff">
             &nbsp;Hola! <asp:Label id="Nombre_Usuario" runat="server" />, ¿Tienes ganas de un nuevo plan?
