@@ -71,14 +71,25 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="BuscarPlan.aspx" />
     <Content Include="BuscarUsuario.aspx" />
     <Content Include="Estilo_Default1.css" />
     <Content Include="Favoritos.aspx" />
+    <Content Include="Historial.aspx" />
+    <Content Include="Planea.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Registro.css" />
+    <Content Include="Solicitudes.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuscarPlan.aspx.cs">
+      <DependentUpon>BuscarPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuscarPlan.aspx.designer.cs">
+      <DependentUpon>BuscarPlan.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BuscarUsuario.aspx.cs">
       <DependentUpon>BuscarUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -93,12 +104,33 @@
     <Compile Include="Default1.Master.designer.cs">
       <DependentUpon>Default1.Master</DependentUpon>
     </Compile>
+    <Compile Include="Default2.Master.cs">
+      <DependentUpon>Default2.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default2.Master.designer.cs">
+      <DependentUpon>Default2.Master</DependentUpon>
+    </Compile>
     <Compile Include="Favoritos.aspx.cs">
       <DependentUpon>Favoritos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Favoritos.aspx.designer.cs">
       <DependentUpon>Favoritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Historial.aspx.cs">
+      <DependentUpon>Historial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Historial.aspx.designer.cs">
+      <DependentUpon>Historial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Planea.aspx.cs">
+      <DependentUpon>Planea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Planea.aspx.designer.cs">
+      <DependentUpon>Planea.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro.aspx.cs">
@@ -108,9 +140,17 @@
     <Compile Include="Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Solicitudes.aspx.cs">
+      <DependentUpon>Solicitudes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Solicitudes.aspx.designer.cs">
+      <DependentUpon>Solicitudes.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default1.Master" />
+    <Content Include="Default2.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

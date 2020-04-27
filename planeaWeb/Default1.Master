@@ -33,8 +33,8 @@
         </p>
         <h1 class="contenedor">Planea</h1>
         <p style="text-align: right;">
-            <asp:HyperLink ID="BuscarUsuarioID" runat="server" NavigateUrl="" CssClass="auto-style2">Buscar Usuario</asp:HyperLink>&nbsp;<br />
-            <asp:HyperLink ID="BuscarPlanID" runat="server" NavigateUrl="" CssClass="auto-style3">Buscar Plan</asp:HyperLink>&nbsp;<br />
+            <asp:HyperLink ID="BuscarUsuarioID" runat="server" NavigateUrl="~/BuscarUsuario.aspx" CssClass="auto-style2">Buscar Usuario</asp:HyperLink>&nbsp;<br />
+            <asp:HyperLink ID="BuscarPlanID" runat="server" NavigateUrl="~/BuscarPlan.aspx" CssClass="auto-style3">Buscar Plan</asp:HyperLink>&nbsp;<br />
         </p>
     </div>
         <div>
