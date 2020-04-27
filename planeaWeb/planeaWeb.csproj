@@ -71,16 +71,30 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="BuscarPlan.aspx" />
     <Content Include="BuscarUsuario.aspx" />
     <Content Include="Estilo_Default1.css" />
     <Content Include="Favoritos.aspx" />
+<<<<<<< HEAD
     <Content Include="Login.aspx" />
     <Content Include="Login.css" />
+=======
+    <Content Include="Historial.aspx" />
+    <Content Include="Planea.aspx" />
+>>>>>>> develop
     <Content Include="Registro.aspx" />
     <Content Include="Registro.css" />
+    <Content Include="Solicitudes.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuscarPlan.aspx.cs">
+      <DependentUpon>BuscarPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuscarPlan.aspx.designer.cs">
+      <DependentUpon>BuscarPlan.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BuscarUsuario.aspx.cs">
       <DependentUpon>BuscarUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -109,12 +123,28 @@
     <Compile Include="Favoritos.aspx.designer.cs">
       <DependentUpon>Favoritos.aspx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+=======
+    <Compile Include="Historial.aspx.cs">
+      <DependentUpon>Historial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Historial.aspx.designer.cs">
+      <DependentUpon>Historial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Planea.aspx.cs">
+      <DependentUpon>Planea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Planea.aspx.designer.cs">
+      <DependentUpon>Planea.aspx</DependentUpon>
+>>>>>>> develop
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro.aspx.cs">
@@ -123,6 +153,13 @@
     </Compile>
     <Compile Include="Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Solicitudes.aspx.cs">
+      <DependentUpon>Solicitudes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Solicitudes.aspx.designer.cs">
+      <DependentUpon>Solicitudes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
