@@ -71,86 +71,102 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
-    <Content Include="BuscarPlan.aspx" />
-    <Content Include="BuscarUsuario.aspx" />
-    <Content Include="Estilo_Default1.css" />
-    <Content Include="Favoritos.aspx" />
-    <Content Include="Historial.aspx" />
-    <Content Include="Planea.aspx" />
-    <Content Include="Registro.aspx" />
-    <Content Include="Registro.css" />
-    <Content Include="Solicitudes.aspx" />
+    <Content Include="ASPX\BuscarPlan.aspx" />
+    <Content Include="ASPX\BuscarUsuario.aspx" />
+    <Content Include="CSS\Estilo_Default1.css" />
+    <Content Include="ASPX\Favoritos.aspx" />
+    <Content Include="ASPX\Historial.aspx" />
+    <Content Include="ASPX\Planea.aspx" />
+    <Content Include="ASPX\Registro.aspx" />
+    <Content Include="CSS\Registro.css" />
+    <Content Include="ASPX\Solicitudes.aspx" />
+    <Content Include="ASPX\Modificar.aspx" />
+    <Content Include="ASPX\Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuscarPlan.aspx.cs">
+    <Compile Include="ASPX\BuscarPlan.aspx.cs">
       <DependentUpon>BuscarPlan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BuscarPlan.aspx.designer.cs">
+    <Compile Include="ASPX\BuscarPlan.aspx.designer.cs">
       <DependentUpon>BuscarPlan.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BuscarUsuario.aspx.cs">
+    <Compile Include="ASPX\BuscarUsuario.aspx.cs">
       <DependentUpon>BuscarUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BuscarUsuario.aspx.designer.cs">
+    <Compile Include="ASPX\BuscarUsuario.aspx.designer.cs">
       <DependentUpon>BuscarUsuario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default1.Master.cs">
+    <Compile Include="ASPX\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASPX\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MASTER\Default1.Master.cs">
       <DependentUpon>Default1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default1.Master.designer.cs">
+    <Compile Include="MASTER\Default1.Master.designer.cs">
       <DependentUpon>Default1.Master</DependentUpon>
     </Compile>
-    <Compile Include="Default2.Master.cs">
+    <Compile Include="MASTER\Default2.Master.cs">
       <DependentUpon>Default2.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default2.Master.designer.cs">
+    <Compile Include="MASTER\Default2.Master.designer.cs">
       <DependentUpon>Default2.Master</DependentUpon>
     </Compile>
-    <Compile Include="Favoritos.aspx.cs">
+    <Compile Include="ASPX\Favoritos.aspx.cs">
       <DependentUpon>Favoritos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Favoritos.aspx.designer.cs">
+    <Compile Include="ASPX\Favoritos.aspx.designer.cs">
       <DependentUpon>Favoritos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Historial.aspx.cs">
+    <Compile Include="ASPX\Historial.aspx.cs">
       <DependentUpon>Historial.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Historial.aspx.designer.cs">
+    <Compile Include="ASPX\Historial.aspx.designer.cs">
       <DependentUpon>Historial.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Planea.aspx.cs">
+    <Compile Include="ASPX\Planea.aspx.cs">
       <DependentUpon>Planea.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Planea.aspx.designer.cs">
+    <Compile Include="ASPX\Planea.aspx.designer.cs">
       <DependentUpon>Planea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ASPX\Modificar.aspx.cs">
+      <DependentUpon>Modificar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASPX\Modificar.aspx.designer.cs">
+      <DependentUpon>Modificar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registro.aspx.cs">
+    <Compile Include="ASPX\Registro.aspx.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registro.aspx.designer.cs">
+    <Compile Include="ASPX\Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Solicitudes.aspx.cs">
+    <Compile Include="ASPX\Solicitudes.aspx.cs">
       <DependentUpon>Solicitudes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Solicitudes.aspx.designer.cs">
+    <Compile Include="ASPX\Solicitudes.aspx.designer.cs">
       <DependentUpon>Solicitudes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Default1.Master" />
-    <Content Include="Default2.Master" />
+    <Content Include="MASTER\Default1.Master" />
+    <Content Include="MASTER\Default2.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

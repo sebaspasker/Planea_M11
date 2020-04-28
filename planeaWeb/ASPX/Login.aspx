@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default1.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="planeaWeb.Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER/Default1.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="planeaWeb.Login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link href="Login.css" rel="stylesheet"/>
+    <link href="../CSS/Login.css" rel="stylesheet"/>
     <div class="Loguearse_css1">
         <h5>&nbsp;&nbsp;</h5>
         <h5 style="text-align: left; margin-left: 40px;">&nbsp;Acceder: </h5>

@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default2.Master" AutoEventWireup="true" CodeBehind="Solicitudes.aspx.cs" Inherits="planeaWeb.Solicitudes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER/Default2.Master" AutoEventWireup="true" CodeBehind="Solicitudes.aspx.cs" Inherits="planeaWeb.Solicitudes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link href="Registro.css" rel="stylesheet"/>
+    <link href="../CSS/Registro.css" rel="stylesheet"/>
     <div class="Registrarse_css1"> 
         <p style="text-align: left">
             &nbsp;&nbsp;&nbsp;&nbsp;
