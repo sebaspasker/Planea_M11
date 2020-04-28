@@ -12,22 +12,7 @@ namespace planeaWeb {
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void TextBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void TextBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void TextBox8_TextChanged(object sender, EventArgs e)
+        protected void RegistrarseButton(object sender, EventArgs e)
         {
 
         }

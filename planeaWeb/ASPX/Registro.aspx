@@ -15,7 +15,7 @@
         </p>
         <p style="margin-left: 40px">Nombre de usuario:</p>
         <p style="margin-left: 40px">
-            <asp:TextBox ID="TextBox3" runat="server" OnTextChanged="TextBox3_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="TextBox3" runat="server" ></asp:TextBox>
         </p>
         <p style="margin-left: 40px">Ciudad:</p>
         <p style="margin-left: 40px">
@@ -23,7 +23,7 @@
         </p>
         <p style="margin-left: 40px">Email:</p>
         <p style="margin-left: 40px">
-            <asp:TextBox ID="TextBox5" runat="server" OnTextChanged="TextBox5_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="TextBox5" runat="server" ></asp:TextBox>
         </p>
         <p style="margin-left: 40px">Edad:</p>
         <p style="margin-left: 40px">
@@ -35,10 +35,10 @@
         </p>
         <p style="margin-left: 40px">Preferencia:</p>
         <p style="margin-left: 40px">
-            <asp:TextBox ID="TextBox8" runat="server" OnTextChanged="TextBox8_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="TextBox8" runat="server" ></asp:TextBox>
         </p>
         <p style="margin-left: 40px">
-            &nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Registrarse" style="background:#97CBDC"/>
+            &nbsp;<asp:Button ID="RegistrarseButton2" runat="server" OnClick="RegistrarseButton" Text="Registrarse" style="background:#97CBDC"/>
         </p>
         <p><br /></p>
     </div>

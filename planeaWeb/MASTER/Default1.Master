@@ -24,7 +24,7 @@
         }
     </style>
 </head>
-<body style="height: 374px; width: 1483px;">
+<body style="height: 374px; width: 1483px; align-content: center">
     <form id="form1" runat="server">
     <div class="TITLE1" id="corners1">
         <p>
