@@ -81,6 +81,7 @@
     <Content Include="CSS\Registro.css" />
     <Content Include="ASPX\Solicitudes.aspx" />
     <Content Include="ASPX\Modificar.aspx" />
+    <Content Include="ASPX\Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +98,13 @@
     </Compile>
     <Compile Include="ASPX\BuscarUsuario.aspx.designer.cs">
       <DependentUpon>BuscarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ASPX\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASPX\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="MASTER\Default1.Master.cs">
       <DependentUpon>Default1.Master</DependentUpon>
