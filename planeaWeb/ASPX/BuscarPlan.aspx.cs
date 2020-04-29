@@ -13,16 +13,22 @@ namespace planeaWeb {
         }
         protected void ButtonBuscar(object sender, EventArgs e)
         {
+            string listaPlanes;
             String message;
-            if (nombre.Text.Length >= 0)
+            if (nombre.Text.Length >= 0 && nombre.Text.Length < max )
             {
                 ENPlan plan = new ENPlan();
                 plan.nombre = nombre.Text;
 
-                if (plan.SeleccionarPlan())
+                if(listaPlanes.size()=0)
                 {
                     message = "Lo sentimos pero no existe el plan que estás buscando en nuestra base de datos";
                     Response.Write(message);
+                }
+                for(ENPlanes plan: planes)
+                {
+                    listaPlanes= "Nombre: '" + plan.nombre + "' -- Precio: '"+ plan.precio + "' -- Ciudad: '"+ plan.ciudad "' -- Categoría: '"+ plan.categoria;
+                    BuscaPlanR.Text+=listaPlanes;
                 }
                 
             }
