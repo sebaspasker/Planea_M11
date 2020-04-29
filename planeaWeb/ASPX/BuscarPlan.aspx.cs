@@ -11,5 +11,22 @@ namespace planeaWeb {
         {
 
         }
+        protected void ButtonBuscar(object sender, EventArgs e)
+        {
+            String message;
+            if (nombre.Text.Length >= 0)
+            {
+                ENPlan plan = new ENPlan();
+                plan.nombre = nombre.Text;
+
+                if (plan.SeleccionarPlan())
+                {
+                    message = "Lo sentimos pero no existe el plan que estás buscando en nuestra base de datos";
+                    Response.Write(message);
+                }
+                
+            }
+        }
+
     }
 }
