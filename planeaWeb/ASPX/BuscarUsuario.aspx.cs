@@ -31,7 +31,7 @@ namespace planeaWeb {
                     if(listaUsuarios[i].nombre.Contains(nombre.Text))
                     {
                         BuscaUsuarioR.Text += "Nombre de usuario: '" + listaUsuarios[i].nombre_usuario + "' -- Nombre: '" + listaUsuarios[i].nombre +
-                           "' -- Ciudad: '" + listaUsuarios[i].ciudad + "' --  Preferencia: '" + listaUsuarios[i].preferencia + "'\n";
+                           "' -- Ciudad: '" + listaUsuarios[i].ciudad + "' --  Preferencia: '" + listaUsuarios[i].preferencia + "'<br />";
                     }
                 }
             }

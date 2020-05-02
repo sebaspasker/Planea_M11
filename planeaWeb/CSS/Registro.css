@@ -6,6 +6,14 @@
     align-content:center;
 }
 
+.label_lista {
+    background: #ffffff; 
+    color: #004581; 
+    width:1100px; 
+    margin-left: 200px; 
+    border-radius: 25px;
+}
+
 .contenedor2 {
     border-radius: 25px;
     background: #004581;

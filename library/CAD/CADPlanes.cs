@@ -97,6 +97,16 @@ namespace library
 		}
 
 		/// <summary>
+		/// Busca los planes a partir al usuario mencionado.
+		/// </summary>
+		/// <param name="plan"></param>
+		/// <returns></returns>
+		public List<ENPlanes> BuscarPlanes(ENPlanes plan) {
+			// TODO
+			return null;
+		}
+
+		/// <summary>
 		/// Devuelve una lista de planes de la BBDD tabla Planes.
 		/// </summary>
 		/// <returns></returns>

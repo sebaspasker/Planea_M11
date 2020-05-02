@@ -170,5 +170,11 @@ namespace library {
             CADParejas c = new CADParejas();
             return c.ListarParejas();
         }
+
+        public List<ENParejas> BuscarParejas()
+        {
+            CADParejas c = new CADParejas();
+            return c.BuscarParejas(this);
+        }
     }
 }

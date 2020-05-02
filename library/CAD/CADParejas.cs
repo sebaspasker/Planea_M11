@@ -73,5 +73,11 @@ namespace library {
             // TODO
             return null;
         }
+
+        public List<ENParejas> BuscarParejas(ENParejas en)
+        {
+            // TODO
+            return null;
+        }
     }
 }

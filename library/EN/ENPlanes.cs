@@ -193,6 +193,13 @@ namespace library
             }
             return leido;
         }
+
+        public List<ENPlanes> BuscarPlanes()
+        {
+            CADPlanes c = new CADPlanes();
+            return c.BuscarPlanes(this);
+        }
+
         /// <summary>
         /// Devuelve una lista con todos los planes de la base de datos, tabla Parejas. Llama a CADPlanes.
         /// </summary>

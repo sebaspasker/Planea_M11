@@ -11,7 +11,7 @@
             <br/>
             &nbsp; <br />
         </p>
-        <p style="background: #ffffff; color: #004581; width:1100px; margin-left: 200px; border-radius: 25px">
+        <p class="label_lista">
             <asp:Label id="BuscaUsuarioR" runat="server" />
         </p>
         <br />
