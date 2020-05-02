@@ -4,14 +4,20 @@
     <div class="Registrarse_css1">
         <h5>&nbsp;&nbsp;</h5>
         <h5 style="text-align: left; margin-left: 40px;">&nbsp;Acceder: </h5>
+        <p style="text-align: left; margin-left: 40px;">
+            <asp:Label ID="OutputAgregado" runat="server" Text=""></asp:Label>
+        </p>
         <p style="margin-left: 40px">Usuario: </p>
         <p style="margin-left: 40px">
             <asp:TextBox ID="NombreUsuario" runat="server"></asp:TextBox>
         </p>
+        <p style="margin-left: 40px">
+            &nbsp;</p>
         <p style="margin-left: 40px">Contraseña:</p>
         <p style="margin-left: 40px">
             <asp:TextBox ID="Password" runat="server"></asp:TextBox>
         <p style="margin-left: 40px">
+            &nbsp;<p style="margin-left: 40px">
             &nbsp;<asp:Button ID="Button9" runat="server" OnClick="LoginFunction" Text="Acceder" style="background:#97CBDC"/>
         </p>
         <p style="margin-left: 40px">

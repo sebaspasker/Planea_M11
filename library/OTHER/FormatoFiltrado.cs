@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace library.OTHER {
     public class FormatoFiltrado {
+        public FormatoFiltrado()
+        {
+        }
+
         public string FiltradoUsuario(ENUsuario enu, bool formatoCorto)
         {
             string mensaje = "TODO_OK";

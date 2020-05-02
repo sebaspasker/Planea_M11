@@ -14,7 +14,15 @@ namespace planeaWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string registrado = Request.QueryString["agregado"];
+            if(registrado == "True")
+            {
+                OutputAgregado.Text = "El usuario ha sido agregado correctamente";
+            } 
+            else
+            {
+                OutputAgregado.Text = "";
+            }
         }
 
         protected void LoginFunction(object sender, EventArgs e)
