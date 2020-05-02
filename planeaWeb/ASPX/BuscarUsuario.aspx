@@ -1,15 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER/Default1.Master" AutoEventWireup="true" CodeBehind="BuscarUsuario.aspx.cs" Inherits="planeaWeb.BuscarUsuario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../CSS/Registro.css" rel="stylesheet"/>
-    <div class="Registrarse_css1">
-        <p style="text-align:left"> <br />
-        </p>
-        <p style="text-align:left">&nbsp;&nbsp; Nombre:&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="nombre" runat="server"></asp:TextBox> &nbsp;
-            <asp:Button ID="ButtonBuscar" runat="server" Text="Buscar" />
+    <div class="Registrarse_css1" style="margin-top: 20px">
+        <p>
+            &nbsp;</p>
+        <p>
+            <asp:TextBox ID="nombre" runat="server"></asp:TextBox> 
+            &nbsp;&nbsp; 
+            <asp:Button ID="ButtonBuscarID" OnClick="ButtonBuscarUsuario" runat="server" Text="Buscar" />
             <br/>
             &nbsp; <br />
         </p>
-        <asp:Label id="BuscaUsuarioR" runat="server"/>
+        <p style="background: #ffffff; color: #004581; width:1100px; margin-left: 200px; border-radius: 25px">
+            <asp:Label id="BuscaUsuarioR" runat="server" />
+        </p>
+        <br />
     </div>
 </asp:Content>
