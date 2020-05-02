@@ -8,6 +8,8 @@ using library;
 
 namespace planeaWeb {
     public partial class Historial : System.Web.UI.Page {
+        // TODO Comentar
+        // TODO Hacer que le pasen en todos los redirect en nomUsu como variable
         protected void Page_Load(object sender, EventArgs e)
         {
             historial_out.Text = "";

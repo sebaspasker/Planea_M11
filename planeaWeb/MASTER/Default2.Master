@@ -25,11 +25,11 @@
     <div class="TITLE1" id="corners1">
         <h1 class="contenedor">Planea</h1>
             <p style="text-align:center">
-               <asp:HyperLink ID="FavoritosID" runat="server" NavigateUrl="~/ASPX/Favoritos.aspx" CssClass="auto-style1">Favoritos</asp:HyperLink>
-               <asp:HyperLink ID="HistorialID" runat="server" NavigateUrl="~/ASPX/Historial.aspx" CssClass="auto-style1">Historial</asp:HyperLink>
-               <asp:HyperLink ID="PlaneaID" runat="server" NavigateUrl="~/ASPX/Planea.aspx" CssClass="auto-style1">Planea!</asp:HyperLink>
-               <asp:HyperLink ID="Modificar_Perfil" runat="server" NavigateUrl="~/ASPX/Modificar.aspx" CssClass="auto-style1">Modificar Perfil</asp:HyperLink>
-               <asp:HyperLink ID="Solicudes" runat="server" NavigateUrl="~/ASPX/Solicitudes.aspx" CssClass="auto-style1">Solicitudes</asp:HyperLink>
+               <asp:HyperLink ID="FavoritosID" runat="server" NavigateUrl="~/ASPX/Favoritos.aspx?nomUsu=" CssClass="auto-style1">Favoritos</asp:HyperLink>
+               <asp:HyperLink ID="HistorialID" runat="server" NavigateUrl="~/ASPX/Historial.aspx?nomUsu=" CssClass="auto-style1">Historial</asp:HyperLink>
+               <asp:HyperLink ID="PlaneaID" runat="server" NavigateUrl="~/ASPX/Planea.aspx?nomUsu=" CssClass="auto-style1">Planea!</asp:HyperLink>
+               <asp:HyperLink ID="Modificar_Perfil" runat="server" NavigateUrl="~/ASPX/Modificar.aspx?nomUsu=" CssClass="auto-style1">Modificar Perfil</asp:HyperLink>
+               <asp:HyperLink ID="Solicitudes" runat="server" NavigateUrl="~/ASPX/Solicitudes.aspx?nomUsu=" CssClass="auto-style1">Solicitudes</asp:HyperLink>
             </p>
         <p style="text-align: left; color: #ffffff">
             &nbsp;Hola! <asp:Label id="Nombre_Usuario" runat="server" />, ¿Tienes ganas de un nuevo plan?
