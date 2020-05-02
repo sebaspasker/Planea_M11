@@ -7,30 +7,28 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace planeaWeb
-{
+namespace planeaWeb {
 
 
-    public partial class Login
-    {
+    public partial class Login {
 
         /// <summary>
-        /// Control TextBox2.
+        /// Control NombreUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox NombreUsuario;
 
         /// <summary>
-        /// Control TextBox1.
+        /// Control Password.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox Password;
 
         /// <summary>
         /// Control Button9.
@@ -40,5 +38,23 @@ namespace planeaWeb
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button9;
+
+        /// <summary>
+        /// Control Registrarse2ID.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink Registrarse2ID;
+
+        /// <summary>
+        /// Control ErrorLogin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ErrorLogin;
     }
 }

@@ -51,6 +51,7 @@
     <Compile Include="EN\ENParejas.cs" />
     <Compile Include="EN\ENPlanes.cs" />
     <Compile Include="EN\ENUsuario.cs" />
+    <Compile Include="OTHER\FormatoFiltrado.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
