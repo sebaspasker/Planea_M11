@@ -13,18 +13,22 @@ namespace planeaWeb {
         }
         protected void lista_favoritos(object sender, EventArgs e)
         {
+            string listaFavoritos;
             String message;
-            if (nombre.Text.Length >= 0)
-            {
-                ENFavoritos favorito = new ENFavoritos();
-                favorito.nombre = nombre.Text;
+            ENFavoritos favorito = new ENFavoritos();
+            favorito.nombre_usuario_favorito = nombre_usuario_favorito.Text;
 
-                if (plan.SeleccionarPlan())
-                {
-                    message = "Lo sentimos pero no existe el plan que estás buscando en nuestra base de datos";
-                }
-                
+            if (lista_favoritos.size() < 0) 
+            { 
+                message = "Lo sentimos pero no tienes ningún usuario favorito";
+                Response.Write(message);
             }
+            for (ENFavoritos favorito: favoritos)
+            {
+                listaFavoritos = "Nombre: '" + favorito.nombre_usuario_favorito + "'";
+                lista_favoritos.Text += listaFavoritos;
+            }
+
 
         }
     }
