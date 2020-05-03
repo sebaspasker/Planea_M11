@@ -4,31 +4,31 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using library;
 
 namespace planeaWeb {
     public partial class BuscarPlan : System.Web.UI.Page {
+        private List<ENPlanes> listaPlanes;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ENPlanes planes = new ENPlanes();
+            listaPlanes = planes.ListarPlanes();
         }
         protected void ButtonBuscar(object sender, EventArgs e)
         {
-            string listaPlanes;
-            String message;
-            if (nombre.Text.Length >= 0 && nombre.Text.Length < max )
+            BuscaPlanR.Text = "";
+            ENPlanes plan = new ENPlanes();
+            plan.Nombre = Nombre.Text;
+            if (Nombre.Text.Length < 0 || Nombre.Text.Length > 20)
             {
-                ENPlan plan = new ENPlan();
-                plan.nombre = nombre.Text;
-
-                if(listaPlanes.size()=0)
+                BuscaPlanR.Text = "El nombre tiene que tener entre 0 y 20 carácteres\n";
+            }
+            else {     
+                for(int i = 0; i < listaPlanes.Count; i++)
                 {
-                    message = "Lo sentimos pero no existe el plan que estás buscando en nuestra base de datos";
-                    Response.Write(message);
-                }
-                for(ENPlanes plan: planes)
-                {
-                    listaPlanes= "Nombre: '" + plan.nombre + "' -- Precio: '"+ plan.precio + "' -- Ciudad: '"+ plan.ciudad "' -- Categoría: '"+ plan.categoria;
-                    BuscaPlanR.Text+=listaPlanes;
+                    if (listaPlanes[i].Nombre.Contains(Nombre.Text)) {
+                        BuscaPlanR.Text += "Nombre: '" + listaPlanes[i].Nombre + "' -- Precio: '" + listaPlanes[i].Precio + "' -- Ciudad: '" + listaPlanes[i].Ciudad+ "' -- Categoría: '" + listaPlanes[i].Categoria + "'<br />";
+                    }
                 }
                 
             }

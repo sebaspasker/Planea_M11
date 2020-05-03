@@ -4,31 +4,22 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using library;
 
 namespace planeaWeb {
     public partial class Favoritos : System.Web.UI.Page {
+        private List<ENFavoritos> listaFavoritos;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-        protected void lista_favoritos(object sender, EventArgs e)
-        {
-            string listaFavoritos;
-            String message;
+            ENFavoritos favoritos = new ENFavoritos();
+            listaFavoritos = favoritos.ListarFavoritos();
             ENFavoritos favorito = new ENFavoritos();
-            favorito.nombre_usuario_favorito = nombre_usuario_favorito.Text;
+            favorito.nombre_usuario_favorito = nombre_usuario.Text;
 
-            if (lista_favoritos.size() < 0) 
-            { 
-                message = "Lo sentimos pero no tienes ningún usuario favorito";
-                Response.Write(message);
-            }
-            for (ENFavoritos favorito: favoritos)
+            for (int i = 0; i < listaFavoritos.Count; i++)
             {
-                listaFavoritos = "Nombre: '" + favorito.nombre_usuario_favorito + "'";
-                lista_favoritos.Text += listaFavoritos;
+                lista_favoritos.Text += "Nombre: '" + favorito.nombre_usuario_favorito + "'<br />";
             }
-
 
         }
     }
