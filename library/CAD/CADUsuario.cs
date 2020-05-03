@@ -15,7 +15,6 @@ namespace library {
         {
             // constring = 
             // TODO
-            throw new Exception();
         }
 
         /// <summary>

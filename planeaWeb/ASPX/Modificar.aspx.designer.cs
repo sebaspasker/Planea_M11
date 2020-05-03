@@ -7,12 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace planeaWeb
-{
+namespace planeaWeb {
 
 
-    public partial class Modificar
-    {
+    public partial class Modificar {
 
         /// <summary>
         /// Control Label1.
@@ -69,39 +67,39 @@ namespace planeaWeb
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// Control Label7.
+        /// Control DropDownListModificar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListModificar;
 
         /// <summary>
-        /// Control myDropDownList.
+        /// Control NuevoValorModificar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList myDropDownList;
+        protected global::System.Web.UI.WebControls.TextBox NuevoValorModificar;
 
         /// <summary>
-        /// Control TextBox1.
+        /// Control ButtonModificar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.Button ButtonModificar;
 
         /// <summary>
-        /// Control Button9.
+        /// Control ErrorModificar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button9;
+        protected global::System.Web.UI.WebControls.Label ErrorModificar;
     }
 }
