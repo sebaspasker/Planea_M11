@@ -271,5 +271,12 @@ namespace library {
             CADUsuario c = new CADUsuario();
             return c.ListarUsuarios();
         }
+
+        public List<ENUsuario> BuscarPreferencia()
+        {
+            CADUsuario c = new CADUsuario();
+            return c.BuscarPreferencia(this); 
+        }
+
     }
 }

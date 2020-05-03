@@ -74,6 +74,8 @@ namespace library
                 _categoria = value;
             }
         }
+
+
         /// <summary>
         /// Constructor por defecto
         /// </summary>
@@ -193,6 +195,27 @@ namespace library
             }
             return leido;
         }
+
+        /// <summary>
+        /// Busca en base al nombre del plan
+        /// </summary>
+        /// <returns></returns>
+        public List<ENPlanes> BuscarPlanes()
+        {
+            CADPlanes c = new CADPlanes();
+            return c.BuscarPlanes(this);
+        }
+
+        /// <summary>
+        /// Busca en base a la categoria
+        /// </summary>
+        /// <returns></returns>
+        public List<ENPlanes> BuscarPlanesPreferencia()
+        {
+            CADPlanes c = new CADPlanes();
+            return c.BuscarPlanesPreferencia(this);
+        }
+
         /// <summary>
         /// Devuelve una lista con todos los planes de la base de datos, tabla Parejas. Llama a CADPlanes.
         /// </summary>

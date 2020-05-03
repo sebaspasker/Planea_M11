@@ -7,38 +7,61 @@
         <h5 style="text-align: left; margin-left: 40px;">&nbsp;Regístrate: </h5>
         <p style="margin-left: 40px">Nombre: </p>
         <p style="margin-left: 40px">
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextNombre" runat="server"></asp:TextBox>
         </p>
+        <p style="margin-left: 40px">
+            &nbsp;</p>
         <p style="margin-left: 40px">Apellidos:</p>
         <p style="margin-left: 40px">
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        </p>
+            <asp:TextBox ID="TextApellidos" runat="server"></asp:TextBox>
+            &nbsp;</p>
+        <p style="margin-left: 40px">
+            &nbsp;</p>
         <p style="margin-left: 40px">Nombre de usuario:</p>
         <p style="margin-left: 40px">
-            <asp:TextBox ID="TextBox3" runat="server" ></asp:TextBox>
+            <asp:TextBox ID="TextNombreUsuario" runat="server" ></asp:TextBox>
         </p>
+        <p style="margin-left: 40px">
+            &nbsp;</p>
         <p style="margin-left: 40px">Ciudad:</p>
         <p style="margin-left: 40px">
-            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextCiudad" runat="server"></asp:TextBox>
         </p>
+        <p style="margin-left: 40px">
+            &nbsp;</p>
         <p style="margin-left: 40px">Email:</p>
         <p style="margin-left: 40px">
-            <asp:TextBox ID="TextBox5" runat="server" ></asp:TextBox>
+            <asp:TextBox ID="TextEmail" runat="server" ></asp:TextBox>
         </p>
+        <p style="margin-left: 40px">
+            &nbsp;</p>
         <p style="margin-left: 40px">Edad:</p>
         <p style="margin-left: 40px">
-            <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextEdad" runat="server"></asp:TextBox>
         </p>
+        <p style="margin-left: 40px">
+            &nbsp;</p>
         <p style="margin-left: 40px">Contraseña:</p>
         <p style="margin-left: 40px">
-            <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextPasswd" runat="server"></asp:TextBox>
         </p>
+        <p style="margin-left: 40px">
+            &nbsp;</p>
         <p style="margin-left: 40px">Preferencia:</p>
         <p style="margin-left: 40px">
-            <asp:TextBox ID="TextBox8" runat="server" ></asp:TextBox>
+            <asp:TextBox ID="TextPreferencia" runat="server" ></asp:TextBox>
         </p>
         <p style="margin-left: 40px">
-            &nbsp;<asp:Button ID="RegistrarseButton2" runat="server" OnClick="RegistrarseButton" Text="Registrarse" style="background:#97CBDC"/>
+            &nbsp;</p>
+        <p style="margin-left: 40px">
+            &nbsp;</p>
+        <p style="margin-left: 40px">
+            &nbsp;<asp:Button ID="RegistrarseButton2" runat="server" OnClick="RegistrarseFunction" Text="Registrarse" style="background:#97CBDC"/>
+        </p>
+        <p style="margin-left: 40px">
+            &nbsp;</p>
+        <p style="margin-left: 40px">
+            <asp:Label ID="ErrorRegistro" runat="server" Text=""></asp:Label>
         </p>
         <p><br /></p>
     </div>

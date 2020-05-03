@@ -73,8 +73,17 @@ namespace library {
             // TODO
             return null;
         }
-        public bool BuscarSolicitudes(int nombre_de_usuario_2)
+
+
+        public List<ENParejas> BuscarParejas(ENParejas en)
         {
+            // TODO
+            return null;
+        }
+      
+        public bool BuscarSolicitudes(ENParejas en)
+        {
+            // TODO
             return null;
         }
     }

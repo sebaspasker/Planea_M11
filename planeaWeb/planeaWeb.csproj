@@ -67,12 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database.mdf" />
-    <Content Include="App_Data\Database_log.ldf">
-      <DependentUpon>Database.mdf</DependentUpon>
-    </Content>
     <Content Include="ASPX\BuscarPlan.aspx" />
     <Content Include="ASPX\BuscarUsuario.aspx" />
+    <Content Include="ASPX\principal1.aspx" />
+    <Content Include="ASPX\principal2.aspx" />
     <Content Include="CSS\Estilo_Default1.css" />
     <Content Include="ASPX\Favoritos.aspx" />
     <Content Include="ASPX\Historial.aspx" />
@@ -105,6 +103,20 @@
     </Compile>
     <Compile Include="ASPX\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ASPX\principal1.aspx.cs">
+      <DependentUpon>principal1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASPX\principal1.aspx.designer.cs">
+      <DependentUpon>principal1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ASPX\principal2.aspx.cs">
+      <DependentUpon>principal2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASPX\principal2.aspx.designer.cs">
+      <DependentUpon>principal2.aspx</DependentUpon>
     </Compile>
     <Compile Include="MASTER\Default1.Master.cs">
       <DependentUpon>Default1.Master</DependentUpon>
