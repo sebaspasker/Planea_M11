@@ -5,7 +5,7 @@
         <p style="text-align:left"> <br />
         </p>
         <p style="text-align:left">&nbsp;&nbsp; Nombre del plan:&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="nombre_plan" runat="server"></asp:TextBox> &nbsp;&nbsp;
+            <asp:TextBox ID="Nombre" runat="server"></asp:TextBox> &nbsp;&nbsp;
             <asp:Button ID="ButtonBuscar" runat="server" Text="Buscar" />
             <br/>
             &nbsp; <br />

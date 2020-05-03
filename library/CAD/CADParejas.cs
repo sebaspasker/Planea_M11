@@ -74,7 +74,14 @@ namespace library {
             return null;
         }
 
+
         public List<ENParejas> BuscarParejas(ENParejas en)
+        {
+            // TODO
+            return null;
+        }
+      
+        public bool BuscarSolicitudes(ENParejas en)
         {
             // TODO
             return null;

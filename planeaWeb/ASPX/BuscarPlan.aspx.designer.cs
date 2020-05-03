@@ -7,19 +7,21 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace planeaWeb {
+namespace planeaWeb
+{
 
 
-    public partial class BuscarPlan {
+    public partial class BuscarPlan
+    {
 
         /// <summary>
-        /// Control nombre_plan.
+        /// Control Nombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nombre_plan;
+        protected global::System.Web.UI.WebControls.TextBox Nombre;
 
         /// <summary>
         /// Control ButtonBuscar.
