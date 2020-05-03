@@ -15,14 +15,18 @@ namespace planeaWeb {
         {
             ENFavoritos favoritos = new ENFavoritos();
             listaFavoritos = favoritos.ListarFavoritos();
-            ENFavoritos favorito = new ENFavoritos();
-            favorito.nombre_usuario_favorito = nombre_usuario.Text;
+            favoritos.nombre_usuario_favorito = nombre_usuario.Text;
+            string usuario = Request.QueryString["nomUsu"];
 
-            for (int i = 0; i < listaFavoritos.Count; i++)
+            if (usuario != "")
             {
-                lista_favoritos.Text += "Nombre: '" + favorito.nombre_usuario_favorito + "'<br />";
-            }
-
+                if (usuario.Length > 12)
+                {
+                    for (int i = 0; i < listaFavoritos.Count(); i++)
+                    {
+                        lista_favoritos.Text += "Nombre: '" + listaFavoritos[i].nombre_usuario_favorito + "'<br />";
+                    }
+                }
         }
     }
 }

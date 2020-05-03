@@ -73,5 +73,9 @@ namespace library {
             // TODO
             return null;
         }
+        public bool BuscarSolicitudes(int nombre_de_usuario_2)
+        {
+            return null;
+        }
     }
 }

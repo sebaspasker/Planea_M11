@@ -105,9 +105,6 @@ namespace library
 			// TODO
 			return null;
 		}
-		public bool BuscarSolicitudes(ref int nombre_de_usuario_1)
-		{
-			return null;
-		}
+
 	}
 }
