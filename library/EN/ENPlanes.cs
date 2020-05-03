@@ -202,5 +202,17 @@ namespace library
             CADPlanes c = new CADPlanes();
             return c.ListarPlanes();
         }
+        public bool BuscarSolicitudes(ref int nombre_de_usuario_1)
+        {
+            CADPlanes cad = new CADPlanes();
+            bool verificado = false;
+            if (cad.BuscarSolicitudes())
+            {
+                verificado = true;
+            }
+            return verificado;
+        }
+
+        
     }
 }

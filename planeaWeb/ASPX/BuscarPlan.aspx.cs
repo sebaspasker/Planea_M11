@@ -9,11 +9,16 @@ using library;
 namespace planeaWeb {
     public partial class BuscarPlan : System.Web.UI.Page {
         private List<ENPlanes> listaPlanes;
+
+        //Page load que llama a la función BuscarSolicitudes y crea una lista de planes
         protected void Page_Load(object sender, EventArgs e)
         {
             ENPlanes planes = new ENPlanes();
             listaPlanes = planes.ListarPlanes();
+            string usuario = Request.QueryString["nomUsu"];
+            planes.BuscarSolicitudes(usuario);
         }
+        //Busca planes según el texto introducido por el usuario
         protected void ButtonBuscar(object sender, EventArgs e)
         {
             BuscaPlanR.Text = "";

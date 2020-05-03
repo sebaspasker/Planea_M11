@@ -9,6 +9,8 @@ using library;
 namespace planeaWeb {
     public partial class Favoritos : System.Web.UI.Page {
         private List<ENFavoritos> listaFavoritos;
+
+        //Page load, devuelve una lista de usuarios dentro de los favoritos del usuario
         protected void Page_Load(object sender, EventArgs e)
         {
             ENFavoritos favoritos = new ENFavoritos();
