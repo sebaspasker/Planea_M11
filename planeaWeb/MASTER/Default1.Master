@@ -28,13 +28,13 @@
     <form id="form1" runat="server">
     <div class="TITLE1" id="corners1">
         <p>
-           &nbsp;<asp:HyperLink ID="RegisterID" runat="server" NavigateUrl="~/Registro.aspx" CssClass="auto-style1">¿Eres nuevo?</asp:HyperLink><br />
-           &nbsp;<asp:HyperLink ID="LoginID" runat="server" NavigateUrl="" CssClass="auto-style1">Entra</asp:HyperLink>
+           &nbsp;<asp:HyperLink ID="RegisterID" runat="server" NavigateUrl="~/ASPX/Registro.aspx" CssClass="auto-style1">¿Eres nuevo?</asp:HyperLink><br />
+           &nbsp;<asp:HyperLink ID="LoginID" runat="server" NavigateUrl="~/ASPX/Login.aspx" CssClass="auto-style1">Entra</asp:HyperLink>
         </p>
         <h1 class="contenedor">Planea</h1>
         <p style="text-align: right;">
-            <asp:HyperLink ID="BuscarUsuarioID" runat="server" NavigateUrl="~/BuscarUsuario.aspx" CssClass="auto-style2">Buscar Usuario</asp:HyperLink>&nbsp;<br />
-            <asp:HyperLink ID="BuscarPlanID" runat="server" NavigateUrl="~/BuscarPlan.aspx" CssClass="auto-style3">Buscar Plan</asp:HyperLink>&nbsp;<br />
+            <asp:HyperLink ID="BuscarUsuarioID" runat="server" NavigateUrl="~/ASPX/BuscarUsuario.aspx" CssClass="auto-style2">Buscar Usuario</asp:HyperLink>&nbsp;<br />
+            <asp:HyperLink ID="BuscarPlanID" runat="server" NavigateUrl="~/ASPX/BuscarPlan.aspx" CssClass="auto-style3">Buscar Plan</asp:HyperLink>&nbsp;<br />
         </p>
     </div>
         <div>

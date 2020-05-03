@@ -13,7 +13,7 @@ namespace library
 		//<summary> 
 		//Constructor
 		public CADPlanes()
-        {
+		{
 			// constring =
 			// TODO
 			throw new Exception();
@@ -42,7 +42,7 @@ namespace library
 		}
 		/// <summary>
 		/// Busca un plan dentro de la tabla de planes.
-        /// Comprueba si existe
+		/// Comprueba si existe
 		/// </summary>
 		/// <param name="plan"></param>
 		/// <returns>true si ha podido encontrar el plan, sino false</returns>
@@ -97,10 +97,31 @@ namespace library
 		}
 
 		/// <summary>
+		/// Busca los planes a partir al usuario mencionado.
+		/// </summary>
+		/// <param name="plan"></param>
+		/// <returns></returns>
+		public List<ENPlanes> BuscarPlanes(ENPlanes plan) {
+			// TODO
+			return null;
+		}
+
+		/// <summary>
 		/// Devuelve una lista de planes de la BBDD tabla Planes.
 		/// </summary>
 		/// <returns></returns>
 		public List<ENPlanes> ListarPlanes()
+		{
+			// TODO
+			return null;
+		}
+
+
+		/// <summary>
+		/// Busca en base a la categoria
+		/// </summary>
+		/// <returns></returns>
+		public List<ENPlanes> BuscarPlanesPreferencia(ENPlanes plan)
 		{
 			// TODO
 			return null;

@@ -96,6 +96,34 @@ namespace library {
             }
         }
 
+        private bool _plan_aceptado;
+        public bool plan_aceptado
+        {
+            get
+            {
+                return _plan_aceptado;
+            }
+
+            set
+            {
+                _plan_aceptado = value;
+            }
+        }
+
+        private string _fecha;
+        public string fecha
+        {
+            get
+            {
+                return _fecha;
+            }
+
+            set
+            {
+                fecha = value;
+            }
+        }
+
         /// <summary>
         /// Constructor por defecto
         /// </summary>
@@ -169,6 +197,19 @@ namespace library {
         {
             CADParejas c = new CADParejas();
             return c.ListarParejas();
+        }
+
+
+        public List<ENParejas> BuscarParejas()
+        {
+            CADParejas c = new CADParejas();
+            return c.BuscarParejas(this);
+        }
+
+        public List<ENParejas> BuscarSolicitudes()
+        {
+            CADParejas cad = new CADParejas();
+            return cad.BuscarSolicitudes(this);
         }
     }
 }
