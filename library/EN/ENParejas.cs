@@ -170,5 +170,15 @@ namespace library {
             CADParejas c = new CADParejas();
             return c.ListarParejas();
         }
+        public bool BuscarSolicitudes( int nombre_de_usuario_2)
+        {
+            CADPlanes cad = new CADPlanes();
+            bool verificado = false;
+            if (cad.BuscarSolicitudes())
+            {
+                verificado = true;
+            }
+            return verificado;
+        }
     }
 }
