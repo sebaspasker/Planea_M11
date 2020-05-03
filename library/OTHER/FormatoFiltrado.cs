@@ -58,5 +58,44 @@ namespace library.OTHER {
 
             return mensaje;
         }
+
+        public string FiltradoPareja(ENParejas pareja, bool formatoCorto)
+        {
+            string mensaje = "TODO_OK";
+            int tamanyoUsu1 = pareja.nombre_usuario_1.Length;            
+            int tamanyoUsu2 = pareja.nombre_usuario_2.Length;            
+
+            if(tamanyoUsu1 < 0 || tamanyoUsu1 > 12)
+            {
+                mensaje = "El nombre de usuario tiene que tener entre 0 y 12 carácteres";
+            } 
+            else if(tamanyoUsu2 < 0 || tamanyoUsu2 > 12)
+            {
+                mensaje = "El nombre de usuario tiene que tener entre 0 y 12 carácteres";
+            }
+
+            if(pareja.nombre_plan.Length < 0 || pareja.nombre_plan.Length > 20)
+            {
+                mensaje = "El nombre del plan tiene que tener entre 0 y 20 carácteres";
+            }
+
+            if(!formatoCorto && mensaje == "TODO_OK")
+            {
+                if(pareja.hora_inicio < 0 || pareja.hora_fin > 23)
+                {
+                    mensaje = "La hora de inicio tiene que estar entre las 0 y las 23";
+                }
+                else if(pareja.hora_fin < 0 || pareja.hora_fin > 23)
+                {
+                    mensaje = "La hora de inicio tiene que estar entre las 0 y las 23";
+                }
+                else if(pareja.fecha.Length != 10)
+                {
+                    mensaje = "La fecha tiene que tener 10 carácteres";
+                }
+            }
+
+            return mensaje;
+        }
     }
 }

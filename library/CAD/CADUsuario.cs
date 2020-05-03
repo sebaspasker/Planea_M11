@@ -116,5 +116,16 @@ namespace library {
             // TODO
             return null;
         }
+
+        /// <summary>
+        /// Busca usuarios con la misma preferencia
+        /// </summary>
+        /// <param name="en"></param>
+        /// <returns></returns>
+        public List<ENUsuario> BuscarPreferencia(ENUsuario en)
+        {
+            // TODO
+            return null;
+        }
     }
 }

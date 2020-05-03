@@ -38,7 +38,7 @@ namespace planeaWeb
                 {
                     if(en.password == Password.Text)
                     {
-                        Response.Redirect("~/ASPX/principal2.aspx?nomUsu=" + Server.UrlEncode(en.nombre_usuario));
+                        Response.Redirect("~/ASPX/principal2.aspx?nomUsu=" + Server.UrlEncode(en.nombre_usuario) + "&login_bool=" + Server.UrlEncode("True"));
                     }
                     else
                     {

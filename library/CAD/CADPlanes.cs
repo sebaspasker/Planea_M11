@@ -115,5 +115,15 @@ namespace library
 			// TODO
 			return null;
 		}
+
+		/// <summary>
+		/// Busca en base a la categoria
+		/// </summary>
+		/// <returns></returns>
+		public List<ENPlanes> BuscarPlanesPreferencia(ENPlanes plan)
+		{
+			// TODO
+			return null;
+		}
 	}
 }
