@@ -10,15 +10,20 @@ namespace planeaWeb {
     public partial class Favoritos : System.Web.UI.Page {
         private List<ENFavoritos> listaFavoritos;
 
-        //Page load, devuelve una lista de usuarios dentro de los favoritos del usuario
+        /// <summary>
+        /// Page load, devuelve una lista de usuarios dentro de los favoritos del usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             ENFavoritos favoritos = new ENFavoritos();
-            listaFavoritos = favoritos.ListarFavoritos();
-            favoritos.nombre_usuario_favorito = nombre_usuario.Text;
+            favoritos.nombre_usuario = nombre_usuario.Text;
+            listaFavoritos = favoritos.BuscarFavoritos();
             string usuario = Request.QueryString["nomUsu"];
+            nombre_usuario.Text = usuario;
 
-            if(usuario != "")
+            if(usuario != "" && usuario != null)
             {
                 if(usuario.Length > 12)
                 {

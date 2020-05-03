@@ -10,9 +10,7 @@ namespace library {
         
         public CADParejas()
         {
-//            constring = 
                // TODO
-              throw new Exception();
         }
 
         /// <summary>

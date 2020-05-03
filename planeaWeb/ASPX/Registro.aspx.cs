@@ -14,6 +14,11 @@ namespace planeaWeb {
 
         }
 
+        /// <summary>
+        /// Comprueba el formato de todos los atributos y inserta el Usuario en caso de ser correcto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void RegistrarseFunction(object sender, EventArgs e)
         {
             ENUsuario en = new ENUsuario();

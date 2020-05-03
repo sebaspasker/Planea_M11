@@ -15,7 +15,6 @@ namespace library {
         {
             // constring =
             // TODO
-            throw new Exception();
         }
 
         /// <summary>
@@ -68,6 +67,12 @@ namespace library {
         /// </summary>
         /// <returns></returns>
         public List<ENFavoritos> ListarFavoritos()
+        {
+            // TODO
+            return null;
+        }
+
+        public List<ENFavoritos> BuscarFavoritos(ENFavoritos fav)
         {
             // TODO
             return null;

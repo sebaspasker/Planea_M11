@@ -5,6 +5,7 @@
         <p>
             &nbsp;</p>
         <p>
+            Nombre del usuario:
             <asp:TextBox ID="nombre" runat="server"></asp:TextBox> 
             &nbsp;&nbsp; 
             <asp:Button ID="ButtonBuscarID" OnClick="ButtonBuscarUsuario" runat="server" Text="Buscar" />

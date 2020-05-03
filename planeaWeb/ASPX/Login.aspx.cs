@@ -9,9 +9,14 @@ using library.OTHER;
 
 namespace planeaWeb
 {
-    // TODO Comentar
     public partial class Login : System.Web.UI.Page
     {
+        /// <summary>
+        /// En caso que se registre el usuario devuelve un mensaje positivo tras 
+        /// el redireccionamiento
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             string registrado = Request.QueryString["agregado"];
@@ -25,6 +30,11 @@ namespace planeaWeb
             }
         }
 
+        /// <summary>
+        /// Si el usuario y la contraseña es correcta redirecciona a principal2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void LoginFunction(object sender, EventArgs e)
         {
             ENUsuario en = new ENUsuario();

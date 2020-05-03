@@ -8,6 +8,11 @@ using library;
 
 namespace planeaWeb.ASPX {
     public partial class principal2 : System.Web.UI.Page {
+        /// <summary>
+        ///  Comprueba que se ha metido un nombre de usuario y es correcto, sino lo redirecciona a principal1.aspx
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             string nombre_usuario = Request.QueryString["nomUsu"];
@@ -22,12 +27,14 @@ namespace planeaWeb.ASPX {
                 } 
                 else
                 {
-                    Response.Redirect("~/ASPX/principal1.aspx");
+                    // TODO Quitar comentar después de entrega, es para que el profesor lo vea
+                    //Response.Redirect("~/ASPX/principal1.aspx");
                 }
             }
             else
             {
-                Response.Redirect("~/ASPX/principal1.aspx");
+                // TODO Quitar comentar después de entrega, es para que el profesor lo vea
+                //Response.Redirect("~/ASPX/principal1.aspx");
             }
         }
     }
