@@ -7,12 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace planeaWeb
-{
+namespace planeaWeb {
 
 
-    public partial class BuscarPlan
-    {
+    public partial class BuscarPlan {
 
         /// <summary>
         /// Control Nombre.

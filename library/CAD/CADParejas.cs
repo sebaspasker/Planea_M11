@@ -81,7 +81,7 @@ namespace library {
             return null;
         }
       
-        public bool BuscarSolicitudes(ENParejas en)
+        public List<ENParejas> BuscarSolicitudes(ENParejas en)
         {
             // TODO
             return null;

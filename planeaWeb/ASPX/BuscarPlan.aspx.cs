@@ -17,7 +17,7 @@ namespace planeaWeb {
             listaPlanes = planes.ListarPlanes();
         }
         //Busca planes según el texto introducido por el usuario
-        protected void ButtonBuscar(object sender, EventArgs e)
+        protected void ButtonBuscar2(object sender, EventArgs e)
         {
             BuscaPlanR.Text = "";
             ENPlanes plan = new ENPlanes();

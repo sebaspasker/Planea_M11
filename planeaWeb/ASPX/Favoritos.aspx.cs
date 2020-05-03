@@ -18,15 +18,16 @@ namespace planeaWeb {
             favoritos.nombre_usuario_favorito = nombre_usuario.Text;
             string usuario = Request.QueryString["nomUsu"];
 
-            if (usuario != "")
+            if(usuario != "")
             {
-                if (usuario.Length > 12)
+                if(usuario.Length > 12)
                 {
-                    for (int i = 0; i < listaFavoritos.Count(); i++)
+                    for(int i = 0; i < listaFavoritos.Count(); i++)
                     {
                         lista_favoritos.Text += "Nombre: '" + listaFavoritos[i].nombre_usuario_favorito + "'<br />";
                     }
                 }
+            }
         }
     }
 }
