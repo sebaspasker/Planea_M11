@@ -16,7 +16,6 @@ namespace library
 		{
 			// constring =
 			// TODO
-			throw new Exception();
 		}
 		/// <summary>
 		/// Inserta un plan dentro de la tabla de Planes.

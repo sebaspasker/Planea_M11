@@ -113,5 +113,11 @@ namespace library {
             CADFavoritos c = new CADFavoritos();
             return c.ListarFavoritos();
         }
+
+        public List<ENFavoritos> BuscarFavoritos()
+        {
+            CADFavoritos c = new CADFavoritos();
+            return c.BuscarFavoritos(this);
+        }
     }
 }

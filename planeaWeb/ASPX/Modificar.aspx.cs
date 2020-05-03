@@ -12,6 +12,10 @@ namespace planeaWeb
     public partial class Modificar : System.Web.UI.Page
     {
         private string nombre_usuario;
+        /// <summary>
+        /// Imprime los valores del usuario
+        /// </summary>
+        /// <param name="en"></param>
         private void Guardar_Valores(ENUsuario en)
         {
             Label1.Text = en.nombre;
@@ -22,6 +26,12 @@ namespace planeaWeb
             Label6.Text = en.ciudad;
         }
         
+        /// <summary>
+        /// Guarda el nombre de usuario y llama a SeleccionUsuario
+        /// para imprimirlo a posteriori
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             ENUsuario en = new ENUsuario();
@@ -45,6 +55,11 @@ namespace planeaWeb
             }
         }
 
+        /// <summary>
+        /// Mira cual es el valor a modificar y lo cambia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void FunctionModificar(object sender, EventArgs e)
         {
             ErrorModificar.Text = "";

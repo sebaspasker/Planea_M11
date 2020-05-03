@@ -12,6 +12,9 @@ namespace planeaWeb {
     public partial class Planea : System.Web.UI.Page {
         private string nombre_usuario;
         
+        /// <summary>
+        /// Guarda las horas para posterior selección
+        /// </summary>
         private void Add_Horas()
         {
             ArrayList horas = new ArrayList();
@@ -34,6 +37,11 @@ namespace planeaWeb {
             DropDownList4.DataBind();
         }
 
+        /// <summary>
+        /// Imprime los usuarios con las mismas preferencias y guarda las casillas de selección
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             nombre_usuario = Request.QueryString["nomUsu"];
@@ -78,6 +86,11 @@ namespace planeaWeb {
             }
         }
 
+        /// <summary>
+        /// Comprueba los artibutos seleccionados, los guarda en un ENParejas y llama a InsertarPareja()
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void PlaneaFunction(object sender, EventArgs e)
         {
             string usuario = DropDownList1.SelectedItem.Text;

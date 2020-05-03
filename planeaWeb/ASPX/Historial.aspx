@@ -8,6 +8,8 @@
         <p class="label_lista">
             <asp:label id="historial_out" runat="server" />
         </p>
-        
+       <p>
+           &nbsp;
+       </p> 
     </div>
 </asp:Content>

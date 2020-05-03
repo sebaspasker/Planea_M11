@@ -13,7 +13,6 @@ namespace library {
         /// </summary>
         public CADUsuario()
         {
-            // constring = 
             // TODO
         }
 
