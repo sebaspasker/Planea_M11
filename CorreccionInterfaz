@@ -1,0 +1,9 @@
+CORRECCIÓN HADA WEB: INTERFAZ
+
+La interfaz de las distintas páginas no está mal, aunque hay que poner más contenido con los manejadores llamando a los EN. Por lo que veo tenéis dos Master (no entiendo por qué), pero el menu no es un contro ASP.NET (es un requisito de la práctica).
+
+No habéis rellenado algunos CAD, no habéis hecho validaciones ni la base de datos (aunque todo esto es optativo).
+
+Tenéis que dedicarle más tiempo para conseguir una web totalmente funcional de cara a la entrega final.
+
+La entrega tiene el tag interfaz y el manejo del proyecto con las tareas es correcto.
