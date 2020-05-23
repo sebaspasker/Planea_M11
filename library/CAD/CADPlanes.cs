@@ -13,7 +13,7 @@ namespace library
 		//<summary> 
 		//Constructor
 		public CADPlanes()
-        {
+		{
 			// constring =
 			// TODO
 			throw new Exception();
@@ -42,7 +42,7 @@ namespace library
 		}
 		/// <summary>
 		/// Busca un plan dentro de la tabla de planes.
-        /// Comprueba si existe
+		/// Comprueba si existe
 		/// </summary>
 		/// <param name="plan"></param>
 		/// <returns>true si ha podido encontrar el plan, sino false</returns>
@@ -115,6 +115,7 @@ namespace library
 			// TODO
 			return null;
 		}
+
 
 		/// <summary>
 		/// Busca en base a la categoria

@@ -199,10 +199,16 @@ namespace library {
             return c.ListarParejas();
         }
 
+
         public List<ENParejas> BuscarParejas()
         {
             CADParejas c = new CADParejas();
             return c.BuscarParejas(this);
+
+        public List<ENParejas> BuscarSolicitudes()
+        {
+            CADPlanes cad = new CADParejas();
+            return cad.BuscarSolicitudes(this)
         }
     }
 }
