@@ -12,7 +12,6 @@ using System.Data.SqlTypes;
 namespace library {
     class CADUsuario {
         private string constring;
-        DataSet bdvirtual;
 
         /// <summary>
         /// Constructor
@@ -36,24 +35,27 @@ namespace library {
 
             try
             {
+                // TODO evitar repeticion email
                 SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
                 DataAdapter.Fill(bdvirtual, "usuarios");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["usuarios"];
                 DataRow nuevafila = t.NewRow();
-                nuevafila[0] = usuario.nombre;
-                nuevafila[1] = usuario.apellidos;
-                nuevafila[2] = usuario.nombre_usuario;
-                nuevafila[3] = usuario.ciudad;
-                nuevafila[4] = usuario.preferencia;
-                nuevafila[5] = usuario.edad;
-                nuevafila[6] = usuario.password;
+                nuevafila[0] = t.Rows.Count;
+                nuevafila[1] = usuario.nombre;
+                nuevafila[2] = usuario.apellidos;
+                nuevafila[3] = usuario.nombre_usuario;
+                nuevafila[4] = usuario.ciudad;
+                nuevafila[5] = usuario.preferencia;
+                nuevafila[6] = usuario.email;
+                nuevafila[7] = usuario.edad;
+                nuevafila[8] = usuario.password;
                 t.Rows.Add(nuevafila);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(DataAdapter);
                 DataAdapter.Update(bdvirtual, "usuarios");
                 cambiado = true;
             }
-            catch(Exception e) { cambiado = false; }
+            catch(Exception e) { cambiado = false; Console.WriteLine(e.Message + " " + e.ToString()); throw e; }
             finally { c.Close();  }
 
             return cambiado;
@@ -65,10 +67,39 @@ namespace library {
         /// </summary>
         /// <param name="usuario"></param>
         /// <returns></returns>
-        public bool ModificarUsuario(ENUsuario usuario)
+        public bool ModificarUsuario(ENUsuario usuario, string categoria, string changed_value)
         {
-            // TODO
-            return false;
+            bool cambiado = false;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(constring);
+            try
+            {
+                // TODO Hacer filtrado
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
+                SqlCommand command = new SqlCommand("update Usuarios set @categoria = @cambio_categoria where nombre_usuario = @nombre_usuario");
+                command.Parameters.Add("@categoria", SqlDbType.NVarChar, 10).Value = categoria;
+                if(categoria == "edad")
+                {
+                    command.Parameters.Add("@cambio_categoria", SqlDbType.Int).Value = usuario.edad;
+                }
+                else
+                {
+                    command.Parameters.Add("@cambio_categoria", SqlDbType.NVarChar).Value = changed_value;
+                }
+                DataAdapter.UpdateCommand = command;
+                cambiado = true;
+            } 
+            catch(Exception e)
+            {
+                cambiado = false;
+                Console.WriteLine(e.Message);
+            } 
+            finally
+            {
+                c.Close();
+            }
+
+            return cambiado;
         }
 
         /// <summary>
@@ -89,8 +120,27 @@ namespace library {
         /// <returns></returns>
         public bool SeleccionarUsuario(ENUsuario usuario)
         {
-            // TODO 
+            /*
+            bool cambiado = false;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(constring);
+
+            try
+            {
+                // TODO
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
+                DataAdapter.Fill(bdvirtual, "usuarios");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["usuarios"];
+                //t.Rows.Add(nuevafila);
+                cambiado = true;
+            }
+            catch(Exception e) { cambiado = false; Console.WriteLine(e.Message + " " + e.ToString()); }
+            finally { c.Close();  }
+
+            return cambiado;*/
             return false;
+
         }
 
         /// <summary>

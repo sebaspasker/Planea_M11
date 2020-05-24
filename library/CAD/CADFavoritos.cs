@@ -40,8 +40,9 @@ namespace library {
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["favoritos"];
                 DataRow nuevafila = t.NewRow();
-                nuevafila[0] = favorito.nombre_usuario;
-                nuevafila[1] = favorito.nombre_usuario_favorito;
+                nuevafila[0] = t.Rows.Count;
+                nuevafila[1] = favorito.nombre_usuario;
+                nuevafila[2] = favorito.nombre_usuario_favorito;
                 t.Rows.Add(nuevafila);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(DataAdapter);
                 DataAdapter.Update(bdvirtual, "favoritos");

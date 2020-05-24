@@ -78,7 +78,7 @@ namespace planeaWeb
                     {
                         en.password = nuevo_valor;
                     }
-                    else if(valor_modificar == "Apellido")
+                    else if(valor_modificar == "Apellidos")
                     {
                         en.apellidos = nuevo_valor;
                     }
@@ -99,7 +99,7 @@ namespace planeaWeb
                     string mensaje_filtrado = filtrado.FiltradoUsuario(en, false);
                     if(mensaje_filtrado == "TODO_OK")
                     {
-                        if(en.ModificarUsuario())
+                        if(en.ModificarUsuario(valor_modificar.ToLower(), nuevo_valor))
                         {
                             Guardar_Valores(en);
                         } 

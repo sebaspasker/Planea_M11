@@ -73,6 +73,7 @@
     </Content>
     <Content Include="ASPX\BuscarPlan.aspx" />
     <Content Include="ASPX\BuscarUsuario.aspx" />
+    <Content Include="ASPX\developer.aspx" />
     <Content Include="ASPX\principal1.aspx" />
     <Content Include="ASPX\principal2.aspx" />
     <Content Include="CSS\Estilo_Default1.css" />
@@ -100,6 +101,13 @@
     </Compile>
     <Compile Include="ASPX\BuscarUsuario.aspx.designer.cs">
       <DependentUpon>BuscarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ASPX\developer.aspx.cs">
+      <DependentUpon>developer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASPX\developer.aspx.designer.cs">
+      <DependentUpon>developer.aspx</DependentUpon>
     </Compile>
     <Compile Include="ASPX\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

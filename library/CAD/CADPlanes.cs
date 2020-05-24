@@ -40,10 +40,11 @@ namespace library
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["plan"];
                 DataRow nuevafila = t.NewRow();
-                nuevafila[0] = plan.Nombre;
-                nuevafila[1] = plan.Precio;
-                nuevafila[2] = plan.Ciudad;
-                nuevafila[3] = plan.Categoria;
+				nuevafila[0] = t.Rows.Count;
+                nuevafila[1] = plan.Nombre;
+                nuevafila[2] = plan.Precio;
+                nuevafila[3] = plan.Ciudad;
+                nuevafila[4] = plan.Categoria;
                 t.Rows.Add(nuevafila);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(DataAdapter);
                 DataAdapter.Update(bdvirtual, "plans");

@@ -26,7 +26,7 @@
             <asp:DropDownList ID="DropDownListModificar" runat="server" DataTextField="FullName" DataValueField="IDModificar" Width="116px" >
                 <asp:ListItem>Nombre</asp:ListItem>
                 <asp:ListItem>Contraseña</asp:ListItem>
-                <asp:ListItem>Apellido</asp:ListItem>
+                <asp:ListItem>Apellidos</asp:ListItem>
                 <asp:ListItem>Edad</asp:ListItem>
                 <asp:ListItem>Preferencia</asp:ListItem>
                 <asp:ListItem>Ciudad</asp:ListItem>

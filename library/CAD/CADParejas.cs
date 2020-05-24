@@ -37,14 +37,15 @@ namespace library {
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["parejas"];
                 DataRow nuevafila = t.NewRow();
-                nuevafila[0] = pareja.nombre_usuario_1;
-                nuevafila[1] = pareja.nombre_usuario_2;
-                nuevafila[2] = pareja.nombre_plan;
-                nuevafila[3] = pareja.hora_inicio;
-                nuevafila[4] = pareja.hora_fin;
+                nuevafila[0] = t.Rows.Count;
+                nuevafila[1] = pareja.nombre_usuario_1;
+                nuevafila[2] = pareja.nombre_usuario_2;
+                nuevafila[3] = pareja.nombre_plan;
+                nuevafila[4] = pareja.hora_inicio;
+                nuevafila[5] = pareja.hora_fin;
                 // TODO Comprobar formato fecha
-                nuevafila[5] = pareja.fecha;
-                nuevafila[6] = pareja.plan_aceptado;
+                nuevafila[6] = pareja.fecha;
+                nuevafila[7] = pareja.plan_aceptado;
                 t.Rows.Add(nuevafila);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(DataAdapter);
                 DataAdapter.Update(bdvirtual, "parejas");
