@@ -1,19 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 
 namespace library {
     class CADUsuario {
-        string constring;
+        private string constring;
+        DataSet bdvirtual;
 
         /// <summary>
         /// Constructor
         /// </summary>
         public CADUsuario()
         {
-            // TODO
+            constring = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
         }
 
         /// <summary>
@@ -24,8 +30,33 @@ namespace library {
         /// <returns></returns>
         public bool InsertarUsuario(ENUsuario usuario)
         {
-            // TODO
-            return false;
+            bool cambiado = false;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(constring);
+
+            try
+            {
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
+                DataAdapter.Fill(bdvirtual, "usuarios");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["usuarios"];
+                DataRow nuevafila = t.NewRow();
+                nuevafila[0] = usuario.nombre;
+                nuevafila[1] = usuario.apellidos;
+                nuevafila[2] = usuario.nombre_usuario;
+                nuevafila[3] = usuario.ciudad;
+                nuevafila[4] = usuario.preferencia;
+                nuevafila[5] = usuario.edad;
+                nuevafila[6] = usuario.password;
+                t.Rows.Add(nuevafila);
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(DataAdapter);
+                DataAdapter.Update(bdvirtual, "usuarios");
+                cambiado = true;
+            }
+            catch(Exception e) { cambiado = false; }
+            finally { c.Close();  }
+
+            return cambiado;
         }
 
         /// <summary>

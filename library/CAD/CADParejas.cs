@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 
 namespace library {
     class CADParejas {
@@ -10,7 +15,7 @@ namespace library {
         
         public CADParejas()
         {
-               // TODO
+            constring = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
         }
 
         /// <summary>
@@ -21,13 +26,39 @@ namespace library {
         /// <returns></returns>
         public bool InsertarPareja(ENParejas pareja)
         {
-            // TODO
-            return false;
+            bool cambiado = false;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(constring);
+
+            try
+            {
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Parejas", c);
+                DataAdapter.Fill(bdvirtual, "parejas");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["parejas"];
+                DataRow nuevafila = t.NewRow();
+                nuevafila[0] = pareja.nombre_usuario_1;
+                nuevafila[1] = pareja.nombre_usuario_2;
+                nuevafila[2] = pareja.nombre_plan;
+                nuevafila[3] = pareja.hora_inicio;
+                nuevafila[4] = pareja.hora_fin;
+                // TODO Comprobar formato fecha
+                nuevafila[5] = pareja.fecha;
+                nuevafila[6] = pareja.plan_aceptado;
+                t.Rows.Add(nuevafila);
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(DataAdapter);
+                DataAdapter.Update(bdvirtual, "parejas");
+                cambiado = true;
+            }
+            catch(Exception e) { cambiado = false; }
+            finally { c.Close();  }
+
+            return cambiado;
         }
 
         /// <summary>
         /// Modifica una pareja en la base de datos, lo hace a partir del 
-        /// nombre_usuario_1, nombre_usuario_2 y nombre_plan.
+        /// nombre_pareja_1, nombre_usuario_2 y nombre_plan.
         /// </summary>
         /// <param name="pareja"></param>
         /// <returns></returns>
@@ -39,7 +70,7 @@ namespace library {
 
         /// <summary>
         /// Busca una pareja dentro de la base de datos, lo hace a partir del
-        /// nombre_usuario_1, nombre_usuario_2 y nombre_plan.
+        /// nombre_pareja_1, nombre_usuario_2 y nombre_plan.
         /// </summary>
         /// <param name="pareja"></param>
         /// <returns></returns>
@@ -51,7 +82,7 @@ namespace library {
 
         /// <summary>
         /// Elimina una pareja dentro de la base de datos, lo hace a partir del
-        /// nombre_usuario_1, nombre_usuario_2 y nombre_plan.
+        /// nombre_pareja_1, nombre_usuario_2 y nombre_plan.
         /// </summary>
         /// <param name="pareja"></param>
         /// <returns></returns>
