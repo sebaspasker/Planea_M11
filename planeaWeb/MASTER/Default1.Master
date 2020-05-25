@@ -27,15 +27,24 @@
 <body style="height: 374px; width: 1483px; align-content: center">
     <form id="form1" runat="server">
     <div class="TITLE1" id="corners1">
-        <p>
-           &nbsp;<asp:HyperLink ID="RegisterID" runat="server" NavigateUrl="~/ASPX/Registro.aspx" CssClass="auto-style1">¿Eres nuevo?</asp:HyperLink><br />
-           &nbsp;<asp:HyperLink ID="LoginID" runat="server" NavigateUrl="~/ASPX/Login.aspx" CssClass="auto-style1">Entra</asp:HyperLink>
+        <h1 class="contenedor">planea</h1>
+        <asp:Menu ID="Menu1" runat="server" BackColor="#B5C7DE" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" StaticSubMenuIndent="10px" Orientation="Horizontal">
+            <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
+            <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+            <DynamicMenuStyle BackColor="#B5C7DE" />
+            <DynamicSelectedStyle BackColor="#507CD1" />
+            <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
+            <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+            <StaticSelectedStyle BackColor="#507CD1" />
+        </asp:Menu>
+        <!-- <p>
+           &nbsp;<asp:hyperlink id="registerid" runat="server" navigateurl="~/aspx/registro.aspx" cssclass="auto-style1">¿eres nuevo?</asp:hyperlink><br />
+           &nbsp;<asp:hyperlink id="loginid" runat="server" navigateurl="~/aspx/login.aspx" cssclass="auto-style1">entra</asp:hyperlink>
         </p>
-        <h1 class="contenedor">Planea</h1>
         <p style="text-align: right;">
-            <asp:HyperLink ID="BuscarUsuarioID" runat="server" NavigateUrl="~/ASPX/BuscarUsuario.aspx" CssClass="auto-style2">Buscar Usuario</asp:HyperLink>&nbsp;<br />
-            <asp:HyperLink ID="BuscarPlanID" runat="server" NavigateUrl="~/ASPX/BuscarPlan.aspx" CssClass="auto-style3">Buscar Plan</asp:HyperLink>&nbsp;<br />
-        </p>
+            <asp:hyperlink id="buscarusuarioid" runat="server" navigateurl="~/aspx/buscarusuario.aspx" cssclass="auto-style2">buscar usuario</asp:hyperlink>&nbsp;<br />
+            <asp:hyperlink id="buscarplanid" runat="server" navigateurl="~/aspx/buscarplan.aspx" cssclass="auto-style3">buscar plan</asp:hyperlink>&nbsp;<br />
+        </p> -->
     </div>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

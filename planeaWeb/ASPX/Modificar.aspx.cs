@@ -37,8 +37,8 @@ namespace planeaWeb
             ENUsuario en = new ENUsuario();
             nombre_usuario = Request.QueryString["nomUsu"];
             en.nombre_usuario = nombre_usuario;
-
-            if(en.nombre_usuario != "")
+            ErrorModificar.Text = en.nombre_usuario;
+            if(!string.IsNullOrEmpty(en.nombre_usuario))
             {
                 if(en.SeleccionarUsuario())
                 {
@@ -52,6 +52,8 @@ namespace planeaWeb
             else
             {
                 ErrorModificar.Text = "Usuario vacio";
+                // TODO Quitar
+                // Response.Redirect("~/ASPX/Login.aspx");
             }
         }
 
@@ -80,6 +82,7 @@ namespace planeaWeb
                     }
                     else if(valor_modificar == "Apellidos")
                     {
+                        // TODO no lo cambia
                         en.apellidos = nuevo_valor;
                     }
                     else if(valor_modificar == "Edad")
@@ -94,23 +97,14 @@ namespace planeaWeb
                     {
                         en.ciudad = nuevo_valor;
                     }
-
-                    FormatoFiltrado filtrado = new FormatoFiltrado();
-                    string mensaje_filtrado = filtrado.FiltradoUsuario(en, false);
-                    if(mensaje_filtrado == "TODO_OK")
+                    // TODO Comprobar formato 
+                    if(en.ModificarUsuario(valor_modificar.ToLower()))
                     {
-                        if(en.ModificarUsuario(valor_modificar.ToLower(), nuevo_valor))
-                        {
-                            Guardar_Valores(en);
-                        } 
-                        else
-                        {
-                            ErrorModificar.Text = "No se ha podido modificar al usuario";
-                        }
-                    }
+                        Guardar_Valores(en);
+                    } 
                     else
                     {
-                        ErrorModificar.Text = mensaje_filtrado;
+                        ErrorModificar.Text = "No se ha podido modificar al usuario";
                     }
                 } 
                 else
@@ -121,6 +115,27 @@ namespace planeaWeb
             else
             {
                 ErrorModificar.Text = "Usuario vacio";
+            }
+        }
+
+        protected void Eliminar(object sender, EventArgs e)
+        {
+            ENUsuario en = new ENUsuario();
+            en.nombre_usuario = nombre_usuario;
+            if(!String.IsNullOrEmpty(en.nombre_usuario))
+            {
+                if(en.BorrarUsuario())
+                {
+                    Response.Redirect("~/ASPX/principal1.aspx");
+                } 
+                else
+                {
+                    ErrorModificar.Text = "No se ha podido eliminar al usuario";
+                }
+            } 
+            else
+            {
+                ErrorModificar.Text = "Usuario Vacio";
             }
         }
     }

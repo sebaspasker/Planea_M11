@@ -195,10 +195,10 @@ namespace library {
         /// Requiere de todos los atributos.
         /// </summary>
         /// <returns>true si consigue modificar el usuario, sino false</returns>
-        public bool ModificarUsuario(string categoria, string valor_cambiado)
+        public bool ModificarUsuario(string categoria)
         {
             CADUsuario c = new CADUsuario();
-            return c.ModificarUsuario(this, categoria, valor_cambiado);
+            return c.ModificarUsuario(this);
         }
 
         /// <summary>

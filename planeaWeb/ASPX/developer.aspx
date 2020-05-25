@@ -7,7 +7,53 @@
             Usuarios 
         </p>
         <p style="text-align:left; margin-left: 40px;">
+            nombre_usuario&nbsp;</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+&nbsp;</p>
+        <p style="text-align:left; margin-left: 40px;">
+            nombre</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            apellidos</p>
+        <p style="text-align:left; margin-left: 40px;">
+            &nbsp;<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+&nbsp;</p>
+        <p style="text-align:left; margin-left: 40px;">
+            ciudad</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:TextBox ID="TextBox4" runat="server" ></asp:TextBox>
+&nbsp;</p>
+        <p style="text-align:left; margin-left: 40px;">
+            preferencia</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            email</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            edad</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            password</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
             &nbsp;</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:Button ID="ButtonInsertar" runat="server" Text="Insertar" />
+            &nbsp;<asp:Button ID="ButtonEliminar" runat="server" Text="Eliminar" />
+            &nbsp;<asp:Button ID="ButtonModificar" runat="server" Text="Modificar" />
+            &nbsp;<asp:Button ID="ButtonListar" runat="server" Text="Listar" />
+        </p>
         <p style="text-align:left; margin-left: 40px;">
             &nbsp;</p>
         <p style="text-align:left; margin-left: 40px;">

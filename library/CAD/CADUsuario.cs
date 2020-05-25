@@ -42,7 +42,7 @@ namespace library {
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["usuarios"];
                 DataRow nuevafila = t.NewRow();
-                nuevafila[0] = t.Rows.Count;
+                nuevafila[0] = Int32.Parse(t.Rows[t.Rows.Count - 1]["id"].ToString()) + 1;
                 nuevafila[1] = usuario.nombre;
                 nuevafila[2] = usuario.apellidos;
                 nuevafila[3] = usuario.nombre_usuario;
@@ -68,7 +68,7 @@ namespace library {
         /// </summary>
         /// <param name="usuario"></param>
         /// <returns></returns>
-        public bool ModificarUsuario(ENUsuario usuario, string categoria, string changed_value)
+        public bool ModificarUsuario(ENUsuario usuario)
         {
             bool cambiado = false;
             DataSet bdvirtual = new DataSet();
@@ -77,17 +77,21 @@ namespace library {
             {
                 // TODO Hacer filtrado
                 SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
-                SqlCommand command = new SqlCommand("update Usuarios set @categoria = @cambio_categoria where nombre_usuario = @nombre_usuario");
-                command.Parameters.Add("@categoria", SqlDbType.NVarChar, 10).Value = categoria;
-                if(categoria == "edad")
+                DataAdapter.Fill(bdvirtual, "usuarios");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["usuarios"];
+                string criteria = "nombre_usuario='" + usuario.nombre_usuario + "'";
+                DataRow[] rows = t.Select(criteria);
+                if(rows.Length != 0 || rows != null)
                 {
-                    command.Parameters.Add("@cambio_categoria", SqlDbType.Int).Value = usuario.edad;
+                    rows[0]["nombre"] = usuario.nombre;
+                    rows[0]["apellidos"] = usuario.apellidos;
+                    rows[0]["ciudad"] = usuario.ciudad;
+                    rows[0]["preferencia"] = usuario.preferencia;
+                    rows[0]["edad"] = usuario.edad;
                 }
-                else
-                {
-                    command.Parameters.Add("@cambio_categoria", SqlDbType.NVarChar).Value = changed_value;
-                }
-                DataAdapter.UpdateCommand = command;
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(DataAdapter);
+                DataAdapter.Update(bdvirtual, "usuarios");
                 cambiado = true;
             } 
             catch(Exception e)
@@ -117,10 +121,20 @@ namespace library {
             {
                 // TODO Comprobar que existe el usuario primero y funcionamiento
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from Usuarios", c);
-                SqlCommand command = new SqlCommand("delete from usuarios where nombre_usuario = @nombre_usuario");
-                command.Parameters.Add("@nombre_usuario", SqlDbType.NVarChar).Value = usuario.nombre_usuario;
-                dataAdapter.DeleteCommand = command;
-                eliminado = true;
+                dataAdapter.Fill(bdvirtual, "usuarios");
+                DataTable t = bdvirtual.Tables["usuarios"];
+                for(int i=t.Rows.Count-1; i>=0; i--)
+                {
+                    DataRow dr = t.Rows[i];
+                    if(dr["nombre_usuario"].ToString() == usuario.nombre_usuario)
+                    {
+                        dr.Delete();
+                        eliminado = true;
+                        break;
+                    }
+                }
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(dataAdapter);
+                dataAdapter.Update(bdvirtual, "usuarios");
             } 
             catch(Exception e)
             {
@@ -154,7 +168,7 @@ namespace library {
                 t = bdvirtual.Tables["usuarios"];
                 string criteria = "nombre_usuario='" + usuario.nombre_usuario + "'";
                 DataRow[] dataRows = t.Select(criteria);
-                if(dataRows != null)
+                if(dataRows != null && dataRows.Length != 0)
                 {
                     usuario.nombre = dataRows[0]["nombre"].ToString();
                     usuario.apellidos = dataRows[0]["apellidos"].ToString();
