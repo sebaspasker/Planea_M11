@@ -110,8 +110,29 @@ namespace library {
         /// <returns></returns>
         public bool BorrarUsuario(ENUsuario usuario)
         {
-            // TODO
-            return false;
+            bool eliminado = false;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(constring);
+            try
+            {
+                // TODO Comprobar que existe el usuario primero y funcionamiento
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from Usuarios", c);
+                SqlCommand command = new SqlCommand("delete from usuarios where nombre_usuario = @nombre_usuario");
+                command.Parameters.Add("@nombre_usuario", SqlDbType.NVarChar).Value = usuario.nombre_usuario;
+                dataAdapter.DeleteCommand = command;
+                eliminado = true;
+            } 
+            catch(Exception e)
+            {
+                eliminado = false;
+                throw e;
+            }
+            finally
+            {
+                c.Close();
+            }
+
+            return eliminado;
         }
 
         /// <summary>
@@ -215,8 +236,11 @@ namespace library {
         /// <returns></returns>
         public DataSet BuscarPreferencia(ENUsuario en)
         {
-            // TODO
-            return null;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(constring);
+            SqlDataAdapter da = new SqlDataAdapter("select nombre, nombre_usuario, ciudad, preferencia from Usuairos where preferencia like '" + en.preferencia + "';", c);
+            da.Fill(bdvirtual, "usuarios");
+            return bdvirtual;
         }
 
         public DataSet BuscarNombre(ENUsuario en)
