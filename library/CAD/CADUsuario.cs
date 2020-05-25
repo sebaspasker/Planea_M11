@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Web.UI.WebControls;
 
 namespace library {
     class CADUsuario {
@@ -120,27 +121,34 @@ namespace library {
         /// <returns></returns>
         public bool SeleccionarUsuario(ENUsuario usuario)
         {
-            /*
-            bool cambiado = false;
+            bool encontrado = false;
             DataSet bdvirtual = new DataSet();
             SqlConnection c = new SqlConnection(constring);
-
             try
             {
-                // TODO
+                // TODO falla a la hora de excederse del formato
                 SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
                 DataAdapter.Fill(bdvirtual, "usuarios");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["usuarios"];
-                //t.Rows.Add(nuevafila);
-                cambiado = true;
+                string criteria = "nombre_usuario='" + usuario.nombre_usuario + "'";
+                DataRow[] dataRows = t.Select(criteria);
+                if(dataRows != null)
+                {
+                    usuario.nombre = dataRows[0]["nombre"].ToString();
+                    usuario.apellidos = dataRows[0]["apellidos"].ToString();
+                    usuario.ciudad = dataRows[0]["ciudad"].ToString();
+                    usuario.preferencia = dataRows[0]["preferencia"].ToString();
+                    usuario.edad = Int32.Parse(dataRows[0]["edad"].ToString());
+                    usuario.email = dataRows[0]["email"].ToString();
+                    usuario.password = dataRows[0]["password"].ToString();
+                    encontrado = true;
+                }
             }
-            catch(Exception e) { cambiado = false; Console.WriteLine(e.Message + " " + e.ToString()); }
+            catch(Exception e) { throw e; encontrado = false; Console.WriteLine(e.Message + " " + e.ToString()); }
             finally { c.Close();  }
 
-            return cambiado;*/
-            return false;
-
+            return encontrado;
         }
 
         /// <summary>
@@ -150,7 +158,7 @@ namespace library {
         /// <returns></returns>
         public bool PrimerUsuario(ENUsuario usuario)
         {
-            // TODO
+            // TODO Santi
             return false;
         }
 
@@ -161,7 +169,7 @@ namespace library {
         /// <returns></returns>
         public bool SiguienteUsuario(ENUsuario usuario)
         {
-            // TODO
+            // TODO Santi
             return false;
         }
 
@@ -172,7 +180,7 @@ namespace library {
         /// <returns></returns>
         public bool UltimoUsuario(ENUsuario usuario)
         {
-            // TODO
+            // TODO Santi
             return false;
         }
 
@@ -183,7 +191,7 @@ namespace library {
         /// <returns></returns>
         public bool AnteriorUsuario(ENUsuario usuario)
         {
-            // TODO
+            // TODO Santi
             return false;
         }
 
@@ -191,10 +199,13 @@ namespace library {
         /// Devuelve una lista de usuarios de la BBDD tabla Usuarios.
         /// </summary>
         /// <returns></returns>
-        public List<ENUsuario> ListarUsuarios()
+        public DataSet ListarUsuarios()
         {
-            // TODO
-            return null;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(constring);
+            SqlDataAdapter da = new SqlDataAdapter("select nombre, nombre_usuario, ciudad, preferencia from Usuarios where nombre_usuario != 'admin';", c);
+            da.Fill(bdvirtual, "usuarios");
+            return bdvirtual;
         }
 
         /// <summary>
@@ -202,10 +213,19 @@ namespace library {
         /// </summary>
         /// <param name="en"></param>
         /// <returns></returns>
-        public List<ENUsuario> BuscarPreferencia(ENUsuario en)
+        public DataSet BuscarPreferencia(ENUsuario en)
         {
             // TODO
             return null;
+        }
+
+        public DataSet BuscarNombre(ENUsuario en)
+        {
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(constring);
+            SqlDataAdapter da = new SqlDataAdapter("select nombre, nombre_usuario, ciudad, preferencia from Usuarios where nombre like '%" + en.nombre + "%';", c);
+            da.Fill(bdvirtual, "usuarios");
+            return bdvirtual;
         }
     }
 }

@@ -50,7 +50,9 @@ namespace library
                 DataAdapter.Update(bdvirtual, "plans");
                 cambiado = true;
             }
-            catch(Exception e) { cambiado = false; }
+            catch(Exception e) {
+				throw e;
+				cambiado = false; }
             finally { c.Close();  }
 
             return cambiado;

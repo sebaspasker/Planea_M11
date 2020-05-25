@@ -30,7 +30,7 @@ namespace library {
         /// <returns>true si ha podido añadir al favorito, sino false</returns>
         public bool InsertarFavorito(ENFavoritos favorito)
         {
-             bool cambiado = false;
+            bool cambiado = false;
             DataSet bdvirtual = new DataSet();
             SqlConnection c = new SqlConnection(constring);
             try
@@ -48,7 +48,8 @@ namespace library {
                 DataAdapter.Update(bdvirtual, "favoritos");
                 cambiado = true;
             }
-            catch(Exception e) { cambiado = false; }
+            catch(Exception e) { // TODO Temporal
+                throw e; cambiado = false; }
             finally { c.Close();  }
 
             return cambiado;

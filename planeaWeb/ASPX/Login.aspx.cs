@@ -52,12 +52,12 @@ namespace planeaWeb
                     }
                     else
                     {
-                        ErrorLogin.Text = "El usuario o contraseña es incorrecto";
+                        ErrorLogin.Text = "El usuario o contraseña es incorrecto1";
                     }
                 }
                 else
                 {
-                    ErrorLogin.Text = "El usuario u contraseña es incorrecto";
+                    ErrorLogin.Text = "El usuario u contraseña es incorrecto2";
                 }
             } 
             else

@@ -51,7 +51,9 @@ namespace library {
                 DataAdapter.Update(bdvirtual, "parejas");
                 cambiado = true;
             }
-            catch(Exception e) { cambiado = false; }
+            catch(Exception e) { // TODO 
+                throw e;
+                cambiado = false; }
             finally { c.Close();  }
 
             return cambiado;

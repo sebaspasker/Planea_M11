@@ -1,0 +1,6 @@
+ Invalid column name 'usuario'. 
+
+No hacer
+- Primerusuario, siguienteusuario, últimousuario, anteriorusuario.
+- seleccionarplan, modificarplan, primerplan, ultimoplan.
+- seleccionarpareja, modificarpareja.

@@ -17,14 +17,14 @@ namespace library.OTHER {
             {
                 mensaje = "El nombre de usuario tiene que tener entre 0 y 12 carácteres";
             }
-            else if(enu.SeleccionarUsuario())
-            {
-                mensaje = "El nombre de usuario ya existe";
-            }
 
             if(!formatoCorto && mensaje == "TODO_OK")
             {
-                if(enu.password.Length < 5 || enu.password.Length > 20)
+                if(enu.SeleccionarUsuario())
+                {
+                    mensaje = "El nombre de usuario ya existe";
+                }
+                else if(enu.password.Length < 5 || enu.password.Length > 20)
                 {
                     mensaje = "La contraseña tiene que tener entre 5 y 20 carácteres";
                 }
