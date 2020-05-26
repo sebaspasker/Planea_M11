@@ -14,19 +14,6 @@
                 </asp:Login>
             <br />
         </div>
-        <!-- <p style="margin-left: 40px">Usuario: </p>
-        <p style="margin-left: 40px">
-            <asp:TextBox ID="NombreUsuario" runat="server"></asp:TextBox>
-        </p>
-        <p style="margin-left: 40px">
-            &nbsp;</p>
-        <p style="margin-left: 40px">Contraseña:</p>
-        <p style="margin-left: 40px">
-            <asp:TextBox ID="Password" runat="server"></asp:TextBox>
-        <p style="margin-left: 40px">
-            &nbsp;<p style="margin-left: 40px">
-            &nbsp;<asp:Button ID="Button9" runat="server" OnClick="LoginFunction" Text="Acceder" style="background:#97CBDC"/>
-        </p> -->
         <p style="margin-left: 40px">
             <asp:HyperLink ID="Registrarse2ID" NavigateUrl="~/ASPX/Registro.aspx" runat="server" style="color: #ffffff; height: 2px; font-size: 16px">Registrarse</asp:HyperLink>
         </p>
