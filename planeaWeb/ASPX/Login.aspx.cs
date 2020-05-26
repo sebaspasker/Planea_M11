@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using library;
-using library.OTHER;
+using library.UTILS;
 
 namespace planeaWeb
 {
@@ -40,7 +40,7 @@ namespace planeaWeb
             ENUsuario en = new ENUsuario();
             en.nombre_usuario = NombreUsuario.Text;
             
-            FormatoFiltrado filtrado = new FormatoFiltrado();
+            Filter filtrado = new Filter();
             string mensaje_filtrado = filtrado.FiltradoUsuario(en, true);
             if(mensaje_filtrado == "TODO_OK")
             {
@@ -63,6 +63,26 @@ namespace planeaWeb
             else
             {
                 ErrorLogin.Text = mensaje_filtrado;
+            }
+        }
+
+        protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
+        {
+            if(Filter.filterNombreUsuario(Login1.UserName) && Filter.filterPassword(Login1.Password))
+            {
+                bool login = library.UTILS.Login.loginUsuario(Login1.UserName, Login1.Password);
+                e.Authenticated = login;
+                if(login)
+                {
+                    Session["login"] = Login1.UserName;
+                    Response.Redirect("~/ASPX/principal2.aspx?nomUsu=" + Server.UrlEncode(Login1.UserName) + "&login_bool=" + Server.UrlEncode("True"));
+                }
+            } 
+            else
+            {
+                e.Authenticated = false;
+                ErrorLogin.Text = "Formato incorrecto: el usuario (max tamaño 12) y la contraseña (max tamaño 20) pueden\n" +
+                    "contener letras, '_', '-' y números\n";
             }
         }
     }

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using library;
-using library.OTHER;
+using library.UTILS;
 
 namespace planeaWeb {
     public partial class Registro : System.Web.UI.Page {
@@ -30,7 +30,7 @@ namespace planeaWeb {
             en.ciudad = TextCiudad.Text;
             en.preferencia = TextPreferencia.Text;
             en.password = TextPasswd.Text;
-            FormatoFiltrado filtraUsuario = new FormatoFiltrado();
+            Filter filtraUsuario = new Filter();
             string mensajeFiltrado = filtraUsuario.FiltradoUsuario(en, false);
 
             if(mensajeFiltrado == "TODO_OK")

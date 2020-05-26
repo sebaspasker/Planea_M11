@@ -2,12 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace library.OTHER {
-    public class FormatoFiltrado {
-        public FormatoFiltrado()
+namespace library.UTILS{
+    public class Filter {
+
+        public Filter()
         {
+        }
+        public static bool filterNombreUsuario(string nombre_usuario)
+        {
+            return Regex.IsMatch(nombre_usuario, @"^[a-zA-Z0-9_-]{3,12}");
+        } 
+
+        public static bool filterPassword(string password)
+        {
+            return Regex.IsMatch(password, @"^[a-zA-Z0-9_-]{3,20}");
         }
 
         public string FiltradoUsuario(ENUsuario enu, bool formatoCorto)

@@ -89,6 +89,7 @@
     <Content Include="ASPX\Solicitudes.aspx" />
     <Content Include="ASPX\Modificar.aspx" />
     <Content Include="ASPX\Login.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +134,9 @@
     </Compile>
     <Compile Include="ASPX\principal2.aspx.designer.cs">
       <DependentUpon>principal2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="MASTER\Default1.Master.cs">
       <DependentUpon>Default1.Master</DependentUpon>
