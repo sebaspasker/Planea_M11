@@ -63,6 +63,7 @@ namespace TestsLibrary {
             usuario.nombre = "Nombre";
             usuario.password = "Password";
             usuario.preferencia = "Preferencia";
+            usuario.ciudad = "Ciudad";
             if(!usuario.InsertarUsuario())
             {
                 Assert.Fail("No se ha podido insertar el usuario");
@@ -123,13 +124,21 @@ namespace TestsLibrary {
                 usuario.preferencia = "Golf";
                 usuario.edad = 12;
                 usuario.apellidos = "DeLaTorre";
+                usuario.ciudad = "Alicante";
                 if(usuario.ModificarUsuario())
                 {
                     ENUsuario usuario2 = new ENUsuario();
                     usuario2.nombre_usuario = usuario.nombre_usuario;
                     if(usuario2.SeleccionarUsuario())
                     {
-                        Assert.AreEqual(usuario, usuario2);
+                        Assert.AreEqual(usuario.nombre, usuario2.nombre);
+                        Assert.AreEqual(usuario2.nombre_usuario, usuario.nombre_usuario);
+                        Assert.AreEqual(usuario2.password, usuario.password);
+                        Assert.AreEqual(usuario2.ciudad, usuario.ciudad);
+                        Assert.AreEqual(usuario2.apellidos, usuario.apellidos);
+                        Assert.AreEqual(usuario2.preferencia, usuario.preferencia);
+                        Assert.AreEqual(usuario2.email, usuario.email);
+                        Assert.AreEqual(usuario2.edad, usuario.edad);
                     } else
                     {
                         Assert.Fail("No se ha podido encontrar al usuario");
