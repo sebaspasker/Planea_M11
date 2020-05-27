@@ -30,42 +30,6 @@ namespace planeaWeb
             }
         }
 
-        /// <summary>
-        /// Si el usuario y la contraseña es correcta redirecciona a principal2
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void LoginFunction(object sender, EventArgs e)
-        {
-            ENUsuario en = new ENUsuario();
-            en.nombre_usuario = NombreUsuario.Text;
-            
-            Filter filtrado = new Filter();
-            string mensaje_filtrado = filtrado.FiltradoUsuario(en, true);
-            if(mensaje_filtrado == "TODO_OK")
-            {
-                if(en.SeleccionarUsuario())
-                {
-                    if(en.password == Password.Text)
-                    {
-                        Response.Redirect("~/ASPX/principal2.aspx?nomUsu=" + Server.UrlEncode(en.nombre_usuario) + "&login_bool=" + Server.UrlEncode("True"));
-                    }
-                    else
-                    {
-                        ErrorLogin.Text = "El usuario o contraseña es incorrecto1";
-                    }
-                }
-                else
-                {
-                    ErrorLogin.Text = "El usuario u contraseña es incorrecto2";
-                }
-            } 
-            else
-            {
-                ErrorLogin.Text = mensaje_filtrado;
-            }
-        }
-
         protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
         {
             if(Filter.filterNombreUsuario(Login1.UserName) && Filter.filterPassword(Login1.Password))
@@ -74,8 +38,8 @@ namespace planeaWeb
                 e.Authenticated = login;
                 if(login)
                 {
-                    Session["login"] = Login1.UserName;
-                    Response.Redirect("~/ASPX/principal2.aspx?nomUsu=" + Server.UrlEncode(Login1.UserName) + "&login_bool=" + Server.UrlEncode("True"));
+                    Session["nombre_usuario"] = Login1.UserName;
+                    Response.Redirect("~/ASPX/principal2.aspx");
                 }
             } 
             else

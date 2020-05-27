@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER/Default1.Master" AutoEventWireup="true" CodeBehind="developer.aspx.cs" Inherits="planeaWeb.ASPX.developer" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../CSS/Registro.css" rel="stylesheet" />
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="Registrarse_css1" style="margin-top:20px;">
         <br />
         <p style="text-align:left; margin-left: 40px;">
@@ -49,11 +50,14 @@
         <p style="text-align:left; margin-left: 40px;">
             &nbsp;</p>
         <p style="text-align:left; margin-left: 40px;">
-            <asp:Button ID="ButtonInsertar" runat="server" Text="Insertar" />
-            &nbsp;<asp:Button ID="ButtonEliminar" runat="server" Text="Eliminar" />
-            &nbsp;<asp:Button ID="ButtonModificar" runat="server" Text="Modificar" />
-            &nbsp;<asp:Button ID="ButtonListar" runat="server" Text="Listar" />
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
         </p>
+        <p style="text-align:left; margin-left: 40px;">
+            &nbsp;</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:Button ID="ButtonInsertar" runat="server" Text="Insertar" OnClick="ButtonInsertar_Click" />
+            &nbsp;<asp:Button ID="ButtonEliminar" runat="server" Text="Eliminar" OnClick="ButtonBorrar_Click"/>
+            &nbsp;</p>
         <p style="text-align:left; margin-left: 40px;">
             &nbsp;</p>
         <p style="text-align:left; margin-left: 40px;">
@@ -82,12 +86,44 @@
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Parejas]"></asp:SqlDataSource>
-
         </p>
         <p style="text-align:left; margin-left: 40px;">
             &nbsp;</p>
         <p style="text-align:left; margin-left: 40px;">
             Planes</p>
+        <p style="text-align:left; margin-left: 40px;">
+            &nbsp;</p>
+        <p style="text-align:left; margin-left: 40px;">
+            Nombre</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            Precio</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            Ciudad</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:TextBox ID="TextBox11" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            Categoria</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:TextBox ID="TextBox12" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            &nbsp;</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            &nbsp;</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:Button ID="ButtonInsertarPlan" runat="server" Text="Insertar" OnClick="ButtonInsertarPlan_Click" style="height: 26px" />
+&nbsp;<asp:Button ID="ButtonEliminarPlan" runat="server" Text="Eliminar" OnClick="ButtonEliminarPlan_Click" />
+        </p>
         <p style="text-align:left; margin-left: 40px;">
             &nbsp;</p>
         <p style="text-align:left; margin-left: 40px;">
@@ -144,8 +180,6 @@
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Usuarios]"></asp:SqlDataSource>
-        </asp:GridView>
-
         <p style="text-align:left; margin-left:40px">
             Favoritos
         </p>

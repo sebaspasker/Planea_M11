@@ -2,7 +2,7 @@
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode url="~/ASPX/principal1.aspx" title="Página Inicio"  description="">
     <siteMapNode url="~/ASPX/Login.aspx" title="Login"  description="" />
-    <siteMapNode url="~/ASPX/Registrarse.aspx" title="Registrarse"  description="" />
+    <siteMapNode url="~/ASPX/Registro.aspx" title="Registrarse"  description="" />
     <siteMapNode url="~/ASPX/BuscaUsuario.aspx" title="Buscar Usuario"  description="" />
     <siteMapNode url="~/ASPX/BuscaPlan.aspx" title="Buscar Plan"  description="" />
   </siteMapNode>

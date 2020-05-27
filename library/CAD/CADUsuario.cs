@@ -168,7 +168,7 @@ namespace library {
                 t = bdvirtual.Tables["usuarios"];
                 string criteria = "nombre_usuario='" + usuario.nombre_usuario + "'";
                 DataRow[] dataRows = t.Select(criteria);
-                if(dataRows != null && dataRows.Length != 0)
+                if(dataRows != null || dataRows.Length != 0)
                 {
                     usuario.nombre = dataRows[0]["nombre"].ToString();
                     usuario.apellidos = dataRows[0]["apellidos"].ToString();

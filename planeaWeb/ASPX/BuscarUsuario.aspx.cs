@@ -10,11 +10,6 @@ using System.Data;
 namespace planeaWeb {
     public partial class BuscarUsuario : System.Web.UI.Page {
         /// <summary>
-        /// Lista de Usuarios
-        /// </summary>
-        private List<ENUsuario> listaUsuarios;
-
-        /// <summary>
         /// Llama a una función que devuelve todos los usuarios
         /// </summary>
         /// <param name="sender"></param>

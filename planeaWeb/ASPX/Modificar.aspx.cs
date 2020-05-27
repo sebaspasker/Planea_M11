@@ -98,7 +98,7 @@ namespace planeaWeb
                         en.ciudad = nuevo_valor;
                     }
                     // TODO Comprobar formato 
-                    if(en.ModificarUsuario(valor_modificar.ToLower()))
+                    if(en.ModificarUsuario())
                     {
                         Guardar_Valores(en);
                     } 

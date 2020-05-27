@@ -11,14 +11,79 @@ namespace library.UTILS{
         public Filter()
         {
         }
+
+        public static bool filterNombre(string nombre)
+        {
+            return Regex.IsMatch(nombre, @"^[a-zA-Z]{3,10}$");
+        }
+
         public static bool filterNombreUsuario(string nombre_usuario)
         {
-            return Regex.IsMatch(nombre_usuario, @"^[a-zA-Z0-9_-]{3,12}");
+            return Regex.IsMatch(nombre_usuario, @"^[a-zA-Z0-9_-]{3,12}$");
         } 
 
         public static bool filterPassword(string password)
         {
-            return Regex.IsMatch(password, @"^[a-zA-Z0-9_-]{3,20}");
+            return Regex.IsMatch(password, @"^[a-zA-Z0-9]{3,20}$");
+        }
+
+        public static bool filterApellidos(string apellidos)
+        {
+            return Regex.IsMatch(apellidos, @"^[a-zA-Z]\s{3,20}$");
+        }
+
+        public static bool filterCiudad(string ciudad)
+        {
+            return Regex.IsMatch(ciudad, @"^[a-zA-Z]{3,20}$");
+        }
+
+        public static bool filterPreferencia(string preferencia)
+        {
+            return Regex.IsMatch(preferencia, @"^[a-zA-Z]{3,12}$");
+        }
+
+        public static bool filterEdad(int edad)
+        {
+            return (6 < edad && edad < 110);
+        }
+
+        public static bool filterEmail(string email)
+        {
+            return Regex.IsMatch(email, @"^\S{1,7}@\S{1,8}\.\S{1,3}$");
+        }
+
+        public static string filterRegistro(ENUsuario en)
+        {
+            if(en.SeleccionarUsuario())
+            {
+                return "El usuario ya existe";
+            } 
+            else if(!filterNombre(en.nombre))
+            {
+                return "El nombre tiene que tener entre 3 y 12 carácteres sin espaciones";
+            }
+            else if(!filterNombreUsuario(en.nombre_usuario)) 
+            {
+                return "Los apellidos tienen que tener entre 3 y 20 carácteres y sin símbolos";
+            }
+            else if(!filterPassword(en.password))
+            {
+                return "La contraseña tiene que tener entre 3 y 20 carácteres y solo puede contener alfanuméricos y simbólos como '_' o '-'";
+            }
+            else if(!filterPreferencia(en.preferencia))
+            {
+                return "Formato preferencia incorrecto";
+            } 
+            else if(!filterCiudad(en.ciudad)) {
+                return "Formato ciudad incorrecto";
+            }
+            else if(!filterEdad(en.edad)) {
+                return "La edad tiene que estar entre los 6 y 110 años";
+            } 
+            else
+            {
+                return "TODO_OK";
+            }
         }
 
         public string FiltradoUsuario(ENUsuario enu, bool formatoCorto)
@@ -107,6 +172,40 @@ namespace library.UTILS{
             }
 
             return mensaje;
+        }
+            
+        public static bool filterNombrePlan(string nombre)
+        {
+            return Regex.IsMatch(nombre, @"^[A-Za-z]\s{3-20}");
+        }
+
+        public static bool filterPrecio(int precio)
+        {
+            return precio > 0;
+        }
+
+        public static string FiltrarInsertarPlan(ENPlanes plan)
+        {
+            if(plan.SeleccionarPlan())
+            {
+                return "Este plan ya existe";
+            } 
+            else if(!filterNombrePlan(plan.Nombre))
+            {
+                return "Formato nombre plan incorrecto, tienen que ser entre 3 y 20 carácteres alfabéticos";
+            }
+            else if(!filterCiudad(plan.Ciudad))
+            {
+                return "Formato ciudad incorrecto";
+            }
+            else if(!filterPreferencia(plan.Categoria))
+            {
+                return "Formato preferencia incorrecto";
+            } 
+            else
+            {
+                return "TODO_OK";
+            }
         }
     }
 }
