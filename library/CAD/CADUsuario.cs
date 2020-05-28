@@ -197,6 +197,7 @@ namespace library {
             return false;
         }
 
+
         /// <summary>
         /// Devuelve el siguiente usuario al usuario pasado como parámetro en la BBDD tabla Usuarios.
         /// </summary>
@@ -204,8 +205,41 @@ namespace library {
         /// <returns></returns>
         public bool SiguienteUsuario(ENUsuario usuario)
         {
-            // TODO Santi
-            return false;
+            bool encontrado = false;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(constring);
+            try
+            {
+                // TODO falla a la hora de excederse del formato
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
+                DataAdapter.Fill(bdvirtual, "usuarios");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["usuarios"];
+                string criteria = "nombre_usuario='" + usuario.nombre_usuario + "'";
+                DataRow[] dataRows = t.Select(criteria);
+                int posSiguiente;
+                if(dataRows != null && dataRows.Length != 0)
+                {
+                    posSiguiente = Int32.Parse(dataRows[0]["id"].ToString());
+                    DataRow dr = t.Rows[posSiguiente];
+                    if(dr["nombre_usuario"].ToString() != "")
+                    {
+                        encontrado = true;
+                        usuario.nombre = dr["nombre"].ToString();
+                        usuario.apellidos = dr["apellidos"].ToString();
+                        usuario.ciudad = dr["ciudad"].ToString();
+                        usuario.preferencia = dr["preferencia"].ToString();
+                        usuario.edad = Int32.Parse(dr["edad"].ToString());
+                        usuario.email = dr["email"].ToString();
+                        usuario.password = dr["password"].ToString();
+
+                    }
+                }
+            }
+            catch(Exception e) { throw e; encontrado = false; Console.WriteLine(e.Message + " " + e.ToString()); }
+            finally { c.Close(); }
+
+            return encontrado;
         }
 
         /// <summary>
@@ -215,8 +249,42 @@ namespace library {
         /// <returns></returns>
         public bool UltimoUsuario(ENUsuario usuario)
         {
-            // TODO Santi
-            return false;
+            bool leido = false;
+            SqlConnection conectar = new SqlConnection(constring);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", conectar);
+                DataAdapter.Fill(bdvirtual, "plan");
+                DataTable t = bdvirtual.Tables["usuarios"];
+                DataRow dr = t.Rows[t.Rows.Count - 1];
+                if(dr["nombre_usuario"].ToString() != "")
+                {
+                    leido = true;
+                    usuario.nombre = dr["nombre"].ToString();
+                    usuario.apellidos = dr["apellidos"].ToString();
+                    usuario.ciudad = dr["ciudad"].ToString();
+                    usuario.preferencia = dr["preferencia"].ToString();
+                    usuario.edad = Int32.Parse(dr["edad"].ToString());
+                    usuario.email = dr["email"].ToString();
+                    usuario.password = dr["password"].ToString();
+
+                }
+                else
+                {
+                    Console.WriteLine("No se pudo realizar el procedimiento");
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("No se pudo realizar el procedimiento", e.Message);
+                throw e;
+            }
+            finally
+            {
+                conectar.Close();
+            }
+            return leido;
         }
 
         /// <summary>
@@ -226,9 +294,43 @@ namespace library {
         /// <returns></returns>
         public bool AnteriorUsuario(ENUsuario usuario)
         {
-            // TODO Santi
-            return false;
+            bool encontrado = false;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(constring);
+            try
+            {
+                // TODO falla a la hora de excederse del formato
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
+                DataAdapter.Fill(bdvirtual, "usuarios");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["usuarios"];
+                string criteria = "nombre_usuario='" + usuario.nombre_usuario + "'";
+                DataRow[] dataRows = t.Select(criteria);
+                int posSiguiente;
+                if(dataRows != null && dataRows.Length != 0)
+                {
+                    posSiguiente = Int32.Parse(dataRows[0]["id"].ToString()) - 2;
+                    DataRow dr = t.Rows[posSiguiente];
+                    if(dr["nombre_usuario"].ToString() != "")
+                    {
+                        encontrado = true;
+                        usuario.nombre = dr["nombre"].ToString();
+                        usuario.apellidos = dr["apellidos"].ToString();
+                        usuario.ciudad = dr["ciudad"].ToString();
+                        usuario.preferencia = dr["preferencia"].ToString();
+                        usuario.edad = Int32.Parse(dr["edad"].ToString());
+                        usuario.email = dr["email"].ToString();
+                        usuario.password = dr["password"].ToString();
+
+                    }
+                }
+            }
+            catch(Exception e) { throw e; encontrado = false; Console.WriteLine(e.Message + " " + e.ToString()); }
+            finally { c.Close(); }
+
+            return encontrado;
         }
+
 
         /// <summary>
         /// Devuelve una lista de usuarios de la BBDD tabla Usuarios.
