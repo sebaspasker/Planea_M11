@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
+using System.Configuration;
 
 namespace library
 {
@@ -14,8 +19,7 @@ namespace library
 		//Constructor
 		public CADPlanes()
 		{
-			// constring =
-			// TODO
+			constring = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
 		}
 		/// <summary>
 		/// Inserta un plan dentro de la tabla de Planes.
@@ -69,7 +73,6 @@ namespace library
 		/// <returns>true si ha podido encontrar el plan, sino false</returns>
 		public bool PrimerPlan(ENPlanes plan)
 		{
-			// TODO
 			return false;
 		}
 		/// <summary>
