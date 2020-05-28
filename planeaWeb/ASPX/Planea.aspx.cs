@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using library;
-using library.OTHER;
+using library.UTILS;
 
 namespace planeaWeb {
     public partial class Planea : System.Web.UI.Page {
@@ -44,6 +44,7 @@ namespace planeaWeb {
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*
             nombre_usuario = Request.QueryString["nomUsu"];
             Add_Horas();
             if(nombre_usuario != "" )
@@ -83,7 +84,7 @@ namespace planeaWeb {
             else
             {
                 errorPlanea.Text = "Nombre de usuario vacio";
-            }
+            }*/
         }
 
         /// <summary>
@@ -110,7 +111,7 @@ namespace planeaWeb {
                 pareja.fecha = dia.ToString().Substring(0, 10);
                 pareja.nombre_plan = plan;
 
-                FormatoFiltrado filtrar = new FormatoFiltrado();
+                Filter filtrar = new Filter();
                 string mensaje_filtro = filtrar.FiltradoPareja(pareja, false);
                 if(mensaje_filtro == "TODO_OK")
                 {

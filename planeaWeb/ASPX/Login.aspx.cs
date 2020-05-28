@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using library;
-using library.OTHER;
+using library.UTILS;
 
 namespace planeaWeb
 {
@@ -30,39 +30,23 @@ namespace planeaWeb
             }
         }
 
-        /// <summary>
-        /// Si el usuario y la contraseña es correcta redirecciona a principal2
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void LoginFunction(object sender, EventArgs e)
+        protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
         {
-            ENUsuario en = new ENUsuario();
-            en.nombre_usuario = NombreUsuario.Text;
-            
-            FormatoFiltrado filtrado = new FormatoFiltrado();
-            string mensaje_filtrado = filtrado.FiltradoUsuario(en, true);
-            if(mensaje_filtrado == "TODO_OK")
+            if(Filter.filterNombreUsuario(Login1.UserName) && Filter.filterPassword(Login1.Password))
             {
-                if(en.SeleccionarUsuario())
+                bool login = library.UTILS.Login.loginUsuario(Login1.UserName, Login1.Password);
+                e.Authenticated = login;
+                if(login)
                 {
-                    if(en.password == Password.Text)
-                    {
-                        Response.Redirect("~/ASPX/principal2.aspx?nomUsu=" + Server.UrlEncode(en.nombre_usuario) + "&login_bool=" + Server.UrlEncode("True"));
-                    }
-                    else
-                    {
-                        ErrorLogin.Text = "El usuario o contraseña es incorrecto";
-                    }
-                }
-                else
-                {
-                    ErrorLogin.Text = "El usuario u contraseña es incorrecto";
+                    Session["nombre_usuario"] = Login1.UserName;
+                    Response.Redirect("~/ASPX/principal2.aspx");
                 }
             } 
             else
             {
-                ErrorLogin.Text = mensaje_filtrado;
+                e.Authenticated = false;
+                ErrorLogin.Text = "Formato incorrecto: el usuario (max tamaño 12) y la contraseña (max tamaño 20) pueden\n" +
+                    "contener letras, '_', '-' y números\n";
             }
         }
     }

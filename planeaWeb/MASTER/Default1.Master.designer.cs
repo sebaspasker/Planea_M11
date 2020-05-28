@@ -22,40 +22,58 @@ namespace planeaWeb {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control RegisterID.
+        /// Control SiteMapDataSource1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink RegisterID;
+        protected global::System.Web.UI.WebControls.SiteMapDataSource SiteMapDataSource1;
 
         /// <summary>
-        /// Control LoginID.
+        /// Control Menu1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink LoginID;
+        protected global::System.Web.UI.WebControls.Menu Menu1;
 
         /// <summary>
-        /// Control BuscarUsuarioID.
+        /// Control registerid.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink BuscarUsuarioID;
+        protected global::System.Web.UI.WebControls.HyperLink registerid;
 
         /// <summary>
-        /// Control BuscarPlanID.
+        /// Control loginid.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink BuscarPlanID;
+        protected global::System.Web.UI.WebControls.HyperLink loginid;
+
+        /// <summary>
+        /// Control buscarusuarioid.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink buscarusuarioid;
+
+        /// <summary>
+        /// Control buscarplanid.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink buscarplanid;
 
         /// <summary>
         /// Control ContentPlaceHolder1.

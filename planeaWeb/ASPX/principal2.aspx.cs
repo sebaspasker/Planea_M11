@@ -15,26 +15,31 @@ namespace planeaWeb.ASPX {
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            string nombre_usuario = Request.QueryString["nomUsu"];
-            string login_bool = Request.QueryString["login_bool"];
-            if(nombre_usuario != "" && login_bool != "")
+            string nombre_usuario = Session["nombre_usuario"].ToString();
+            if(!String.IsNullOrEmpty(nombre_usuario))
             {
                 ENUsuario enu = new ENUsuario();
                 enu.nombre_usuario = nombre_usuario;
-                if(login_bool == "True" && enu.SeleccionarUsuario())
+                if(enu.SeleccionarUsuario())
                 {
-                    PrintNombreUsuario.Text = Request.QueryString["nomUsu"];
+                    PrintNombreUsuario.Text = nombre_usuario;
                 } 
                 else
                 {
-                    // TODO Quitar comentar después de entrega, es para que el profesor lo vea
-                    //Response.Redirect("~/ASPX/principal1.aspx");
+                    Response.Redirect("~/ASPX/principal1.aspx");
+                }
+                HttpCookie userCookie;
+                userCookie = Request.Cookies["nombre_usuario"];
+                if(userCookie != null) 
+                {
+                    userCookie = new HttpCookie("nombre_usuario", nombre_usuario);
+                    userCookie.Expires = DateTime.Now.AddMonths(1);
+                    Response.Cookies.Add(userCookie);
                 }
             }
             else
             {
-                // TODO Quitar comentar después de entrega, es para que el profesor lo vea
-                //Response.Redirect("~/ASPX/principal1.aspx");
+                Response.Redirect("~/ASPX/principal1.aspx");
             }
         }
     }
