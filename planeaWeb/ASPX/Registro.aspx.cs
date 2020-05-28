@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using library;
-using library.OTHER;
+using library.UTILS;
 
 namespace planeaWeb {
     public partial class Registro : System.Web.UI.Page {
@@ -29,7 +29,8 @@ namespace planeaWeb {
             en.edad = Int32.Parse(TextEdad.Text);
             en.ciudad = TextCiudad.Text;
             en.preferencia = TextPreferencia.Text;
-            FormatoFiltrado filtraUsuario = new FormatoFiltrado();
+            en.password = TextPasswd.Text;
+            Filter filtraUsuario = new Filter();
             string mensajeFiltrado = filtraUsuario.FiltradoUsuario(en, false);
 
             if(mensajeFiltrado == "TODO_OK")
@@ -41,6 +42,7 @@ namespace planeaWeb {
                 else
                 {
                     ErrorRegistro.Text = "Error, el usuario no ha podido ser agregado\n";
+                    ErrorRegistro.Text = en.nombre + " " + en.apellidos + " " + en.nombre_usuario + " " + en.ciudad + " " + en.edad + " " + en.email + " " + en.password + " " + en.preferencia + "\n";
                 }
             } 
             else

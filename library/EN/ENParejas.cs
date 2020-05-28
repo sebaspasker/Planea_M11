@@ -96,8 +96,8 @@ namespace library {
             }
         }
 
-        private bool _plan_aceptado;
-        public bool plan_aceptado
+        private string _plan_aceptado;
+        public string plan_aceptado
         {
             get
             {

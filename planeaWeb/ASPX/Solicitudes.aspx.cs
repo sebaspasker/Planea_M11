@@ -56,7 +56,7 @@ namespace planeaWeb {
             {
                 foreach(ENParejas pareja in parejasAceptadas)
                 {
-                    pareja.plan_aceptado = true;
+                    pareja.plan_aceptado = "yes";
                     pareja.ModificarPareja();
                 }
             }
