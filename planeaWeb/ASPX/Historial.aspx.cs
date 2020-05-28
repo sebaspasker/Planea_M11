@@ -21,7 +21,7 @@ namespace planeaWeb {
             
             if(usuario != "" && usuario != null)
             {
-                if(usuario.Length > 12) {
+                if(usuario.Length < 13) {
                     pareja.nombre_usuario_1 = usuario;
                     List<ENParejas> parejas = pareja.BuscarParejas();
 
