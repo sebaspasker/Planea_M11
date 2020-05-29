@@ -269,9 +269,38 @@ namespace library
 		/// <returns></returns>
 		public bool SiguientePlan(ENPlanes plan)
 		{
-			// TODO 
-			return false;
-		}
+            bool encontrado = false;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(constring);
+            try
+            {
+                // TODO falla a la hora de excederse del formato
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
+                DataAdapter.Fill(bdvirtual, "plan");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["plan"];
+                string criteria = "nombre='" + plan.Nombre + "'";
+                DataRow[] dataRows = t.Select(criteria);
+                int posSiguiente;
+                if (dataRows != null && dataRows.Length != 0)
+                {
+                    posSiguiente = Int32.Parse(dataRows[0]["id"].ToString());
+                    DataRow dr = t.Rows[posSiguiente];
+                    if (dr["nombre_usuario"].ToString() != "")
+                    {
+                        plan.Nombre = dr["nombre"].ToString();
+                        plan.Precio = Int32.Parse(dr["precio"].ToString());
+                        plan.Categoria = dr["categoria"].ToString();
+                        plan.Ciudad = dr["ciudad"].ToString();
+                        encontrado = true;
+                    }
+                }
+            }
+            catch (Exception e) { encontrado = false; Console.WriteLine(e.Message + " " + e.ToString()); throw e; }
+            finally { c.Close(); }
+
+            return encontrado;
+        }
 
 		/// <summary>
 		/// Busca los plan a partir al plan mencionado.

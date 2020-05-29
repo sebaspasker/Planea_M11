@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
+using System.Web.UI.WebControls;
 
 namespace library {
     public class ENFavoritos {
@@ -108,13 +114,13 @@ namespace library {
         /// No precisa de atributos
         /// </summary>
         /// <returns></returns>
-        public List<ENFavoritos> ListarFavoritos()
+        public DataSet ListarFavoritos()
         {
             CADFavoritos c = new CADFavoritos();
             return c.ListarFavoritos();
         }
 
-        public List<ENFavoritos> BuscarFavoritos()
+        public DataSet BuscarFavoritos()
         {
             CADFavoritos c = new CADFavoritos();
             return c.BuscarFavoritos(this);
