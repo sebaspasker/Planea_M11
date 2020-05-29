@@ -185,8 +185,39 @@ namespace library
 		/// <returns>true si ha podido encontrar el plan, sino false</returns>
 		public bool PrimerPlan(ENPlanes plan)
 		{
-			// TODO
-			return false;
+            bool leido = false;
+            SqlConnection conectar = new SqlConnection(constring);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Planes", conectar);
+                DataAdapter.Fill(bdvirtual, "plan");
+                DataTable t = bdvirtual.Tables["planes"];
+                DataRow dr = t.Rows[0];
+                if(dr["nombre_usuario"].ToString() != "")
+                {
+                    leido = true;
+                    plan.Nombre = dr["nombre"].ToString();
+                    plan.Precio = Int32.Parse(dr["precio"].ToString());
+                    plan.Ciudad = dr["ciudad"].ToString();
+                    plan.Categoria = dr["categoria"].ToString();
+
+                }
+                else
+                {
+                    Console.WriteLine("No se pudo realizar el procedimiento");
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("No se pudo realizar el procedimiento", e.Message);
+                throw e;
+            }
+            finally
+            {
+                conectar.Close();
+            }
+            return leido;
 		}
 		/// <summary>
 		/// Busca el ultimo plan de la tabla de plan.
@@ -196,8 +227,39 @@ namespace library
 		/// <returns>true si ha podido encontrar el plan, sino false</returns>
 		public bool UltimoPlan(ENPlanes plan)
 		{
-			// TODO
-			return false;
+            bool leido = false;
+            SqlConnection conectar = new SqlConnection(constring);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Planes", conectar);
+                DataAdapter.Fill(bdvirtual, "plan");
+                DataTable t = bdvirtual.Tables["planes"];
+                DataRow dr = t.Rows[t.Rows.Count - 1];
+                if(dr["nombre_usuario"].ToString() != "")
+                {
+                    leido = true;
+                    plan.Nombre = dr["nombre"].ToString();
+                    plan.Precio = Int32.Parse(dr["precio"].ToString());
+                    plan.Ciudad = dr["ciudad"].ToString();
+                    plan.Categoria = dr["categoria"].ToString();
+
+                }
+                else
+                {
+                    Console.WriteLine("No se pudo realizar el procedimiento");
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("No se pudo realizar el procedimiento", e.Message);
+                throw e;
+            }
+            finally
+            {
+                conectar.Close();
+            }
+            return leido;
 		}
 
 		/// <summary>

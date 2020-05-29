@@ -193,8 +193,42 @@ namespace library {
         /// <returns></returns>
         public bool PrimerUsuario(ENUsuario usuario)
         {
-            // TODO Santi
-            return false;
+            bool leido = false;
+            SqlConnection conectar = new SqlConnection(constring);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", conectar);
+                DataAdapter.Fill(bdvirtual, "plan");
+                DataTable t = bdvirtual.Tables["usuarios"];
+                DataRow dr = t.Rows[0];
+                if(dr["nombre_usuario"].ToString() != "")
+                {
+                    leido = true;
+                    usuario.nombre = dr["nombre"].ToString();
+                    usuario.apellidos = dr["apellidos"].ToString();
+                    usuario.ciudad = dr["ciudad"].ToString();
+                    usuario.preferencia = dr["preferencia"].ToString();
+                    usuario.edad = Int32.Parse(dr["edad"].ToString());
+                    usuario.email = dr["email"].ToString();
+                    usuario.password = dr["password"].ToString();
+
+                }
+                else
+                {
+                    Console.WriteLine("No se pudo realizar el procedimiento");
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("No se pudo realizar el procedimiento", e.Message);
+                throw e;
+            }
+            finally
+            {
+                conectar.Close();
+            }
+            return leido;
         }
 
 
