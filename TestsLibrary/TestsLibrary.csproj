@@ -49,11 +49,16 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
+    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CADUsuarioTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebScrapingTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

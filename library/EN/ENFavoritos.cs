@@ -73,7 +73,7 @@ namespace library {
         public bool SeleccionarFavorito()
         {
             CADFavoritos c = new CADFavoritos();
-            return c.SeleccionarFavorito();
+            return c.SeleccionarFavorito(this);
         }
 
         /// <summary>
