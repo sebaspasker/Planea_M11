@@ -121,7 +121,7 @@ namespace library {
 
             set
             {
-                fecha = value;
+                _fecha = value;
             }
         }
 

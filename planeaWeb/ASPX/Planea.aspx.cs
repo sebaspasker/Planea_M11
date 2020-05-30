@@ -44,7 +44,6 @@ namespace planeaWeb {
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*
             nombre_usuario = Request.QueryString["nomUsu"];
             Add_Horas();
             if(nombre_usuario != "" )
@@ -84,7 +83,7 @@ namespace planeaWeb {
             else
             {
                 errorPlanea.Text = "Nombre de usuario vacio";
-            }*/
+            }
         }
 
         /// <summary>

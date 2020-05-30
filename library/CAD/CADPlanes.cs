@@ -242,13 +242,38 @@ namespace library
 		/// Busca en base a la categoria
 		/// </summary>
 		/// <returns></returns>
-		public DataSet BuscarPlanesPreferencia(ENPlanes plan)
+		public List<ENPlanes> BuscarPlanesPreferencia(ENPlanes plan)
 		{
-			DataSet bdvirtual = new DataSet();
-			SqlConnection c = new SqlConnection(constring);
-			SqlDataAdapter da = new SqlDataAdapter("select nombre, precio, ciudad, categoria from Planes where preferencia='%" + plan.Categoria + "%';", c);
-			da.Fill(bdvirtual, "plan");
-			return bdvirtual;
+			List<ENPlanes> planes = new List<ENPlanes>();
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(constring);
+            try
+            {
+                // TODO falla a la hora de excederse del formato
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Planes", c);
+                DataAdapter.Fill(bdvirtual, "planes");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["planes"];
+                string criteria = "categoria='" + plan.Categoria + "'";
+                DataRow[] dataRows = t.Select(criteria);
+                if(dataRows != null && dataRows.Length != 0)
+                {
+					ENPlanes planlis = new ENPlanes();
+                    foreach(DataRow row in dataRows) {
+                        planlis.Nombre = row["nombre"].ToString();
+						planlis.Precio = Int32.Parse(row["precio"].ToString());
+                        planlis.Ciudad = row["ciudad"].ToString();
+                        planlis.Categoria = row["categoria"].ToString();
+                        planes.Add(planlis);
+                        planlis.clear();
+                    }
+                }
+            }
+            catch(Exception e) { throw e; Console.WriteLine(e.Message + " " + e.ToString()); }
+            finally { c.Close(); }
+
+            return planes;
+
 		}
 	}
 }

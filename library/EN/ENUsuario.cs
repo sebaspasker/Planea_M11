@@ -277,7 +277,7 @@ namespace library {
         /// Busca los usuarios en base a una preferencia
         /// </summary>
         /// <returns></returns>
-        public DataSet BuscarPreferencia()
+        public List<ENUsuario> BuscarPreferencia()
         {
             CADUsuario c = new CADUsuario();
             return c.BuscarPreferencia(this); 
@@ -287,6 +287,18 @@ namespace library {
         {
             CADUsuario c = new CADUsuario();
             return c.BuscarNombre(this);
+        }
+
+        public void clear()
+        {
+            nombre = "";
+            nombre_usuario = "";
+            apellidos = "";
+            edad = 0;
+            preferencia = "";
+            ciudad = "";
+            email = "";
+            password = "";
         }
     }
 }

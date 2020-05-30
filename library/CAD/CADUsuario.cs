@@ -248,13 +248,40 @@ namespace library {
         /// </summary>
         /// <param name="en"></param>
         /// <returns></returns>
-        public DataSet BuscarPreferencia(ENUsuario en)
+        public List<ENUsuario> BuscarPreferencia(ENUsuario en)
         {
+            List<ENUsuario> usuarios = new List<ENUsuario>();
             DataSet bdvirtual = new DataSet();
             SqlConnection c = new SqlConnection(constring);
-            SqlDataAdapter da = new SqlDataAdapter("select nombre, nombre_usuario, ciudad, preferencia from Usuairos where preferencia like '" + en.preferencia + "';", c);
-            da.Fill(bdvirtual, "usuarios");
-            return bdvirtual;
+            try
+            {
+                // TODO falla a la hora de excederse del formato
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
+                DataAdapter.Fill(bdvirtual, "usuarios");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["usuarios"];
+                string criteria = "preferencia='" + en.preferencia+ "'";
+                DataRow[] dataRows = t.Select(criteria);
+                if(dataRows != null && dataRows.Length != 0)
+                {
+                    ENUsuario usuario = new ENUsuario();
+                    foreach(DataRow row in dataRows) {
+                        usuario.nombre = row["nombre"].ToString();
+                        usuario.nombre_usuario = row["nombre_usuario"].ToString();
+                        usuario.apellidos = row["apellidos"].ToString();
+                        usuario.ciudad = row["ciudad"].ToString();
+                        usuario.preferencia = row["preferencia"].ToString();
+                        usuario.edad = Int32.Parse(row["edad"].ToString());
+                        usuario.email = row["email"].ToString();
+                        usuarios.Add(usuario);
+                        usuario.clear();
+                    }
+                }
+            }
+            catch(Exception e) { throw e; Console.WriteLine(e.Message + " " + e.ToString()); }
+            finally { c.Close(); }
+
+            return usuarios;
         }
 
         public DataSet BuscarNombre(ENUsuario en)
