@@ -61,7 +61,7 @@
         <p style="text-align:left; margin-left: 40px;">
             &nbsp;</p>
         <p style="text-align:left; margin-left: 40px;">
-            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="id" DataSourceID="SqlDataSource4" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="id" HeaderText="id" ReadOnly="True" SortExpression="id" />
@@ -85,7 +85,7 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Parejas]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Usuarios]"></asp:SqlDataSource>
         </p>
         <p style="text-align:left; margin-left: 40px;">
             &nbsp;</p>
@@ -127,7 +127,7 @@
         <p style="text-align:left; margin-left: 40px;">
             &nbsp;</p>
         <p style="text-align:left; margin-left: 40px;">
-            <asp:GridView ID="GridView3" runat="server" DataSourceID="SqlDataSource3" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="id" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="GridView3" runat="server" DataSourceID="SqlDataSource22" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="id" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="id" HeaderText="id" ReadOnly="True" SortExpression="id" />
@@ -147,16 +147,18 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Favoritos]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource22" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Planes]"></asp:SqlDataSource>
 
         </p>
+        <!--
+
         <p style="text-align:left; margin-left: 40px;">
             &nbsp;</p>
         <p style="text-align:left; margin-left: 40px;">
             Parejas</p>
         <p style="text-align:left; margin-left: 40px;">
             &nbsp;</p>
-        <asp:GridView ID="GridView1" runat="server" Width="360px" style="margin-left: 40px" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource4" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" >
+        <asp:GridView ID="GridView1" runat="server" Width="360px" style="margin-left: 40px" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="id" >
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="id" HeaderText="id" ReadOnly="True" SortExpression="id" />
@@ -179,13 +181,13 @@
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Usuarios]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True" SelectCommand="SELECT * FROM [Parejas]" ProviderName="System.Data.SqlClient"></asp:SqlDataSource>
         <p style="text-align:left; margin-left:40px">
             Favoritos
         </p>
         <p style="text-align:left; margin-left:40px">
             &nbsp;</p>
-        <asp:GridView ID="SqlDataSource2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="id" DataSourceID="SqlDataSource5" ForeColor="#333333" GridLines="None" style="margin-left:40px">
+        <asp:GridView ID="SqlDataSource2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource3" ForeColor="#333333" GridLines="None" style="margin-left:40px" DataKeyNames="id">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="id" HeaderText="id" ReadOnly="True" SortExpression="id" />
@@ -203,6 +205,7 @@
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Planes]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True" SelectCommand="SELECT * FROM [Favoritos]"></asp:SqlDataSource>
+            -->
     </div>
 </asp:Content>

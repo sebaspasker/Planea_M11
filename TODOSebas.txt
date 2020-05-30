@@ -3,10 +3,13 @@ Cosas por hacer:
 		- Solicitudes
 			- Testear y controlar excepciones Solicitudes.aspx
 		- Planea
-			- Modificar sistema de planea
+			- Testear planea
 		- Favoritos
 	- CADS
 		- CADUsuario
 			- Testear BuscarPreferencia
 		- CADPlanes
 			- Testear BuscarPlanes
+
+	- Base de datos
+		- Cambiado base de datos formato Fecha a date

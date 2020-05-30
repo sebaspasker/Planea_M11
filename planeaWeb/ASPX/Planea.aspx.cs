@@ -107,25 +107,18 @@ namespace planeaWeb {
                 pareja.nombre_usuario_2 = usuario;
                 pareja.hora_inicio = Int32.Parse(hora_inicio[0 - 1].ToString());
                 pareja.hora_fin = Int32.Parse(hora_fin[0 - 1].ToString());
-                pareja.fecha = dia.ToString().Substring(0, 10);
+                pareja.fecha = dia;
                 pareja.nombre_plan = plan;
+                pareja.plan_aceptado = "no";
 
                 Filter filtrar = new Filter();
-                string mensaje_filtro = filtrar.FiltradoPareja(pareja, false);
-                if(mensaje_filtro == "TODO_OK")
+                if(pareja.InsertarPareja())
                 {
-                   if(pareja.InsertarPareja())
-                   {
-                        errorPlanea.Text = "El plan se ha creado!";
-                   } 
-                   else
-                   {
-                        errorPlanea.Text = "El plan no se ha podido crear";
-                   }
+                    errorPlanea.Text = "El plan se ha creado!";
                 } 
                 else
                 {
-                    errorPlanea.Text = mensaje_filtro;
+                    errorPlanea.Text = "El plan no se ha podido crear";
                 }
             } 
             else

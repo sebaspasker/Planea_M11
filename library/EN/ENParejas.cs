@@ -111,8 +111,8 @@ namespace library {
             }
         }
 
-        private string _fecha;
-        public string fecha
+        private DateTime _fecha;
+        public DateTime fecha
         {
             get
             {

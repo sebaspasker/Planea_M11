@@ -180,7 +180,7 @@ namespace library {
                     encontrado = true;
                 }
             }
-            catch(Exception e) { throw e; encontrado = false; Console.WriteLine(e.Message + " " + e.ToString()); }
+            catch(Exception e) { encontrado = false; Console.WriteLine(e.Message + " " + e.ToString()); throw e; }
             finally { c.Close();  }
 
             return encontrado;
@@ -278,7 +278,7 @@ namespace library {
                     }
                 }
             }
-            catch(Exception e) { throw e; Console.WriteLine(e.Message + " " + e.ToString()); }
+            catch(Exception e) { Console.WriteLine(e.Message + " " + e.ToString()); throw e; }
             finally { c.Close(); }
 
             return usuarios;

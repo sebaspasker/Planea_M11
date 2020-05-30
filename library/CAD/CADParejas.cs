@@ -43,8 +43,7 @@ namespace library {
                 nuevafila[3] = pareja.nombre_plan;
                 nuevafila[4] = pareja.hora_inicio;
                 nuevafila[5] = pareja.hora_fin;
-                // TODO Comprobar formato fecha
-                nuevafila[6] = pareja.fecha;
+                nuevafila[6] = pareja.fecha.Date;
                 nuevafila[7] = pareja.plan_aceptado;
                 t.Rows.Add(nuevafila);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(DataAdapter);
@@ -52,8 +51,9 @@ namespace library {
                 cambiado = true;
             }
             catch(Exception e) { // TODO 
+                cambiado = false;
                 throw e;
-                cambiado = false; }
+            }
             finally { c.Close();  }
 
             return cambiado;

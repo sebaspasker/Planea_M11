@@ -62,7 +62,7 @@ namespace library.UTILS{
             {
                 return "El nombre tiene que tener entre 3 y 12 carácteres sin espaciones";
             }
-            else if(!filterNombreUsuario(en.nombre_usuario)) 
+            else if(!filterApellidos(en.nombre_usuario)) 
             {
                 return "Los apellidos tienen que tener entre 3 y 20 carácteres y sin símbolos";
             }
@@ -135,7 +135,17 @@ namespace library.UTILS{
             return mensaje;
         }
 
-        public string FiltradoPareja(ENParejas pareja, bool formatoCorto)
+        public static bool filtrarHora(int hora)
+        {
+            return 0 <= hora && 23 >= hora;          
+        }
+
+        public static bool filtrarAceptado(string ac)
+        {
+            return Regex.IsMatch(ac, @"[a-z]{2,3}$");
+        }
+
+        public static string FiltradoPareja(ENParejas pareja, bool formatoCorto)
         {
             string mensaje = "TODO_OK";
             int tamanyoUsu1 = pareja.nombre_usuario_1.Length;            
@@ -164,10 +174,6 @@ namespace library.UTILS{
                 else if(pareja.hora_fin < 0 || pareja.hora_fin > 23)
                 {
                     mensaje = "La hora de inicio tiene que estar entre las 0 y las 23";
-                }
-                else if(pareja.fecha.Length != 10)
-                {
-                    mensaje = "La fecha tiene que tener 10 carácteres";
                 }
             }
 

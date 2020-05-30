@@ -269,7 +269,7 @@ namespace library
                     }
                 }
             }
-            catch(Exception e) { throw e; Console.WriteLine(e.Message + " " + e.ToString()); }
+            catch(Exception e) {Console.WriteLine(e.Message + " " + e.ToString()); throw e; }
             finally { c.Close(); }
 
             return planes;

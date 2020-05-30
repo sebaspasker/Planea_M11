@@ -49,7 +49,8 @@ namespace library {
                 cambiado = true;
             }
             catch(Exception e) { // TODO Temporal
-                throw e; cambiado = false; }
+                cambiado = false; 
+                throw e; }
             finally { c.Close();  }
 
             return cambiado;

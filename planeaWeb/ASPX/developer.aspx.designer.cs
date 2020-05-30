@@ -211,13 +211,13 @@ namespace planeaWeb.ASPX {
         protected global::System.Web.UI.WebControls.GridView GridView3;
 
         /// <summary>
-        /// Control SqlDataSource5.
+        /// Control SqlDataSource22.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource5;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource22;
 
         /// <summary>
         /// Control GridView1.

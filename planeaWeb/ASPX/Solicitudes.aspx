@@ -6,7 +6,6 @@
             &nbsp;&nbsp;&nbsp;&nbsp;
             Solicitudes <br />
         </p>
-        <asp:CheckBoxList ID="CheckBoxListSolicitudes" runat="server" CssClass="label_lista" style="text-align: left"></asp:CheckBoxList>
         <br />
         <asp:GridView ID="GridView1" runat="server" HorizontalAlign="Center" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="White" />
@@ -24,8 +23,6 @@
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
-        <br />
-        <asp:Button ID="ButtonAgregar" runat="server" Text="Agregar" OnClick="FunctionAgregarSolicitud" />
         <br />
         <br />
         <asp:Label ID="ErrorSolicitud" runat="server" Text=""></asp:Label>

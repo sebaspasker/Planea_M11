@@ -11,8 +11,6 @@ using library.UTILS;
 
 namespace planeaWeb {
     public partial class Solicitudes : System.Web.UI.Page {
-        List<ENParejas> parejasSolicitud;
-
         /// <summary>
         /// Imprime las solicitudes (planes) pendiente de confirmación de parte del usuario
         /// </summary>
@@ -36,33 +34,6 @@ namespace planeaWeb {
                 {
                     // TODO
                     //Response.Redirect() 
-                }
-            }
-        }
-
-        /// <summary>
-        /// Comprueba las solicitudes seleccionadas y los pone como correctas en la BBDD
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void FunctionAgregarSolicitud(object sender, EventArgs e)
-        {
-
-            List<ENParejas> parejasAceptadas = new List<ENParejas>();
-            for(int i=0; i<CheckBoxListSolicitudes.Items.Count; i++)
-            {
-                if(CheckBoxListSolicitudes.Items[i].Selected)
-                {
-                    parejasAceptadas.Add(parejasSolicitud[i]);
-                }     
-            }
-
-            if(parejasAceptadas != null)
-            {
-                foreach(ENParejas pareja in parejasAceptadas)
-                {
-                    pareja.plan_aceptado = "yes";
-                    pareja.ModificarPareja();
                 }
             }
         }
