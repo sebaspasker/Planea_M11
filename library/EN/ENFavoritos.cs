@@ -70,6 +70,12 @@ namespace library {
             return c.InsertarFavorito(this);
         }
 
+        public bool SeleccionarFavorito()
+        {
+            CADFavoritos c = new CADFavoritos();
+            return c.SeleccionarFavorito();
+        }
+
         /// <summary>
         /// Elimina la relación de usuario-favorito en la tabla Favoritos. Llama a CADFavorito.
         /// Precisa de todos los atributos.
@@ -90,17 +96,6 @@ namespace library {
         {
             CADFavoritos c = new CADFavoritos();
             return c.ModificarFavorito(this);
-        }
-
-        /// <summary>
-        /// Busca la relación de usuario-favorito en la tabla Favoritos. Llama a CADFavorito.
-        /// Precisa de todos los atributos.
-        /// </summary>
-        /// <returns>true si ha podido encontrar al favorito, si no false</returns>
-        public bool LeerFavorito()
-        {
-            CADFavoritos c = new CADFavoritos();
-            return c.LeerFavorito(this);
         }
 
         /// <summary>

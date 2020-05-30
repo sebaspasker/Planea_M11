@@ -29,7 +29,7 @@ namespace library.UTILS{
 
         public static bool filterApellidos(string apellidos)
         {
-            return Regex.IsMatch(apellidos, @"^[a-zA-Z]\s{3,20}$");
+            return Regex.IsMatch(apellidos, @"^[a-zA-Z\s]{3,20}$");
         }
 
         public static bool filterCiudad(string ciudad)
@@ -57,12 +57,15 @@ namespace library.UTILS{
             if(en.SeleccionarUsuario())
             {
                 return "El usuario ya existe";
-            } 
+            } else if(!filterNombreUsuario(en.nombre_usuario))
+            {
+                return "El nombre de usuario tiene que tener entre 3 y 12";
+            }
             else if(!filterNombre(en.nombre))
             {
-                return "El nombre tiene que tener entre 3 y 12 carácteres sin espaciones";
+                return "El nombre tiene que tener entre 3 y 10 carácteres sin espaciones";
             }
-            else if(!filterApellidos(en.nombre_usuario)) 
+            else if(!filterApellidos(en.apellidos)) 
             {
                 return "Los apellidos tienen que tener entre 3 y 20 carácteres y sin símbolos";
             }
@@ -182,7 +185,7 @@ namespace library.UTILS{
             
         public static bool filterNombrePlan(string nombre)
         {
-            return Regex.IsMatch(nombre, @"^[A-Za-z]\s{3-20}");
+            return Regex.IsMatch(nombre, @"^[a-zA-Z\s]{3,20}$");
         }
 
         public static bool filterPrecio(int precio)
@@ -207,6 +210,63 @@ namespace library.UTILS{
             else if(!filterPreferencia(plan.Categoria))
             {
                 return "Formato preferencia incorrecto";
+            } 
+            else
+            {
+                return "TODO_OK";
+            }
+        }
+
+        public static string filterFavorito(ENFavoritos favorito)
+        {
+            ENUsuario usuario1 = new ENUsuario();
+            ENUsuario usuario2 = new ENUsuario();
+
+            if(!filterNombreUsuario(favorito.nombre_usuario) ||!filterNombreUsuario(favorito.nombre_usuario_favorito))
+            {
+                return "El nombre de usuario tiene que tener entre 3 y 12 carácteres";
+            }
+            else if(!usuario1.SeleccionarUsuario() ||!usuario2.SeleccionarUsuario())
+            {
+                return "Uno de los nombre de usuario no existe";
+            } 
+            else
+            {
+                return "TODO_OK";
+            }
+        }
+
+        public static string filterPareja(ENParejas pareja)
+        {
+            ENUsuario usuario1 = new ENUsuario();
+            ENUsuario usuario2 = new ENUsuario();
+            ENPlanes plan = new ENPlanes();
+            usuario1.nombre_usuario = pareja.nombre_usuario_1;
+            usuario2.nombre_usuario = pareja.nombre_usuario_2;
+            plan.Nombre = pareja.nombre_plan; 
+            if(!filterNombreUsuario(pareja.nombre_usuario_1) || !filterNombreUsuario(pareja.nombre_usuario_2))
+            {
+                return "El nombre de usuario tiene que tener entre 3 y 12 carácteres";
+            } 
+            else if(!filterNombrePlan(pareja.nombre_plan))
+            {
+                return "El nombre del plan tiene que tener entre 3 y 20 carácteres";
+            }
+            else if(!usuario1.SeleccionarUsuario() || !usuario2.SeleccionarUsuario())
+            {
+                return "Los dos usuarios tienen que existir";
+            }
+            else if(!plan.SeleccionarPlan())
+            {
+                return "El nombre del plan tiene que existir";
+            }
+            else if(!filtrarHora(pareja.hora_fin) ||!filtrarHora(pareja.hora_inicio))
+            {
+                return "La hora del plan tiene que ser entre las 0 y las 23";
+            }
+            else if(!filtrarAceptado(pareja.plan_aceptado))
+            {
+                return "El aceptado tiene que ser entre 2 y 3 carácteres";
             } 
             else
             {

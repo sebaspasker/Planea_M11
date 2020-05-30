@@ -85,7 +85,7 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Usuarios]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [Usuarios]"></asp:SqlDataSource>
         </p>
         <p style="text-align:left; margin-left: 40px;">
             &nbsp;</p>
@@ -147,17 +147,59 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource22" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Planes]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource22" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [Planes]"></asp:SqlDataSource>
 
         </p>
-        <!--
-
         <p style="text-align:left; margin-left: 40px;">
             &nbsp;</p>
         <p style="text-align:left; margin-left: 40px;">
             Parejas</p>
         <p style="text-align:left; margin-left: 40px;">
             &nbsp;</p>
+        <p style="text-align:left; margin-left: 40px;">
+            Nombre Usuario 1</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:TextBox ID="TextBox13" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            Nombre Usuario 2</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:TextBox ID="TextBox14" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            Nombre Plan</p>
+        <p style="text-align:left; margin-left: 40px;">
+            &nbsp;<asp:TextBox ID="TextBox15" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            Hora Inicio</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:TextBox ID="TextBox16" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            Hora Fin</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:TextBox ID="TextBox17" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            Aceptado</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:TextBox ID="TextBox18" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            &nbsp;</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            &nbsp;</p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:Button ID="Button1" runat="server" Text="Insertar" OnClick="ButtonInsertarPareja" />
+        &nbsp;<asp:Button ID="Button2" runat="server" Text="Borrar" OnClick="ButtonBorrarPareja" />
+        </p>
+        <p style="text-align:left; margin-left: 40px;">
+            <asp:Label ID="Error_Pareja" runat="server" Text=""></asp:Label>
+        </p>
         <asp:GridView ID="GridView1" runat="server" Width="360px" style="margin-left: 40px" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="id" >
             <AlternatingRowStyle BackColor="White" />
             <Columns>
@@ -182,11 +224,27 @@
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True" SelectCommand="SELECT * FROM [Parejas]" ProviderName="System.Data.SqlClient"></asp:SqlDataSource>
+        <br />
         <p style="text-align:left; margin-left:40px">
             Favoritos
         </p>
         <p style="text-align:left; margin-left:40px">
-            &nbsp;</p>
+            nombre_usuario</p>
+        <p style="text-align:left; margin-left:40px">
+            <asp:TextBox ID="TextBox19" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left:40px">
+            nombre_usuario_favorito</p>
+        <p style="text-align:left; margin-left:40px">
+            <asp:TextBox ID="TextBox20" runat="server"></asp:TextBox>
+        </p>
+        <p style="text-align:left; margin-left:40px">
+            <asp:Button ID="Button3" runat="server" OnClick="ButtonInsertarFav" Text="Insertar" />
+&nbsp;<asp:Button ID="Button4" runat="server" OnClick="ButtonBorrarFav" Text="Borrar" />
+        </p>
+        <p style="text-align:left; margin-left:40px">
+            <asp:Label ID="LabelErrorFav" runat="server" Text=""></asp:Label>
+        </p>
         <asp:GridView ID="SqlDataSource2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource3" ForeColor="#333333" GridLines="None" style="margin-left:40px" DataKeyNames="id">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
@@ -206,6 +264,5 @@
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True" SelectCommand="SELECT * FROM [Favoritos]"></asp:SqlDataSource>
-            -->
     </div>
 </asp:Content>

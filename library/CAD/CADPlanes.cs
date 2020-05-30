@@ -40,7 +40,13 @@ namespace library
 				DataTable t = new DataTable();
 				t = bdvirtual.Tables["plan"];
 				DataRow nuevafila = t.NewRow();
-				nuevafila[0] = Int32.Parse(t.Rows[t.Rows.Count - 1]["id"].ToString());
+				if(t.Rows.Count != 0)
+				{
+					nuevafila[0] = Int32.Parse(t.Rows[t.Rows.Count - 1]["id"].ToString());
+				} else
+				{
+					nuevafila[0] = 0;
+				}
 				nuevafila[1] = plan.Nombre;
 				nuevafila[2] = plan.Precio;
 				nuevafila[3] = plan.Ciudad;
@@ -72,8 +78,7 @@ namespace library
             SqlConnection c = new SqlConnection(constring);
             try
             {
-                // TODO Comprobar que existe el usuario primero y funcionamiento
-                SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from Usuarios", c);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from Planes", c);
                 dataAdapter.Fill(bdvirtual, "plan");
                 DataTable t = bdvirtual.Tables["plan"];
                 for(int i=t.Rows.Count-1; i>=0; i--)
@@ -115,7 +120,7 @@ namespace library
             try
             {
                 // TODO falla a la hora de excederse del formato
-                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Planes", c);
                 DataAdapter.Fill(bdvirtual, "plan");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["plan"];
@@ -149,7 +154,7 @@ namespace library
             try
             {
                 // TODO Hacer filtrado
-                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Planes", c);
                 DataAdapter.Fill(bdvirtual, "plan");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["plan"];
@@ -162,7 +167,7 @@ namespace library
 					rows[0]["categoria"] = plan.Categoria;
                 }
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(DataAdapter);
-                DataAdapter.Update(bdvirtual, "usuarios");
+                DataAdapter.Update(bdvirtual, "plan");
                 cambiado = true;
             } 
             catch(Exception e)
