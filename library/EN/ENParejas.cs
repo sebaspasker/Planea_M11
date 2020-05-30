@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -206,7 +207,7 @@ namespace library {
             return c.BuscarParejas(this);
         }
 
-        public List<ENParejas> BuscarSolicitudes()
+        public DataSet BuscarSolicitudes()
         {
             CADParejas cad = new CADParejas();
             return cad.BuscarSolicitudes(this);

@@ -113,10 +113,14 @@ namespace library {
             return null;
         }
       
-        public List<ENParejas> BuscarSolicitudes(ENParejas en)
+        public DataSet BuscarSolicitudes(ENParejas en)
         {
-            // TODO
-            return null;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(constring);
+            SqlDataAdapter data = new SqlDataAdapter("Select nombre_usuario_1, nombre_plan, hora_inicio, hora_fin, dia where nombre_usuario_2='" + en.nombre_usuario_2 +
+                "' and aceptado='no'", c);
+            data.Fill(bdvirtual, "parejas");
+            return bdvirtual;
         }
     }
 }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using library;
+using library.UTILS;
 
 namespace planeaWeb {
     public partial class Solicitudes : System.Web.UI.Page {
@@ -18,20 +20,23 @@ namespace planeaWeb {
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            CheckBoxListSolicitudes.Items.Clear();
-            ArrayList array = new ArrayList();
-            ENParejas pareja = new ENParejas();
-            pareja.nombre_usuario_1 = Request.QueryString["nomUsu"];
-            parejasSolicitud = pareja.BuscarSolicitudes();
-            if(parejasSolicitud != null) {
-                foreach(ENParejas en in parejasSolicitud)
+            if(!Page.IsPostBack)
+            {
+                ENParejas solicitud = new ENParejas();
+                string nombre_usuario = Session["nombre_usuario"].ToString();
+                if(!String.IsNullOrEmpty(nombre_usuario))
                 {
-                    array.Add(" Nombre de usuario: " + en.nombre_usuario_1 + " Plan: " + en.nombre_plan + " Hora inicio: " + en.hora_inicio + " Hora fin: " + en.hora_fin);
+                    if(library.UTILS.Filter.filterNombreUsuario(nombre_usuario))
+                    solicitud.nombre_usuario_2 = nombre_usuario;
+                    DataSet data = solicitud.BuscarSolicitudes();
+                    GridView1.DataSource = data.Tables[0];
+                    GridView1.DataBind();
                 }
-            }
-
-            foreach(String arr in array) { 
-                CheckBoxListSolicitudes.Items.Add(arr);
+                else
+                {
+                    // TODO
+                    //Response.Redirect() 
+                }
             }
         }
 
@@ -58,6 +63,36 @@ namespace planeaWeb {
                 {
                     pareja.plan_aceptado = "yes";
                     pareja.ModificarPareja();
+                }
+            }
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = GridView1.SelectedRow;
+            ENParejas pareja = new ENParejas();
+            pareja.nombre_usuario_1 = row.Cells[0].Text;
+            pareja.nombre_plan = row.Cells[1].Text;
+            pareja.nombre_usuario_2 = Session["nombre_usuario"].ToString();
+            if(Filter.filterNombreUsuario(pareja.nombre_usuario_1) &&
+                Filter.filterNombreUsuario(pareja.nombre_usuario_2) &&
+                Filter.filterNombrePlan(pareja.nombre_plan))
+            {
+                if(pareja.SeleccionarPareja())
+                {
+                    pareja.plan_aceptado = "yes";
+                    if(pareja.ModificarPareja())
+                    {
+                        // TODO Imprimir correcto
+                    } 
+                    else
+                    {
+                        // TODO Imprimir error
+                    }
+                }
+                else
+                {
+                    // TODO Imprimir error
                 }
             }
         }

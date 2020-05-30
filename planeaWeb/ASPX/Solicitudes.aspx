@@ -8,8 +8,11 @@
         </p>
         <asp:CheckBoxList ID="CheckBoxListSolicitudes" runat="server" CssClass="label_lista" style="text-align: left"></asp:CheckBoxList>
         <br />
-        <asp:GridView ID="GridView1" runat="server" HorizontalAlign="Center" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="GridView1" runat="server" HorizontalAlign="Center" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="White" />
+            <Columns>
+                <asp:ButtonField ButtonType="Button" Text="Aceptar" CausesValidation="false" />
+            </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
