@@ -22,7 +22,7 @@ namespace planeaWeb {
             ArrayList array = new ArrayList();
             ENParejas pareja = new ENParejas();
             pareja.nombre_usuario_1 = Request.QueryString["nomUsu"];
-            parejasSolicitud = pareja.BuscarSolicitudes();
+            //parejasSolicitud = pareja.BuscarSolicitudes();
             if(parejasSolicitud != null) {
                 foreach(ENParejas en in parejasSolicitud)
                 {

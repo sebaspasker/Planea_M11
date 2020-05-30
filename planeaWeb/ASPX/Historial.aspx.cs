@@ -13,7 +13,7 @@ namespace planeaWeb {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void Page_Load(object sender, EventArgs e)
+        /*protected void Page_Load(object sender, EventArgs e)
         {
             historial_out.Text = "";
             ENParejas pareja = new ENParejas();
@@ -32,7 +32,6 @@ namespace planeaWeb {
                             parejas[i].fecha + "<br />";
                     }
                 } 
-            }
+            }*/
         }
-    }
-}
+   }
