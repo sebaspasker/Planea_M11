@@ -18,4 +18,3 @@ Sí que es cierto que al tener disparidad de horarios al no tener las mismas asi
 
 # Enlaces
 Presentación-> https://docs.google.com/presentation/d/1qDg4PDHQshxTM__YzmuSViNL_UIjZnlu6Z_CSeRI_Ww/edit?usp=sharing
-º
