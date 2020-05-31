@@ -7,11 +7,8 @@
             Solicitudes <br />
         </p>
         <br />
-        <asp:GridView ID="GridView1" runat="server" HorizontalAlign="Center" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="GridView1" AutoGenerateSelectButton=true runat="server" HorizontalAlign="Center" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" >
             <AlternatingRowStyle BackColor="White" />
-            <Columns>
-                <asp:ButtonField ButtonType="Button" Text="Aceptar" CausesValidation="false" />
-            </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -23,6 +20,12 @@
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
+        <br />
+        <asp:DropDownList ID="DropDownList1" runat="server">
+        </asp:DropDownList>
+        <br />
+        <br />
+        <asp:Button ID="Button1" runat="server" Text="Aceptar" />
         <br />
         <br />
         <asp:Label ID="ErrorSolicitud" runat="server" Text=""></asp:Label>
