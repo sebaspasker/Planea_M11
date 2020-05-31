@@ -21,13 +21,6 @@
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
         <br />
-        <asp:DropDownList ID="DropDownList1" runat="server">
-        </asp:DropDownList>
-        <br />
-        <br />
-        <asp:Button ID="Button1" runat="server" Text="Aceptar" />
-        <br />
-        <br />
         <asp:Label ID="ErrorSolicitud" runat="server" Text=""></asp:Label>
         <br />
         <br />

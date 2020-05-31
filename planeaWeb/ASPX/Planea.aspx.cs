@@ -59,8 +59,8 @@ namespace planeaWeb {
                         {
                             if(en.nombre_usuario != nombre_usuario)
                             {
-                                lista_planea.Text += "Nombre: '" + en.nombre + "' -- Nombre Usuario: '" +
-                                     en.nombre_usuario + "' -- Preferencia: '" + en.preferencia + "'<br />";
+                                lista_planea.Text += "Nombre: " + en.nombre + " -- Nombre Usuario: " +
+                                     en.nombre_usuario + " -- Preferencia: " + en.preferencia + "<br />";
                                 al.Add(en.nombre_usuario);
                             }
                         }
