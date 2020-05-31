@@ -13,3 +13,5 @@ Cosas por hacer:
 
 	- Base de datos
 		- Cambiado base de datos formato Fecha a date
+
+		C:\Program Files (x86)\IIS Express\chromedriver.exe does not exist.

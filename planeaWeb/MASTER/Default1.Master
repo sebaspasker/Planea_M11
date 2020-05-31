@@ -42,8 +42,6 @@
                 </asp:MenuItem>
                 <asp:MenuItem Value="cell5" >
                 </asp:MenuItem>
-                <asp:MenuItem Value="cell6" >
-                </asp:MenuItem>
             </Items>
         </asp:Menu>
     </div>

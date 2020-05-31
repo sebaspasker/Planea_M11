@@ -42,10 +42,10 @@ namespace library
 				DataRow nuevafila = t.NewRow();
 				if(t.Rows.Count != 0)
 				{
-					nuevafila[0] = Int32.Parse(t.Rows[t.Rows.Count - 1]["id"].ToString());
+					nuevafila[0] = Int32.Parse(t.Rows[t.Rows.Count - 1]["id"].ToString()) +1 ;
 				} else
 				{
-					nuevafila[0] = 0;
+					nuevafila[0] = 1;
 				}
 				nuevafila[1] = plan.Nombre;
 				nuevafila[2] = plan.Precio;
