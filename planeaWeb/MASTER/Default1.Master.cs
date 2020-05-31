@@ -34,7 +34,7 @@ namespace planeaWeb
                 Menu1.Items[2].Text = "Registrarse";
                 Menu1.Items[2].NavigateUrl = "~/ASPX/Registro.aspx";
 
-                Menu1.Items[3].Text = "Buscar plan";
+                Menu1.Items[3].Text = "Buscar Plan";
                 Menu1.Items[3].NavigateUrl = "~/ASPX/BuscarPlan.aspx";
 
                 Menu1.Items[4].Text = "Buscar Usuario";

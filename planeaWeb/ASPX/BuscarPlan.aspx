@@ -6,11 +6,9 @@
         </p>
         <p >&nbsp;&nbsp; Nombre del plan:&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="Nombre" runat="server" ></asp:TextBox> &nbsp;&nbsp;
-            <asp:Button ID="ButtonBuscar" runat="server" Text="Buscar" OnClick="ButtonBuscar2"/>
+            <asp:Button ID="ButtonBuscar" runat="server" Text="Buscar" OnClick="ButtonBuscar2" style="height: 26px"/>
             <br/>
             &nbsp; <br />
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Formato Incorrecto" 
-                ValidationExpression="[a-bA-B]\s{3-20}" ControlToValidate="Nombre"></asp:RegularExpressionValidator>
         </p>
         <p>
             <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center">
@@ -26,8 +24,9 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
             &nbsp;<br />
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ASPX/Webscrap.aspx" Text="¿No sale el plan que te esperabas? Aporta tu granito de arena">HyperLink</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ASPX/Webscrap.aspx" >¿No sale el plan que te esperabas? Aporta tu granito de arena</asp:HyperLink>
         </p>
     </div>
 </asp:Content>
