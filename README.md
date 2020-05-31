@@ -8,7 +8,8 @@ Sí que es cierto que al tener disparidad de horarios al no tener las mismas asi
 
 # Instrucciones de instalación
 
-//TODO
+Para el webscraping (se utiliza en Webscrap.aspx) de los paquetes de Nuget se necesita Selenium.WebDriver y Selenium.Chrome.Webdriver y poner el ejecutable 
+pasado en el camino (C:\Program Files (x86)\IIS Express\chromedriver.exe). Además, utilizamos AJAX, Cookies y Session.
 
 # Tareas asignadas a cada miembro
 | Miembro | Tarea |
