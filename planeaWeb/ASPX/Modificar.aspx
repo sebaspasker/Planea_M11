@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER/Default2.Master" AutoEventWireup="true" CodeBehind="Modificar.aspx.cs" Inherits="planeaWeb.Modificar" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER/Default1.Master" AutoEventWireup="true" CodeBehind="Modificar.aspx.cs" Inherits="planeaWeb.Modificar" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -50,6 +50,7 @@
             <ajaxToolkit:ConfirmButtonExtender ID="ConfirmButtonExtender1" runat="server" ConfirmText="Seguro que deseas eliminar tu perfil?" Enabled="true" TargetControlID="ButtonEliminarM"/>
         </p>
         <p style="margin-left: 40px">
+            <asp:Button ID="Button1" runat="server" Text="Cerrar sesión" OnClick="Button1_Click" />
             <br />
         </p>
         <p style="margin-left: 40px; color: #ffffff"><asp:Label runat="server" ID="ErrorModificar" /></p>

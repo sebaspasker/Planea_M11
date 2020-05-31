@@ -211,7 +211,7 @@ namespace library
         /// Busca en base a la categoria
         /// </summary>
         /// <returns></returns>
-        public DataSet BuscarPlanesPreferencia()
+        public List<ENPlanes> BuscarPlanesPreferencia()
         {
             CADPlanes c = new CADPlanes();
             return c.BuscarPlanesPreferencia(this);
@@ -225,6 +225,14 @@ namespace library
         {
             CADPlanes c = new CADPlanes();
             return c.ListarPlanes();
+        }
+
+        public void clear()
+        {
+            Categoria = "";
+            Precio = 0;
+            Nombre = "";
+            Categoria = "";
         }
     }
 }

@@ -102,5 +102,80 @@ namespace planeaWeb.ASPX {
                 Label2.Text = "Formato incorrecto nombre plan";
             }
         }
+
+        protected void ButtonInsertarPareja(object sender, EventArgs e)
+        {
+            ENParejas pareja = new ENParejas();
+            pareja.nombre_usuario_1 = TextBox13.Text;
+            pareja.nombre_usuario_2 = TextBox14.Text;
+            pareja.nombre_plan = TextBox15.Text;
+            pareja.hora_inicio = Int32.Parse(TextBox16.Text);
+            pareja.hora_fin = Int32.Parse(TextBox17.Text);
+            pareja.fecha = Calendar1.SelectedDate;
+            pareja.plan_aceptado = TextBox18.Text;
+            string mensaje = Filter.filterPareja(pareja);
+            if(mensaje == "TODO_OK")
+            {
+                if(!pareja.SeleccionarPareja())
+                {
+                    if(pareja.InsertarPareja())
+                    {
+                        Error_Pareja.Text = "Se ha podido insertar correctamente la pareja";
+                    }
+                    else
+                    {
+
+                        Error_Pareja.Text = "No se ha podido insertar la pareja";
+                    }
+                }
+                else
+                {
+                    Error_Pareja.Text = "La pareja ya existe";
+                }
+            } else
+            {
+                Error_Pareja.Text = mensaje;
+            }
+        }
+
+        protected void ButtonBorrarPareja(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ButtonBorrarFav(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ButtonInsertarFav(object sender, EventArgs e)
+        {
+            ENFavoritos favorito = new ENFavoritos();
+            favorito.nombre_usuario = TextBox19.Text;
+            favorito.nombre_usuario_favorito = TextBox20.Text;
+            string mensaje = Filter.filterFavorito(favorito);
+            if(mensaje == "TODO_OK")
+            {
+                if(!favorito.SeleccionarFavorito())
+                {
+                    if(favorito.InsertarFavorito())
+                    {
+                        LabelErrorFav.Text = "El favorito se ha insertado correctamente";
+                    }
+                    else
+                    {
+                        LabelErrorFav.Text = "El favorito no se ha podido insertar";
+                    }
+                }
+                else
+                {
+                    LabelErrorFav.Text = "El favorito ya existe";
+                }
+            }
+            else
+            {
+                LabelErrorFav.Text = mensaje;
+            }
+        }
     }
 }

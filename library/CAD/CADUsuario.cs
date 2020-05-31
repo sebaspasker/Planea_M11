@@ -42,7 +42,13 @@ namespace library {
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["usuarios"];
                 DataRow nuevafila = t.NewRow();
-                nuevafila[0] = Int32.Parse(t.Rows[t.Rows.Count - 1]["id"].ToString()) + 1;
+                if(t.Rows.Count != 0)
+                {
+                    nuevafila[0] = Int32.Parse(t.Rows[t.Rows.Count - 1]["id"].ToString()) + 1;
+                } else
+                {
+                    nuevafila[0] = 0;
+                }
                 nuevafila[1] = usuario.nombre;
                 nuevafila[2] = usuario.apellidos;
                 nuevafila[3] = usuario.nombre_usuario;
@@ -180,7 +186,7 @@ namespace library {
                     encontrado = true;
                 }
             }
-            catch(Exception e) { throw e; encontrado = false; Console.WriteLine(e.Message + " " + e.ToString()); }
+            catch(Exception e) { encontrado = false; Console.WriteLine(e.Message + " " + e.ToString()); throw e; }
             finally { c.Close();  }
 
             return encontrado;
@@ -193,8 +199,42 @@ namespace library {
         /// <returns></returns>
         public bool PrimerUsuario(ENUsuario usuario)
         {
-            // TODO Santi
-            return false;
+            bool leido = false;
+            SqlConnection conectar = new SqlConnection(constring);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", conectar);
+                DataAdapter.Fill(bdvirtual, "usuarios");
+                DataTable t = bdvirtual.Tables["usuarios"];
+                DataRow dr = t.Rows[0];
+                if(dr != null)
+                {
+                    leido = true;
+                    usuario.nombre = dr["nombre"].ToString();
+                    usuario.apellidos = dr["apellidos"].ToString();
+                    usuario.ciudad = dr["ciudad"].ToString();
+                    usuario.preferencia = dr["preferencia"].ToString();
+                    usuario.edad = Int32.Parse(dr["edad"].ToString());
+                    usuario.email = dr["email"].ToString();
+                    usuario.password = dr["password"].ToString();
+
+                }
+                else
+                {
+                    Console.WriteLine("No se pudo realizar el procedimiento");
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("No se pudo realizar el procedimiento", e.Message);
+                throw e;
+            }
+            finally
+            {
+                conectar.Close();
+            }
+            return leido;
         }
 
 
@@ -217,22 +257,32 @@ namespace library {
                 t = bdvirtual.Tables["usuarios"];
                 string criteria = "nombre_usuario='" + usuario.nombre_usuario + "'";
                 DataRow[] dataRows = t.Select(criteria);
-                int posSiguiente;
+                int posSiguiente=0;
                 if(dataRows != null && dataRows.Length != 0)
                 {
-                    posSiguiente = Int32.Parse(dataRows[0]["id"].ToString());
-                    DataRow dr = t.Rows[posSiguiente];
-                    if(dr["nombre_usuario"].ToString() != "")
+                    for(int i=0; i < t.Rows.Count - 1; i++)
                     {
-                        encontrado = true;
-                        usuario.nombre = dr["nombre"].ToString();
-                        usuario.apellidos = dr["apellidos"].ToString();
-                        usuario.ciudad = dr["ciudad"].ToString();
-                        usuario.preferencia = dr["preferencia"].ToString();
-                        usuario.edad = Int32.Parse(dr["edad"].ToString());
-                        usuario.email = dr["email"].ToString();
-                        usuario.password = dr["password"].ToString();
+                        DataRow db = t.Rows[i];
+                        if (db["nombre_usuario"].ToString() == usuario.nombre_usuario)
+                        {
+                            posSiguiente = i+1;
+                        }
+                    }
+                    if (posSiguiente != 0)
+                    {
+                        DataRow dr = t.Rows[posSiguiente];
+                        if (dr != null)
+                        {
+                            encontrado = true;
+                            usuario.nombre = dr["nombre"].ToString();
+                            usuario.apellidos = dr["apellidos"].ToString();
+                            usuario.ciudad = dr["ciudad"].ToString();
+                            usuario.preferencia = dr["preferencia"].ToString();
+                            usuario.edad = Int32.Parse(dr["edad"].ToString());
+                            usuario.email = dr["email"].ToString();
+                            usuario.password = dr["password"].ToString();
 
+                        }
                     }
                 }
             }
@@ -255,12 +305,11 @@ namespace library {
             try
             {
                 SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", conectar);
-                DataAdapter.Fill(bdvirtual, "plan");
+                DataAdapter.Fill(bdvirtual, "usuarios");
                 DataTable t = bdvirtual.Tables["usuarios"];
                 DataRow dr = t.Rows[t.Rows.Count - 1];
-                if(dr["nombre_usuario"].ToString() != "")
+                if(dr != null)
                 {
-                    leido = true;
                     usuario.nombre = dr["nombre"].ToString();
                     usuario.apellidos = dr["apellidos"].ToString();
                     usuario.ciudad = dr["ciudad"].ToString();
@@ -268,7 +317,7 @@ namespace library {
                     usuario.edad = Int32.Parse(dr["edad"].ToString());
                     usuario.email = dr["email"].ToString();
                     usuario.password = dr["password"].ToString();
-
+                    leido = true;
                 }
                 else
                 {
@@ -306,22 +355,32 @@ namespace library {
                 t = bdvirtual.Tables["usuarios"];
                 string criteria = "nombre_usuario='" + usuario.nombre_usuario + "'";
                 DataRow[] dataRows = t.Select(criteria);
-                int posSiguiente;
                 if(dataRows != null && dataRows.Length != 0)
                 {
-                    posSiguiente = Int32.Parse(dataRows[0]["id"].ToString()) - 2;
-                    DataRow dr = t.Rows[posSiguiente];
-                    if(dr["nombre_usuario"].ToString() != "")
+                    int posSiguiente = t.Rows.Count - 1;
+                    for (int i = 0; i < t.Rows.Count - 1; i++)
                     {
-                        encontrado = true;
-                        usuario.nombre = dr["nombre"].ToString();
-                        usuario.apellidos = dr["apellidos"].ToString();
-                        usuario.ciudad = dr["ciudad"].ToString();
-                        usuario.preferencia = dr["preferencia"].ToString();
-                        usuario.edad = Int32.Parse(dr["edad"].ToString());
-                        usuario.email = dr["email"].ToString();
-                        usuario.password = dr["password"].ToString();
+                        DataRow db = t.Rows[i];
+                        if (db["nombre_usuario"].ToString() == usuario.nombre_usuario)
+                        {
+                            posSiguiente = i - 1;
+                        }
+                    }
+                    if (posSiguiente != t.Rows.Count - 1)
+                    {
+                        DataRow dr = t.Rows[posSiguiente];
+                        if (dr["nombre_usuario"].ToString() != "")
+                        {
+                            encontrado = true;
+                            usuario.nombre = dr["nombre"].ToString();
+                            usuario.apellidos = dr["apellidos"].ToString();
+                            usuario.ciudad = dr["ciudad"].ToString();
+                            usuario.preferencia = dr["preferencia"].ToString();
+                            usuario.edad = Int32.Parse(dr["edad"].ToString());
+                            usuario.email = dr["email"].ToString();
+                            usuario.password = dr["password"].ToString();
 
+                        }
                     }
                 }
             }
@@ -350,13 +409,39 @@ namespace library {
         /// </summary>
         /// <param name="en"></param>
         /// <returns></returns>
-        public DataSet BuscarPreferencia(ENUsuario en)
+        public List<ENUsuario> BuscarPreferencia(ENUsuario en)
         {
+            List<ENUsuario> usuarios = new List<ENUsuario>();
             DataSet bdvirtual = new DataSet();
             SqlConnection c = new SqlConnection(constring);
-            SqlDataAdapter da = new SqlDataAdapter("select nombre, nombre_usuario, ciudad, preferencia from Usuairos where preferencia like '" + en.preferencia + "';", c);
-            da.Fill(bdvirtual, "usuarios");
-            return bdvirtual;
+            try
+            {
+                // TODO falla a la hora de excederse del formato
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
+                DataAdapter.Fill(bdvirtual, "usuarios");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["usuarios"];
+                string criteria = "preferencia='" + en.preferencia+ "'";
+                DataRow[] dataRows = t.Select(criteria);
+                if(dataRows != null && dataRows.Length != 0)
+                {
+                    foreach(DataRow row in dataRows) {
+                        ENUsuario usuario = new ENUsuario();
+                        usuario.nombre = row["nombre"].ToString();
+                        usuario.nombre_usuario = row["nombre_usuario"].ToString();
+                        usuario.apellidos = row["apellidos"].ToString();
+                        usuario.ciudad = row["ciudad"].ToString();
+                        usuario.preferencia = row["preferencia"].ToString();
+                        usuario.edad = Int32.Parse(row["edad"].ToString());
+                        usuario.email = row["email"].ToString();
+                        usuarios.Add(usuario);
+                    }
+                }
+            }
+            catch(Exception e) { Console.WriteLine(e.Message + " " + e.ToString()); throw e; }
+            finally { c.Close(); }
+
+            return usuarios;
         }
 
         public DataSet BuscarNombre(ENUsuario en)

@@ -30,9 +30,7 @@ namespace planeaWeb {
             en.ciudad = TextCiudad.Text;
             en.preferencia = TextPreferencia.Text;
             en.password = TextPasswd.Text;
-            Filter filtraUsuario = new Filter();
-            string mensajeFiltrado = filtraUsuario.FiltradoUsuario(en, false);
-
+            string mensajeFiltrado = Filter.filterRegistro(en);
             if(mensajeFiltrado == "TODO_OK")
             {
                if(en.InsertarUsuario())

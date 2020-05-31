@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER/Default2.Master" AutoEventWireup="true" CodeBehind="Historial.aspx.cs" Inherits="planeaWeb.Historial" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER/Default1.Master" AutoEventWireup="true" CodeBehind="Historial.aspx.cs" Inherits="planeaWeb.Historial" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../CSS/Registro.css" rel="stylesheet" style="margin-top: 20px"/>
     <div class="Registrarse_css1" style="margin-top: 20px">
