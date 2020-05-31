@@ -26,7 +26,8 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
-            &nbsp;
+            &nbsp;<br />
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ASPX/Webscrap.aspx" Text="¿No sale el plan que te esperabas? Aporta tu granito de arena">HyperLink</asp:HyperLink>
         </p>
     </div>
 </asp:Content>

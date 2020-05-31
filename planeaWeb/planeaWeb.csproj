@@ -47,6 +47,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\OneDrive\Documentos\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -83,6 +84,7 @@
     <Content Include="ASPX\developer.aspx" />
     <Content Include="ASPX\principal1.aspx" />
     <Content Include="ASPX\principal2.aspx" />
+    <Content Include="ASPX\Webscrap.aspx" />
     <Content Include="CSS\Estilo_Default1.css" />
     <Content Include="ASPX\Favoritos.aspx" />
     <Content Include="ASPX\Historial.aspx" />
@@ -138,6 +140,13 @@
     </Compile>
     <Compile Include="ASPX\principal2.aspx.designer.cs">
       <DependentUpon>principal2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ASPX\Webscrap.aspx.cs">
+      <DependentUpon>Webscrap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASPX\Webscrap.aspx.designer.cs">
+      <DependentUpon>Webscrap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -210,7 +219,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\library\library.csproj">

@@ -35,11 +35,16 @@ namespace planeaWeb
             if(Filter.filterNombreUsuario(Login1.UserName) && Filter.filterPassword(Login1.Password))
             {
                 bool login = library.UTILS.Login.loginUsuario(Login1.UserName, Login1.Password);
+                bool admin = library.UTILS.Login.loginAdmin(Login1.UserName, Login1.Password);
                 e.Authenticated = login;
                 if(login)
                 {
                     Session["nombre_usuario"] = Login1.UserName;
                     Response.Redirect("~/ASPX/principal2.aspx");
+                } 
+                else if(admin)
+                {
+                    Response.Redirect("~/ASPX/developer.aspx");
                 }
             } 
             else

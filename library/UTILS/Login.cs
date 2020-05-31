@@ -32,5 +32,10 @@ namespace library.UTILS {
                 return false;
             }
         }
+
+        public static bool loginAdmin(string nombre_usuario, string password)
+        {
+            return nombre_usuario == "admin" && password == "admin";
+        }
     }
 }
