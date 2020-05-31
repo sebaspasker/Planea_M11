@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER/Default2.Master" AutoEventWireup="true" CodeBehind="Planea.aspx.cs" Inherits="planeaWeb.Planea" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MASTER/Default1.Master" AutoEventWireup="true" CodeBehind="Planea.aspx.cs" Inherits="planeaWeb.Planea" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../CSS/Registro.css" rel="stylesheet" />
     <div class="Registrarse_css1" style="margin-top: 20px">
@@ -10,7 +10,7 @@
             </p>
             <br />
             <br />
-            <asp:DropDownList ID="DropDownList1" runat="server" Width="200px">
+            <asp:DropDownList ID="DropDownList1" runat="server" Width="200px" >
                 <asp:ListItem Text="-- Select Usuario --" Value="0"></asp:ListItem>
             </asp:DropDownList>
             <br />

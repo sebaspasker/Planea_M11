@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -266,17 +267,38 @@ namespace library {
         /// No requiere de atributos.
         /// </summary>
         /// <returns>true si consigue listar a todos los usuarios, sino false (si está vacio) (si está vacio)</returns>
-        public List<ENUsuario> ListarUsuarios()
+        public DataSet ListarUsuarios()
         {
             CADUsuario c = new CADUsuario();
             return c.ListarUsuarios();
         }
 
+        /// <summary>
+        /// Busca los usuarios en base a una preferencia
+        /// </summary>
+        /// <returns></returns>
         public List<ENUsuario> BuscarPreferencia()
         {
             CADUsuario c = new CADUsuario();
             return c.BuscarPreferencia(this); 
         }
 
+        public DataSet BuscarNombre()
+        {
+            CADUsuario c = new CADUsuario();
+            return c.BuscarNombre(this);
+        }
+
+        public void clear()
+        {
+            nombre = "";
+            nombre_usuario = "";
+            apellidos = "";
+            edad = 0;
+            preferencia = "";
+            ciudad = "";
+            email = "";
+            password = "";
+        }
     }
 }

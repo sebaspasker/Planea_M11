@@ -1,0 +1,20 @@
+Cosas por hacer:
+	- ASPX
+		- Solicitudes
+			- Testear y controlar excepciones Solicitudes.aspx
+		- Planea
+			- Testear planea
+		- Favoritos
+		- Buscar Planes
+			- Falla y no se porque
+	- CADS
+		- CADUsuario
+			- Testear BuscarPreferencia
+		- CADPlanes
+			- Testear BuscarPlanes
+
+	- Base de datos
+		- Cambiado base de datos formato Fecha a date
+		- Alargado algunos atributos
+
+		C:\Program Files (x86)\IIS Express\chromedriver.exe does not exist.

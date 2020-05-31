@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
+using System.Web.UI.WebControls;
 
 namespace library {
     public class ENFavoritos {
@@ -70,6 +76,12 @@ namespace library {
             return c.InsertarFavorito(this);
         }
 
+        public bool SeleccionarFavorito()
+        {
+            CADFavoritos c = new CADFavoritos();
+            return c.SeleccionarFavorito(this);
+        }
+
         /// <summary>
         /// Elimina la relación de usuario-favorito en la tabla Favoritos. Llama a CADFavorito.
         /// Precisa de todos los atributos.
@@ -93,28 +105,17 @@ namespace library {
         }
 
         /// <summary>
-        /// Busca la relación de usuario-favorito en la tabla Favoritos. Llama a CADFavorito.
-        /// Precisa de todos los atributos.
-        /// </summary>
-        /// <returns>true si ha podido encontrar al favorito, si no false</returns>
-        public bool LeerFavorito()
-        {
-            CADFavoritos c = new CADFavoritos();
-            return c.LeerFavorito(this);
-        }
-
-        /// <summary>
         /// Lista todas las relaciones usuario-favorito en la tabla de Favoritos. Llama a CADFavorito.
         /// No precisa de atributos
         /// </summary>
         /// <returns></returns>
-        public List<ENFavoritos> ListarFavoritos()
+        public DataSet ListarFavoritos()
         {
             CADFavoritos c = new CADFavoritos();
             return c.ListarFavoritos();
         }
 
-        public List<ENFavoritos> BuscarFavoritos()
+        public DataSet BuscarFavoritos()
         {
             CADFavoritos c = new CADFavoritos();
             return c.BuscarFavoritos(this);

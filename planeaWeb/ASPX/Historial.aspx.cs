@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,23 +16,14 @@ namespace planeaWeb {
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            historial_out.Text = "";
-            ENParejas pareja = new ENParejas();
-            string usuario = Request.QueryString["nomUsu"];
-            
-            if(usuario != "" && usuario != null)
+            string usuario = Session["nombre_usuario"].ToString();
+            if(!String.IsNullOrEmpty(usuario))
             {
-                if(usuario.Length > 12) {
-                    pareja.nombre_usuario_1 = usuario;
-                    List<ENParejas> parejas = pareja.BuscarParejas();
-
-                    for(int i = 0; i < parejas.Count(); i++)
-                    {
-                        historial_out.Text += "Nombre usuario de la pareja: " + parejas[i].nombre_usuario_2 + " -- Plan: " +
-                            parejas[i].nombre_plan + " -- Hora: " + parejas[i].hora_inicio + "-" + parejas[i].hora_fin + " -- fecha:" + 
-                            parejas[i].fecha + "<br />";
-                    }
-                } 
+                ENParejas pareja = new ENParejas();
+                pareja.nombre_usuario_1 = usuario;
+                DataSet data = pareja.BuscarParejas();
+                GridView1.DataSource = data;
+                GridView1.DataBind();
             }
         }
     }

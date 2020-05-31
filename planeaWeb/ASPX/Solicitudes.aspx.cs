@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using library;
+using library.UTILS;
 
 namespace planeaWeb {
     public partial class Solicitudes : System.Web.UI.Page {
-        List<ENParejas> parejasSolicitud;
-
         /// <summary>
         /// Imprime las solicitudes (planes) pendiente de confirmación de parte del usuario
         /// </summary>
@@ -18,47 +18,44 @@ namespace planeaWeb {
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            CheckBoxListSolicitudes.Items.Clear();
-            ArrayList array = new ArrayList();
-            ENParejas pareja = new ENParejas();
-            pareja.nombre_usuario_1 = Request.QueryString["nomUsu"];
-            parejasSolicitud = pareja.BuscarSolicitudes();
-            if(parejasSolicitud != null) {
-                foreach(ENParejas en in parejasSolicitud)
-                {
-                    array.Add(" Nombre de usuario: " + en.nombre_usuario_1 + " Plan: " + en.nombre_plan + " Hora inicio: " + en.hora_inicio + " Hora fin: " + en.hora_fin);
+            if(!Page.IsPostBack)
+            {
+                ENParejas solicitud = new ENParejas();
+                string nombre_usuario = Session["nombre_usuario"].ToString();
+                if(!String.IsNullOrEmpty(nombre_usuario)) {
+                    if(library.UTILS.Filter.filterNombreUsuario(nombre_usuario))
+                    {
+                        solicitud.nombre_usuario_2 = nombre_usuario;
+                        DataSet data = solicitud.BuscarSolicitudes();
+                        GridView1.DataSource = data.Tables[0];
+                        GridView1.DataBind();
+                    }
                 }
-            }
-
-            foreach(String arr in array) { 
-                CheckBoxListSolicitudes.Items.Add(arr);
             }
         }
 
-        /// <summary>
-        /// Comprueba las solicitudes seleccionadas y los pone como correctas en la BBDD
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void FunctionAgregarSolicitud(object sender, EventArgs e)
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            List<ENParejas> parejasAceptadas = new List<ENParejas>();
-            for(int i=0; i<CheckBoxListSolicitudes.Items.Count; i++)
+            GridViewRow row = GridView1.SelectedRow;
+            ENParejas pareja = new ENParejas();
+            pareja.nombre_usuario_1 = row.Cells[1].Text;
+            pareja.nombre_plan = row.Cells[2].Text; 
+            pareja.nombre_usuario_2 = Session["nombre_usuario"].ToString();
+            if(pareja.SeleccionarPareja())
             {
-                if(CheckBoxListSolicitudes.Items[i].Selected)
+                pareja.plan_aceptado = "yes";
+                if(pareja.ModificarPareja())
                 {
-                    parejasAceptadas.Add(parejasSolicitud[i]);
-                }     
-            }
-
-            if(parejasAceptadas != null)
-            {
-                foreach(ENParejas pareja in parejasAceptadas)
+                    ErrorSolicitud.Text = "Plan aceptado!";
+                } 
+                else
                 {
-                    pareja.plan_aceptado = true;
-                    pareja.ModificarPareja();
+                    ErrorSolicitud.Text = "La pareja no se ha podido modificar";
                 }
+            }
+            else
+            {
+                ErrorSolicitud.Text = "No existe la pareja" + pareja.nombre_usuario_1 + " " + pareja.nombre_usuario_2 + " " + pareja.nombre_plan;
             }
         }
     }

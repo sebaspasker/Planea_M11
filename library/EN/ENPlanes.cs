@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -200,7 +201,7 @@ namespace library
         /// Busca en base al nombre del plan
         /// </summary>
         /// <returns></returns>
-        public List<ENPlanes> BuscarPlanes()
+        public DataSet BuscarPlanes()
         {
             CADPlanes c = new CADPlanes();
             return c.BuscarPlanes(this);
@@ -220,12 +221,18 @@ namespace library
         /// Devuelve una lista con todos los planes de la base de datos, tabla Parejas. Llama a CADPlanes.
         /// </summary>
         /// <returns>Lista de parejas de ENPlanes</returns>
-        public List<ENPlanes> ListarPlanes()
+        public DataSet ListarPlanes()
         {
             CADPlanes c = new CADPlanes();
             return c.ListarPlanes();
         }
 
-        
+        public void clear()
+        {
+            Categoria = "";
+            Precio = 0;
+            Nombre = "";
+            Categoria = "";
+        }
     }
 }

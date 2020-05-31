@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
+using System.Web.UI.WebControls;
 
 namespace library {
     public class ENParejas {
@@ -96,8 +102,8 @@ namespace library {
             }
         }
 
-        private bool _plan_aceptado;
-        public bool plan_aceptado
+        private string _plan_aceptado;
+        public string plan_aceptado
         {
             get
             {
@@ -110,8 +116,8 @@ namespace library {
             }
         }
 
-        private string _fecha;
-        public string fecha
+        private DateTime _fecha;
+        public DateTime fecha
         {
             get
             {
@@ -120,7 +126,7 @@ namespace library {
 
             set
             {
-                fecha = value;
+                _fecha = value;
             }
         }
 
@@ -193,20 +199,20 @@ namespace library {
         /// Devuelve una lista con todas las parejas de la base de datos, tabla Parejas. Llama a CADParejas.
         /// </summary>
         /// <returns>Lista de parejas de ENParejas</returns>
-        public List<ENParejas> ListarParejas()
+        public DataSet ListarParejas()
         {
             CADParejas c = new CADParejas();
             return c.ListarParejas();
         }
 
 
-        public List<ENParejas> BuscarParejas()
+        public DataSet BuscarParejas()
         {
             CADParejas c = new CADParejas();
             return c.BuscarParejas(this);
         }
 
-        public List<ENParejas> BuscarSolicitudes()
+        public DataSet BuscarSolicitudes()
         {
             CADParejas cad = new CADParejas();
             return cad.BuscarSolicitudes(this);
