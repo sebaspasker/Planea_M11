@@ -1,5 +1,6 @@
 # PlaneaWeb Readme
 Sebastián Pasker González(coordinador)
+
 Santiago Sáez Caselles
 
 # Principales problemas encontrados en la realización del proyecto
