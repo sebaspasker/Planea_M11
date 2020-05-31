@@ -148,7 +148,6 @@
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource22" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [Planes]"></asp:SqlDataSource>
-
         </p>
         <p style="text-align:left; margin-left: 40px;">
             &nbsp;</p>

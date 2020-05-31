@@ -1,55 +1,20 @@
-# Propuesta de web HADA
-		
-Nombre de los Miembros:
+# PlaneaWeb Readme
+Sebastián Pasker González(coordinador)
+Santiago Sáez Caselles
 
--Sebastian Pasker González(coordinador)
+# Principales Problemas encontrados 
+En este proyecto no ha habido ningún problema de coordinación a la hora de distribuir las tareas ni problemas con ninguno de los integrantes del grupo.
+Sí que es cierto que al tener disparidad de horarios al no tener las mismas asignaturas, hemos tenido algunos problemas a la hora de reunirnos pero aun así hemos podido reunirnos y coordinarnos varias veces.
 
--Santiago Sáez Caselles
+# Instrucciones de instalación
 
-Turno:
+//TODO
 
-Martes 11:00-13:00
+# Tareas asignadas a cada miembro
+| Miembro | Tarea |
+| -- | -- |
+| Sebastián Pasker González | Asignar tareas, WebScrapping, Diseño Base de Datos, CADUsuario, CADPlanes, Resto de .aspx |
+| Santiago Sáez Caselles | Documentación, Presentación, CADFavoritos, CADParejas, Tests de los Métodos, MasterPage.aspx, Modificar.aspx, Login.aspx, Principal2.aspx, BuscarUsuario.aspx |
 
-# Descripción
-
-
-Esta página web consistirá en un planificador personal de planes entre diferentes usuarios. Dos usuarios podrán acordar un horario de disponibilidad y la página proporcionará varios planes dentro de la categoria propuesta en la ciudad de uno de los dos integrantes.
-
-# Parte pública:
-
-- Ofrecer el login -> permitirá al usuario registrarse en la web, o si ya lo está acceder a su perfil mediante una contraseña y un usuario.
-privada de la misma.
-
-- Mostrar usuarios -> Mostrar otros usuarios.
-
-- Mostrar planes -> Muestra una lista de los planes existentes (restaurantes, cines...).
-
-Listado de EN públicas:
-
-- ENUsuario -> Introducir, Eliminar y modificar usuarios. 
-
-- ENPlanes -> Introducir, Eliminar y modificar planes.
-
-# Parte privada:
-
-- Selección de plan -> El usuario podrá elegir entre uno de los candidatos con la misma disponibilidad y horario en común.
-
-- Lista de favoritos -> Personas con las que volverías a quedar o te han llamado la atención.
-
-- Historial -> Historial de planes que has hecho (Aquí se seleccionan los favoritos).
-
-- Modificar tu perfil -> Cambiar tus datos personales.
-
-- Cambiar disponibilidad.
-
-Listado de EN privadas:
-
-- ENParejas-> Guadará las parejas con sus nombres(nombre de usuario), sus planes y la hora.
-
-- ENFavoritos -> Guardará los usuarios favoritos del individuo.
-
-Posibles mejoras:
-- Web scraping para los usuarios en el cual no hayan planes en su ciudad.
-- Horario de disponibilidad en formato agenda (Solo semanal).
-
-º
+# Enlaces
+Presentación-> https://docs.google.com/presentation/d/1qDg4PDHQshxTM__YzmuSViNL_UIjZnlu6Z_CSeRI_Ww/edit?usp=sharing

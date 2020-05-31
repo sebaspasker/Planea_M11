@@ -199,9 +199,44 @@ namespace library {
         /// <returns></returns>
         public bool PrimerUsuario(ENUsuario usuario)
         {
-            // TODO Santi
-            return false;
+            bool leido = false;
+            SqlConnection conectar = new SqlConnection(constring);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", conectar);
+                DataAdapter.Fill(bdvirtual, "usuarios");
+                DataTable t = bdvirtual.Tables["usuarios"];
+                DataRow dr = t.Rows[0];
+                if(dr != null)
+                {
+                    leido = true;
+                    usuario.nombre = dr["nombre"].ToString();
+                    usuario.apellidos = dr["apellidos"].ToString();
+                    usuario.ciudad = dr["ciudad"].ToString();
+                    usuario.preferencia = dr["preferencia"].ToString();
+                    usuario.edad = Int32.Parse(dr["edad"].ToString());
+                    usuario.email = dr["email"].ToString();
+                    usuario.password = dr["password"].ToString();
+
+                }
+                else
+                {
+                    Console.WriteLine("No se pudo realizar el procedimiento");
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("No se pudo realizar el procedimiento", e.Message);
+                throw e;
+            }
+            finally
+            {
+                conectar.Close();
+            }
+            return leido;
         }
+
 
         /// <summary>
         /// Devuelve el siguiente usuario al usuario pasado como parámetro en la BBDD tabla Usuarios.
@@ -210,8 +245,51 @@ namespace library {
         /// <returns></returns>
         public bool SiguienteUsuario(ENUsuario usuario)
         {
-            // TODO Santi
-            return false;
+            bool encontrado = false;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(constring);
+            try
+            {
+                // TODO falla a la hora de excederse del formato
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
+                DataAdapter.Fill(bdvirtual, "usuarios");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["usuarios"];
+                string criteria = "nombre_usuario='" + usuario.nombre_usuario + "'";
+                DataRow[] dataRows = t.Select(criteria);
+                int posSiguiente=0;
+                if(dataRows != null && dataRows.Length != 0)
+                {
+                    for(int i=0; i < t.Rows.Count - 1; i++)
+                    {
+                        DataRow db = t.Rows[i];
+                        if (db["nombre_usuario"].ToString() == usuario.nombre_usuario)
+                        {
+                            posSiguiente = i+1;
+                        }
+                    }
+                    if (posSiguiente != 0)
+                    {
+                        DataRow dr = t.Rows[posSiguiente];
+                        if (dr != null)
+                        {
+                            encontrado = true;
+                            usuario.nombre = dr["nombre"].ToString();
+                            usuario.apellidos = dr["apellidos"].ToString();
+                            usuario.ciudad = dr["ciudad"].ToString();
+                            usuario.preferencia = dr["preferencia"].ToString();
+                            usuario.edad = Int32.Parse(dr["edad"].ToString());
+                            usuario.email = dr["email"].ToString();
+                            usuario.password = dr["password"].ToString();
+
+                        }
+                    }
+                }
+            }
+            catch(Exception e) { throw e; encontrado = false; Console.WriteLine(e.Message + " " + e.ToString()); }
+            finally { c.Close(); }
+
+            return encontrado;
         }
 
         /// <summary>
@@ -221,8 +299,41 @@ namespace library {
         /// <returns></returns>
         public bool UltimoUsuario(ENUsuario usuario)
         {
-            // TODO Santi
-            return false;
+            bool leido = false;
+            SqlConnection conectar = new SqlConnection(constring);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", conectar);
+                DataAdapter.Fill(bdvirtual, "usuarios");
+                DataTable t = bdvirtual.Tables["usuarios"];
+                DataRow dr = t.Rows[t.Rows.Count - 1];
+                if(dr != null)
+                {
+                    usuario.nombre = dr["nombre"].ToString();
+                    usuario.apellidos = dr["apellidos"].ToString();
+                    usuario.ciudad = dr["ciudad"].ToString();
+                    usuario.preferencia = dr["preferencia"].ToString();
+                    usuario.edad = Int32.Parse(dr["edad"].ToString());
+                    usuario.email = dr["email"].ToString();
+                    usuario.password = dr["password"].ToString();
+                    leido = true;
+                }
+                else
+                {
+                    Console.WriteLine("No se pudo realizar el procedimiento");
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("No se pudo realizar el procedimiento", e.Message);
+                throw e;
+            }
+            finally
+            {
+                conectar.Close();
+            }
+            return leido;
         }
 
         /// <summary>
@@ -232,9 +343,53 @@ namespace library {
         /// <returns></returns>
         public bool AnteriorUsuario(ENUsuario usuario)
         {
-            // TODO Santi
-            return false;
+            bool encontrado = false;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(constring);
+            try
+            {
+                // TODO falla a la hora de excederse del formato
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
+                DataAdapter.Fill(bdvirtual, "usuarios");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["usuarios"];
+                string criteria = "nombre_usuario='" + usuario.nombre_usuario + "'";
+                DataRow[] dataRows = t.Select(criteria);
+                if(dataRows != null && dataRows.Length != 0)
+                {
+                    int posSiguiente = t.Rows.Count - 1;
+                    for (int i = 0; i < t.Rows.Count - 1; i++)
+                    {
+                        DataRow db = t.Rows[i];
+                        if (db["nombre_usuario"].ToString() == usuario.nombre_usuario)
+                        {
+                            posSiguiente = i - 1;
+                        }
+                    }
+                    if (posSiguiente != t.Rows.Count - 1)
+                    {
+                        DataRow dr = t.Rows[posSiguiente];
+                        if (dr["nombre_usuario"].ToString() != "")
+                        {
+                            encontrado = true;
+                            usuario.nombre = dr["nombre"].ToString();
+                            usuario.apellidos = dr["apellidos"].ToString();
+                            usuario.ciudad = dr["ciudad"].ToString();
+                            usuario.preferencia = dr["preferencia"].ToString();
+                            usuario.edad = Int32.Parse(dr["edad"].ToString());
+                            usuario.email = dr["email"].ToString();
+                            usuario.password = dr["password"].ToString();
+
+                        }
+                    }
+                }
+            }
+            catch(Exception e) { throw e; encontrado = false; Console.WriteLine(e.Message + " " + e.ToString()); }
+            finally { c.Close(); }
+
+            return encontrado;
         }
+
 
         /// <summary>
         /// Devuelve una lista de usuarios de la BBDD tabla Usuarios.

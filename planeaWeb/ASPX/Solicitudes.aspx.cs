@@ -23,8 +23,7 @@ namespace planeaWeb {
                 // TODO Falla
                 ENParejas solicitud = new ENParejas();
                 string nombre_usuario = Session["nombre_usuario"].ToString();
-                if(!String.IsNullOrEmpty(nombre_usuario))
-                {
+                if(!String.IsNullOrEmpty(nombre_usuario)) {
                     if(library.UTILS.Filter.filterNombreUsuario(nombre_usuario))
                     {
                         solicitud.nombre_usuario_2 = nombre_usuario;
@@ -32,11 +31,13 @@ namespace planeaWeb {
                         GridView1.DataSource = data.Tables[0];
                         GridView1.DataBind();
                     }
+                  } 
                 }
                 else
                 {
                     // TODO
                     //Response.Redirect() 
+                  }
                 }
             }
         }

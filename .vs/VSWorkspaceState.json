@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\library",
+    "\\library\\CAD"
   ],
   "SelectedNode": "\\Planes_M11.sln",
   "PreviewInSolutionExplorer": false
