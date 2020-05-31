@@ -138,5 +138,12 @@ namespace planeaWeb
                 ErrorModificar.Text = "Usuario Vacio";
             }
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Request.Cookies.Remove("nombre_usuario");
+            Session["nombre_usuario"] = "";
+            Response.Redirect("~/ASPX/principal1.aspx");
+        }
     }
 }

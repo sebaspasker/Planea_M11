@@ -25,10 +25,12 @@ namespace planeaWeb {
                 if(!String.IsNullOrEmpty(nombre_usuario))
                 {
                     if(library.UTILS.Filter.filterNombreUsuario(nombre_usuario))
-                    solicitud.nombre_usuario_2 = nombre_usuario;
-                    DataSet data = solicitud.BuscarSolicitudes();
-                    GridView1.DataSource = data.Tables[0];
-                    GridView1.DataBind();
+                    {
+                        solicitud.nombre_usuario_2 = nombre_usuario;
+                        DataSet data = solicitud.BuscarSolicitudes();
+                        GridView1.DataSource = data.Tables[0];
+                        GridView1.DataBind();
+                    }
                 }
                 else
                 {
