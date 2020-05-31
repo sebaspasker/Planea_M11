@@ -13,4 +13,5 @@ Sí que es cierto que al tener disparidad de horarios al no tener las mismas asi
 # Tareas asignadas a cada miembro
 
 | Sebastián Pasker González | Asignar tareas, WebScrapping, Diseño Base de Datos, CADUsuario, CADPlanes, Resto de .aspx |
+
 | Santiago Sáez Caselles | Documentación, Presentación, CADFavoritos, CADParejas, Tests de los Métodos, MasterPage.aspx, Modificar.aspx, Login.aspx, Principal2.aspx, BuscarUsuario.aspx|
