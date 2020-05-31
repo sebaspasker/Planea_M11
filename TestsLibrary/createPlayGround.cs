@@ -26,7 +26,6 @@ namespace TestsLibrary {
                 {
                     en.InsertarUsuario();
                 }
-
             } 
 
             IWebDriver driver = library.UTILS.WebScraping.GetDriver();

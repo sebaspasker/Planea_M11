@@ -123,6 +123,13 @@ namespace library {
             bool eliminado = false;
             DataSet bdvirtual = new DataSet();
             SqlConnection c = new SqlConnection(constring);
+            ENParejas pareja = new ENParejas();
+            pareja.nombre_usuario_1 = usuario.nombre_usuario;
+            pareja.BorrarPareja();
+            ENFavoritos fav = new ENFavoritos();
+            fav.nombre_usuario = usuario.nombre_usuario;
+            fav.BorrarFavorito();
+            ENFavoritos favorito = new ENFavoritos();
             try
             {
                 // TODO Comprobar que existe el usuario primero y funcionamiento
@@ -286,7 +293,9 @@ namespace library {
                     }
                 }
             }
-            catch(Exception e) { throw e; encontrado = false; Console.WriteLine(e.Message + " " + e.ToString()); }
+            catch(Exception e) { encontrado = false; Console.WriteLine(e.Message + " " + e.ToString()); 
+                throw e; 
+            }
             finally { c.Close(); }
 
             return encontrado;
@@ -384,7 +393,9 @@ namespace library {
                     }
                 }
             }
-            catch(Exception e) { throw e; encontrado = false; Console.WriteLine(e.Message + " " + e.ToString()); }
+            catch(Exception e) { encontrado = false; Console.WriteLine(e.Message + " " + e.ToString()); 
+            throw e;
+            }
             finally { c.Close(); }
 
             return encontrado;
@@ -421,7 +432,7 @@ namespace library {
                 DataAdapter.Fill(bdvirtual, "usuarios");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["usuarios"];
-                string criteria = "preferencia='" + en.preferencia+ "'";
+                string criteria = "preferencia like '" + en.preferencia + "'";
                 DataRow[] dataRows = t.Select(criteria);
                 if(dataRows != null && dataRows.Length != 0)
                 {
