@@ -14,7 +14,11 @@ El flujo del trabajo ha sido positivo y correcto y no ha habido discusiones ni p
 # Instrucciones de instalación
 
 Para el webscraping (se utiliza en Webscrap.aspx) de los paquetes de Nuget se necesita Selenium.WebDriver y Selenium.Chrome.Webdriver y poner el ejecutable 
-pasado en el camino (C:\Program Files (x86)\IIS Express\chromedriver.exe). Además, utilizamos AJAX, Cookies y Session.
+pasado en el camino (C:\Program Files (x86)\IIS Express\chromedriver.exe) y en el bin/Debug/ de library. Además, utilizamos AJAX, Cookies y Session. Instalar Base de datos mediante enlace compartido.
+Hay un test en TestLibrary que se llama createPlayGround que crea diferentes usuarios y planes. En caso de que lo querais usar necesitais poner el chromedriver.exe en bin/Debug/ de TestsLibrary.
+Hay un archivo llamado developer.aspx con las tablas sql y opciones que también sirve para rápida inserción (borrado solo está configurado para usuarios). En caso que 
+queráis llegar al archivo mediante compilación hay que meterse en el login e insertar admin como usuario y admin como contraseña. Los usuarios insertados en el createPlayGround en caso de uso
+son nombre0, nombre1, nombre2 como nombre de usuario y password como contraseña.
 
 # Tareas asignadas a cada miembro
 | Miembro | Tarea |
@@ -23,4 +27,6 @@ pasado en el camino (C:\Program Files (x86)\IIS Express\chromedriver.exe). Adem�
 | Santiago Sáez Caselles | Documentación, Presentación, CADFavoritos, CADPlanes, Tests de los Métodos, MasterPage.aspx, Modificar.aspx, Login.aspx, Principal2.aspx, BuscarUsuario.aspx |
 
 # Enlaces
-Presentación-> https://docs.google.com/presentation/d/1qDg4PDHQshxTM__YzmuSViNL_UIjZnlu6Z_CSeRI_Ww/edit?usp=sharing
+Presentación -> https://docs.google.com/presentation/d/1qDg4PDHQshxTM__YzmuSViNL_UIjZnlu6Z_CSeRI_Ww/edit?usp=sharing
+Base de datos -> https://drive.google.com/open?id=16Ug6W75oYxD_Kkr8XLpirxbnvci7ZHet (cuenta UA)
+Ejecutable -> https://drive.google.com/file/d/15Id96qB6Ui_P-paI-2zomeiaiaWN0dfH/view?usp=sharing (cuenta UA)
