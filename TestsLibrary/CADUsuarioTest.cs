@@ -10,7 +10,8 @@ namespace TestsLibrary {
     /// Descripción resumida de CADUsuarioTest
     /// </summary>
     [TestClass]
-    public class CADUsuarioTest {
+    public class CADUsuarioTest
+    {
         public CADUsuarioTest()
         {
         }
@@ -58,34 +59,70 @@ namespace TestsLibrary {
         private void Insertar(ENUsuario usuario)
         {
             usuario.apellidos = "apellido apellido";
-            usuario.email = "email@email.com";
+            usuario.email = "email3@email.com";
             usuario.edad = 10;
             usuario.nombre = "Nombre";
             usuario.password = "Password";
             usuario.preferencia = "Preferencia";
             usuario.ciudad = "Ciudad";
-            if(!usuario.InsertarUsuario())
+            if (!usuario.InsertarUsuario())
             {
                 Assert.Fail("No se ha podido insertar el usuario");
-            } 
+            }
             else
             {
-                if(!usuario.SeleccionarUsuario())
+                if (!usuario.SeleccionarUsuario())
+                {
+                    Assert.Fail("Sigue sin existir el usuario");
+                }
+            }
+        }
+        private void Insertar2(ENUsuario usuario)
+        {
+            usuario.apellidos = "apellido apellido";
+            usuario.email = "email4@email.com";
+            usuario.edad = 10;
+            usuario.nombre = "Nombre";
+            usuario.password = "Password";
+            usuario.preferencia = "Preferencia";
+            usuario.ciudad = "Ciudad";
+            if (!usuario.InsertarUsuario())
+            {
+                Assert.Fail("No se ha podido insertar el usuario");
+            }
+            else
+            {
+                if (!usuario.SeleccionarUsuario())
                 {
                     Assert.Fail("Sigue sin existir el usuario");
                 }
             }
         }
 
+        private void UltimoUsuario(ENUsuario usuario)
+        {
+            if (!usuario.UltimoUsuario())
+            {
+                Assert.Fail("No se ha podido encontrar el último usuario");
+            }
+        }
+        private void SiguienteUsuario(ENUsuario usuario)
+        {
+            if (!usuario.SiguienteUsuario())
+            {
+                Assert.Fail("No se ha podido encontrar el siguiente usuario");
+            }
+        }
+
         private void Eliminar(ENUsuario usuario)
         {
-            if(!usuario.BorrarUsuario())
+            if (!usuario.BorrarUsuario())
             {
                 Assert.Fail("No se ha podido eliminar el usuario");
             }
             else
             {
-                if(usuario.SeleccionarUsuario())
+                if (usuario.SeleccionarUsuario())
                 {
                     Assert.Fail("Sigue existiendo el usuario");
                 }
@@ -99,18 +136,18 @@ namespace TestsLibrary {
             usuario.nombre_usuario = "prueba1";
             try
             {
-                if(!usuario.SeleccionarUsuario())
+                if (!usuario.SeleccionarUsuario())
                 {
                     Insertar(usuario);
-                    Eliminar(usuario);
                 }
                 else
                 {
                     Eliminar(usuario);
                     Insertar(usuario);
-                    Eliminar(usuario);
+
                 }
-            } catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Assert.Fail("No deberia de haber saltado una excepcion " + e.Message + " " + e.StackTrace);
             }
@@ -118,18 +155,18 @@ namespace TestsLibrary {
 
         private void Modificar(ENUsuario usuario)
         {
-            if(usuario.SeleccionarUsuario())
+            if (usuario.SeleccionarUsuario())
             {
                 usuario.nombre = "Juan";
                 usuario.preferencia = "Golf";
                 usuario.edad = 12;
                 usuario.apellidos = "DeLaTorre";
                 usuario.ciudad = "Alicante";
-                if(usuario.ModificarUsuario())
+                if (usuario.ModificarUsuario())
                 {
                     ENUsuario usuario2 = new ENUsuario();
                     usuario2.nombre_usuario = usuario.nombre_usuario;
-                    if(usuario2.SeleccionarUsuario())
+                    if (usuario2.SeleccionarUsuario())
                     {
                         Assert.AreEqual(usuario.nombre, usuario2.nombre);
                         Assert.AreEqual(usuario2.nombre_usuario, usuario.nombre_usuario);
@@ -139,7 +176,8 @@ namespace TestsLibrary {
                         Assert.AreEqual(usuario2.preferencia, usuario.preferencia);
                         Assert.AreEqual(usuario2.email, usuario.email);
                         Assert.AreEqual(usuario2.edad, usuario.edad);
-                    } else
+                    }
+                    else
                     {
                         Assert.Fail("No se ha podido encontrar al usuario");
                     }
@@ -149,12 +187,12 @@ namespace TestsLibrary {
                 {
                     Assert.Fail("No se ha podido modificar el usuario");
                 }
-            } 
+            }
             else
             {
                 Assert.Fail("No se puede modificar si no existe");
             }
-        } 
+        }
 
         [TestMethod]
         public void InsertarYModificar()
@@ -163,7 +201,7 @@ namespace TestsLibrary {
             usuario.nombre_usuario = "prueba1";
             try
             {
-                if(!usuario.SeleccionarUsuario())
+                if (!usuario.SeleccionarUsuario())
                 {
                     Insertar(usuario);
                     Modificar(usuario);
@@ -175,7 +213,69 @@ namespace TestsLibrary {
                     Eliminar(usuario);
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
+            {
+                Assert.Fail("No deberia de haber saltado una excepcion " + e.Message);
+            }
+        }
+        [TestMethod]
+        public void PrimeroUltimo()
+        {
+            ENUsuario usuario = new ENUsuario();
+            usuario.nombre_usuario = "usu1";
+            try
+            {
+                if (!usuario.SeleccionarUsuario())
+                {
+                    Insertar(usuario);
+                    UltimoUsuario(usuario);
+                    Eliminar(usuario);
+                }
+                else
+                {
+                    UltimoUsuario(usuario);
+                    Eliminar(usuario);
+                }
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("No deberia de haber saltado una excepcion " + e.Message);
+            }
+        }
+        [TestMethod]
+        public void SiguenteUsuario()
+        {
+            ENUsuario usuario = new ENUsuario();
+            ENUsuario usuario2 = new ENUsuario();
+            usuario.nombre_usuario = "usu2";
+            usuario2.nombre_usuario = "usu3";
+            try
+            {
+                if (!usuario.SeleccionarUsuario() && !usuario2.SeleccionarUsuario())
+                {
+                    Insertar(usuario);
+                    Insertar2(usuario2);
+                    SiguienteUsuario(usuario);
+                    Eliminar(usuario);
+                    Eliminar(usuario2);
+                }
+                else if (usuario.SeleccionarUsuario() && !usuario2.SeleccionarUsuario())
+                {
+                    Insertar2(usuario2);
+                    SiguienteUsuario(usuario);
+                    Eliminar(usuario);
+                    Eliminar(usuario2);
+                }
+                else
+                {
+                    SiguienteUsuario(usuario);
+                    Eliminar(usuario);
+                    Eliminar(usuario2);
+                }
+
+            }
+            catch (Exception e)
             {
                 Assert.Fail("No deberia de haber saltado una excepcion " + e.Message);
             }

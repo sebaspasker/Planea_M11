@@ -56,6 +56,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CADFavoritosTest.cs" />
+    <Compile Include="CADParejasTest.cs" />
+    <Compile Include="CADPlanesTest.cs" />
     <Compile Include="CADUsuarioTest.cs" />
     <Compile Include="createPlayGround.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -13,7 +13,7 @@ namespace planeaWeb {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void Page_Load(object sender, EventArgs e)
+        /*protected void Page_Load(object sender, EventArgs e)
         {
             historial_out.Text = "";
             ENParejas pareja = new ENParejas();
@@ -21,7 +21,7 @@ namespace planeaWeb {
             
             if(usuario != "" && usuario != null)
             {
-                if(usuario.Length > 12) {
+                if(usuario.Length < 13) {
                     pareja.nombre_usuario_1 = usuario;
                     List<ENParejas> parejas = pareja.BuscarParejas();
 
@@ -32,7 +32,6 @@ namespace planeaWeb {
                             parejas[i].fecha + "<br />";
                     }
                 } 
-            }
+            }*/
         }
-    }
-}
+   }
