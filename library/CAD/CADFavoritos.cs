@@ -41,6 +41,14 @@ namespace library {
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["favoritos"];
                 DataRow nuevafila = t.NewRow();
+                if (t.Rows.Count != 0)
+                {
+                    nuevafila[0] = Int32.Parse(t.Rows[t.Rows.Count - 1]["id"].ToString());
+                }
+                else
+                {
+                    nuevafila[0] = 0;
+                }
                 nuevafila[0] = t.Rows.Count;
                 nuevafila[1] = favorito.nombre_usuario;
                 nuevafila[2] = favorito.nombre_usuario_favorito;
@@ -188,7 +196,7 @@ namespace library {
         {
             DataSet bdvirtual = new DataSet();
             SqlConnection c = new SqlConnection(constring);
-            SqlDataAdapter da = new SqlDataAdapter("select nombre_usuario_favorito from Favoritoss where nombre_usuario_favorito like '%" + fav.nombre_usuario_favorito + "%';", c);
+            SqlDataAdapter da = new SqlDataAdapter("select nombre_usuario_favorito from Favoritos where nombre_usuario_favorito like '%" + fav.nombre_usuario_favorito + "%';", c);
             da.Fill(bdvirtual, "favoritos");
             return bdvirtual;
         }

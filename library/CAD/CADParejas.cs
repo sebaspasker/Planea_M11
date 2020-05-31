@@ -37,6 +37,14 @@ namespace library {
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["parejas"];
                 DataRow nuevafila = t.NewRow();
+                if (t.Rows.Count != 0)
+                {
+                    nuevafila[0] = Int32.Parse(t.Rows[t.Rows.Count - 1]["id"].ToString());
+                }
+                else
+                {
+                    nuevafila[0] = 0;
+                }
                 nuevafila[0] = t.Rows.Count;
                 nuevafila[1] = pareja.nombre_usuario_1;
                 nuevafila[2] = pareja.nombre_usuario_2;

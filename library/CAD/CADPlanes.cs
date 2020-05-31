@@ -40,7 +40,7 @@ namespace library
 				DataTable t = new DataTable();
 				t = bdvirtual.Tables["plan"];
 				DataRow nuevafila = t.NewRow();
-				nuevafila[0] = Int32.Parse(t.Rows[t.Rows.Count - 1]["id"].ToString());
+				nuevafila[0] = Int32.Parse(t.Rows[t.Rows.Count-1]["id"].ToString())+1;
 				nuevafila[1] = plan.Nombre;
 				nuevafila[2] = plan.Precio;
 				nuevafila[3] = plan.Ciudad;
@@ -73,13 +73,13 @@ namespace library
             try
             {
                 // TODO Comprobar que existe el usuario primero y funcionamiento
-                SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from Usuarios", c);
-                dataAdapter.Fill(bdvirtual, "plan");
-                DataTable t = bdvirtual.Tables["plan"];
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from Planes", c);
+                dataAdapter.Fill(bdvirtual, "planes");
+                DataTable t = bdvirtual.Tables["planes"];
                 for(int i=t.Rows.Count-1; i>=0; i--)
                 {
                     DataRow dr = t.Rows[i];
-                    if(dr["nombre"].ToString() == plan.Nombre)
+                    if(dr["Nombre"].ToString() == plan.Nombre)
                     {
                         dr.Delete();
                         eliminado = true;
@@ -87,7 +87,7 @@ namespace library
                     }
                 }
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(dataAdapter);
-                dataAdapter.Update(bdvirtual, "plan");
+                dataAdapter.Update(bdvirtual, "planes");
             } 
             catch(Exception e)
             {
@@ -115,7 +115,7 @@ namespace library
             try
             {
                 // TODO falla a la hora de excederse del formato
-                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Planes", c);
                 DataAdapter.Fill(bdvirtual, "plan");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["plan"];
@@ -149,11 +149,11 @@ namespace library
             try
             {
                 // TODO Hacer filtrado
-                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
-                DataAdapter.Fill(bdvirtual, "plan");
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Planes", c);
+                DataAdapter.Fill(bdvirtual, "planes");
                 DataTable t = new DataTable();
-                t = bdvirtual.Tables["plan"];
-                string criteria = "nombre='" + plan.Nombre + "'";
+                t = bdvirtual.Tables["planes"];
+                string criteria = "Nombre='" + plan.Nombre + "'";
                 DataRow[] rows = t.Select(criteria);
                 if(rows.Length != 0 || rows != null)
                 {
@@ -162,7 +162,7 @@ namespace library
 					rows[0]["categoria"] = plan.Categoria;
                 }
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(DataAdapter);
-                DataAdapter.Update(bdvirtual, "usuarios");
+                DataAdapter.Update(bdvirtual, "planes");
                 cambiado = true;
             } 
             catch(Exception e)
@@ -191,16 +191,16 @@ namespace library
             try
             {
                 SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Planes", conectar);
-                DataAdapter.Fill(bdvirtual, "plan");
+                DataAdapter.Fill(bdvirtual, "planes");
                 DataTable t = bdvirtual.Tables["planes"];
                 DataRow dr = t.Rows[0];
-                if(dr["nombre_usuario"].ToString() != "")
+                if(dr["Nombre"].ToString() != "")
                 {
                     leido = true;
-                    plan.Nombre = dr["nombre"].ToString();
-                    plan.Precio = Int32.Parse(dr["precio"].ToString());
-                    plan.Ciudad = dr["ciudad"].ToString();
-                    plan.Categoria = dr["categoria"].ToString();
+                    plan.Nombre = dr["Nombre"].ToString();
+                    plan.Precio = Int32.Parse(dr["Precio"].ToString());
+                    plan.Ciudad = dr["Ciudad"].ToString();
+                    plan.Categoria = dr["Categoria"].ToString();
 
                 }
                 else
@@ -233,16 +233,16 @@ namespace library
             try
             {
                 SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Planes", conectar);
-                DataAdapter.Fill(bdvirtual, "plan");
+                DataAdapter.Fill(bdvirtual, "planes");
                 DataTable t = bdvirtual.Tables["planes"];
                 DataRow dr = t.Rows[t.Rows.Count - 1];
-                if(dr["nombre_usuario"].ToString() != "")
+                if(dr["Nombre"].ToString() != "")
                 {
                     leido = true;
-                    plan.Nombre = dr["nombre"].ToString();
-                    plan.Precio = Int32.Parse(dr["precio"].ToString());
-                    plan.Ciudad = dr["ciudad"].ToString();
-                    plan.Categoria = dr["categoria"].ToString();
+                    plan.Nombre = dr["Nombre"].ToString();
+                    plan.Precio = Int32.Parse(dr["Precio"].ToString());
+                    plan.Ciudad = dr["Ciudad"].ToString();
+                    plan.Categoria = dr["Categoria"].ToString();
 
                 }
                 else
@@ -275,24 +275,34 @@ namespace library
             try
             {
                 // TODO falla a la hora de excederse del formato
-                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Usuarios", c);
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Planes", c);
                 DataAdapter.Fill(bdvirtual, "plan");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["plan"];
                 string criteria = "nombre='" + plan.Nombre + "'";
                 DataRow[] dataRows = t.Select(criteria);
-                int posSiguiente;
+                int posSiguiente=0;
                 if (dataRows != null && dataRows.Length != 0)
                 {
-                    posSiguiente = Int32.Parse(dataRows[0]["id"].ToString());
-                    DataRow dr = t.Rows[posSiguiente];
-                    if (dr["nombre_usuario"].ToString() != "")
+                    for (int i = 0; i < t.Rows.Count - 1; i++)
                     {
-                        plan.Nombre = dr["nombre"].ToString();
-                        plan.Precio = Int32.Parse(dr["precio"].ToString());
-                        plan.Categoria = dr["categoria"].ToString();
-                        plan.Ciudad = dr["ciudad"].ToString();
-                        encontrado = true;
+                        DataRow db = t.Rows[i];
+                        if (db["Nombre"].ToString() == plan.Nombre)
+                        {
+                            posSiguiente = i + 1;
+                        }
+                    }
+                    if (posSiguiente != 0)
+                    {
+                        DataRow dr = t.Rows[posSiguiente];
+                        if (dr["Nombre"].ToString() != "")
+                        {
+                            plan.Nombre = dr["nombre"].ToString();
+                            plan.Precio = Int32.Parse(dr["precio"].ToString());
+                            plan.Categoria = dr["categoria"].ToString();
+                            plan.Ciudad = dr["ciudad"].ToString();
+                            encontrado = true;
+                        }
                     }
                 }
             }
