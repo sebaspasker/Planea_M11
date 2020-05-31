@@ -14,12 +14,12 @@ namespace library.UTILS{
 
         public static bool filterNombre(string nombre)
         {
-            return Regex.IsMatch(nombre, @"^[a-zA-Z]{3,10}$");
+            return Regex.IsMatch(nombre, @"^[a-zA-Z]{3,20}$");
         }
 
         public static bool filterNombreUsuario(string nombre_usuario)
         {
-            return Regex.IsMatch(nombre_usuario, @"^[a-zA-Z0-9_-]{3,12}$");
+            return Regex.IsMatch(nombre_usuario, @"^[a-zA-Z0-9_-]{3,20}$");
         } 
 
         public static bool filterPassword(string password)

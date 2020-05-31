@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CADUsuarioTest.cs" />
+    <Compile Include="createPlayGround.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebScrapingTest.cs" />
   </ItemGroup>

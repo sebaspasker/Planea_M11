@@ -270,8 +270,8 @@ namespace library {
                 DataRow[] dataRows = t.Select(criteria);
                 if(dataRows != null && dataRows.Length != 0)
                 {
-                    ENUsuario usuario = new ENUsuario();
                     foreach(DataRow row in dataRows) {
+                        ENUsuario usuario = new ENUsuario();
                         usuario.nombre = row["nombre"].ToString();
                         usuario.nombre_usuario = row["nombre_usuario"].ToString();
                         usuario.apellidos = row["apellidos"].ToString();
@@ -280,7 +280,6 @@ namespace library {
                         usuario.edad = Int32.Parse(row["edad"].ToString());
                         usuario.email = row["email"].ToString();
                         usuarios.Add(usuario);
-                        usuario.clear();
                     }
                 }
             }

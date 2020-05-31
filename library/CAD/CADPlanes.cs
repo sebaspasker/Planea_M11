@@ -263,14 +263,13 @@ namespace library
                 DataRow[] dataRows = t.Select(criteria);
                 if(dataRows != null && dataRows.Length != 0)
                 {
-					ENPlanes planlis = new ENPlanes();
                     foreach(DataRow row in dataRows) {
+                        ENPlanes planlis = new ENPlanes();
                         planlis.Nombre = row["nombre"].ToString();
 						planlis.Precio = Int32.Parse(row["precio"].ToString());
                         planlis.Ciudad = row["ciudad"].ToString();
                         planlis.Categoria = row["categoria"].ToString();
                         planes.Add(planlis);
-                        planlis.clear();
                     }
                 }
             }

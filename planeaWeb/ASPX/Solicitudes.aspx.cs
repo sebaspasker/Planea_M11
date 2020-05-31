@@ -20,6 +20,7 @@ namespace planeaWeb {
         {
             if(!Page.IsPostBack)
             {
+                // TODO Falla
                 ENParejas solicitud = new ENParejas();
                 string nombre_usuario = Session["nombre_usuario"].ToString();
                 if(!String.IsNullOrEmpty(nombre_usuario))

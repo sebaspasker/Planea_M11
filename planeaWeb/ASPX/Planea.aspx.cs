@@ -23,11 +23,11 @@ namespace planeaWeb {
             {
                 if(i < 10)
                 {
-                    horas.Add("0" + i + ":00");
+                    horas.Add("0" + i);
                 }
                 else
                 {
-                    horas.Add(i + ":00");
+                    horas.Add(i);
                 }
             }
 
@@ -49,16 +49,20 @@ namespace planeaWeb {
             if(nombre_usuario != "" )
             {
                 ENUsuario usuario = new ENUsuario();
+                usuario.nombre_usuario = nombre_usuario;
                 if(usuario.SeleccionarUsuario())
                 {
                     List<ENUsuario> usuarioPreferencia = usuario.BuscarPreferencia();
                     lista_planea.Text = "";
                     ArrayList al = new ArrayList();
                     foreach(ENUsuario en in usuarioPreferencia)
-                    { 
-                       lista_planea.Text += "Nombre: '" + en.nombre + "' -- Nombre Usuario: '" +
-                            en.nombre_usuario + "' -- Preferencia: '" + en.preferencia + "'<br />";
-                        al.Add(en.nombre_usuario);
+                    {
+                        if(en.nombre_usuario != nombre_usuario)
+                        {
+                            lista_planea.Text += "Nombre: '" + en.nombre + "' -- Nombre Usuario: '" +
+                                 en.nombre_usuario + "' -- Preferencia: '" + en.preferencia + "'<br />";
+                            al.Add(en.nombre_usuario);
+                        }
                     }
                     DropDownList1.DataSource = al;
                     DropDownList1.DataBind();
@@ -105,20 +109,25 @@ namespace planeaWeb {
                 ENParejas pareja = new ENParejas();
                 pareja.nombre_usuario_1 = nombre_usuario;
                 pareja.nombre_usuario_2 = usuario;
-                pareja.hora_inicio = Int32.Parse(hora_inicio[0 - 1].ToString());
-                pareja.hora_fin = Int32.Parse(hora_fin[0 - 1].ToString());
+                pareja.hora_inicio = Int32.Parse(hora_inicio.ToString());
+                pareja.hora_fin = Int32.Parse(hora_fin.ToString());
                 pareja.fecha = dia;
                 pareja.nombre_plan = plan;
                 pareja.plan_aceptado = "no";
 
-                Filter filtrar = new Filter();
-                if(pareja.InsertarPareja())
+                if(!pareja.SeleccionarPareja())
                 {
-                    errorPlanea.Text = "El plan se ha creado!";
-                } 
-                else
+                    if(pareja.InsertarPareja())
+                    {
+                        errorPlanea.Text = "El plan se ha creado!";
+                    }
+                    else
+                    {
+                        errorPlanea.Text = "El plan no se ha podido crear";
+                    }
+                } else
                 {
-                    errorPlanea.Text = "El plan no se ha podido crear";
+                    errorPlanea.Text = "El plan ya existe";
                 }
             } 
             else
