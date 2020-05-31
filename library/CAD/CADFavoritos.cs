@@ -84,11 +84,11 @@ namespace library {
                 for(int i=t.Rows.Count-1; i>=0; i--)
                 {
                     DataRow dr = t.Rows[i];
-                    if(dr["nombre_usuario"].ToString() == favorito.nombre_usuario)
+                    if(dr["nombre_usuario"].ToString() == favorito.nombre_usuario ||
+                        dr["nombre_usuario_favorito"].ToString() == favorito.nombre_usuario_favorito)
                     {
                         dr.Delete();
                         eliminado = true;
-                        break;
                     }
                 }
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(dataAdapter);
@@ -165,18 +165,20 @@ namespace library {
                 DataAdapter.Fill(bdvirtual, "favoritos");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["favoritos"];
-                string criteria = "nombre_usuario='" + favorito.nombre_usuario + "'";
+                string criteria = "nombre_usuario like '" + favorito.nombre_usuario + "' and nombre_usuario_favorito like '"
+                    + favorito.nombre_usuario_favorito + "'";
                 DataRow[] rows = t.Select(criteria);
                 if(rows.Length != 0 && rows != null)
                 {
                     favorito.nombre_usuario_favorito = rows[0]["nombre_usuario_favorito"].ToString();
+                    cambiado = true;
                 }
-                cambiado = true;
             } 
             catch(Exception e)
             {
                 cambiado = false;
                 Console.WriteLine(e.Message);
+                throw e;
             } 
             finally
             {

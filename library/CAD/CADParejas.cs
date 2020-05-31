@@ -85,7 +85,8 @@ namespace library {
                 DataAdapter.Fill(bdvirtual, "pareja");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["pareja"];
-                string criteria = "nombre='" + pareja.nombre_usuario_1 + "'";
+                string criteria = "nombre_usuario_1 like '" + pareja.nombre_usuario_1 + "' and nombre_usuario_2 like '" + pareja.nombre_usuario_2 + "' and nombre_plan like '" +
+                    pareja.nombre_plan+ "'";
                 DataRow[] rows = t.Select(criteria);
                 if (rows.Length != 0 || rows != null)
                 {
@@ -94,17 +95,18 @@ namespace library {
                     rows[0]["nombre_plan"] = pareja.nombre_plan;
                     rows[0]["hora_inicio"] = pareja.hora_inicio;
                     rows[0]["hora_fin"] = pareja.hora_fin;
-                    rows[0]["fecha"] = pareja.fecha;
+                    rows[0]["dia"] = pareja.fecha;
                     rows[0]["aceptado"] = pareja.plan_aceptado;
                 }
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(DataAdapter);
-                DataAdapter.Update(bdvirtual, "parejas");
+                DataAdapter.Update(bdvirtual, "pareja");
                 cambiado = true;
             }
             catch (Exception e)
             {
                 cambiado = false;
                 Console.WriteLine(e.Message);
+                throw e;
             }
             finally
             {
@@ -132,7 +134,8 @@ namespace library {
                 DataAdapter.Fill(bdvirtual, "parejas");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["parejas"];
-                string criteria = "nombre_usuario_1='" + pareja.nombre_usuario_1 + "'";
+                string criteria = "nombre_usuario_1 like '" + pareja.nombre_usuario_1 + "' and nombre_usuario_2 like '" + pareja.nombre_usuario_2 + "' and nombre_plan like '" +
+                    pareja.nombre_plan+ "'";
                 DataRow[] dataRows = t.Select(criteria);
                 if (dataRows != null && dataRows.Length != 0)
                 {
@@ -141,12 +144,16 @@ namespace library {
                     pareja.nombre_plan = dataRows[0]["nombre_plan"].ToString();
                     pareja.hora_inicio = Int32.Parse(dataRows[0]["hora_inicio"].ToString());
                     pareja.hora_fin = Int32.Parse(dataRows[0]["hora_fin"].ToString());
-                    pareja.fecha = dataRows[0]["fecha"].ToString();
-                    pareja.plan_aceptado = dataRows[0]["plan_aceptado"].ToString();
+                    pareja.fecha = System.DateTime.Parse(dataRows[0]["dia"].ToString());
+                    pareja.plan_aceptado = dataRows[0]["aceptado"].ToString();
                     encontrado = true;
                 }
             }
-            catch (Exception e) { throw e; encontrado = false; Console.WriteLine(e.Message + " " + e.ToString()); }
+            catch (Exception e) { 
+                encontrado = false; 
+                Console.WriteLine(e.Message + " " + e.ToString()); 
+                throw e; 
+            }
             finally { c.Close(); }
 
             return encontrado;
@@ -172,11 +179,11 @@ namespace library {
                 for (int i = t.Rows.Count - 1; i >= 0; i--)
                 {
                     DataRow dr = t.Rows[i];
-                    if (dr["nombre_usuario"].ToString() == pareja.nombre_usuario_1)
+                    if (dr["nombre_usuario_2"].ToString() == pareja.nombre_usuario_1 ||
+                        dr["nombre_usuario_1"].ToString() == pareja.nombre_usuario_1)
                     {
                         dr.Delete();
                         eliminado = true;
-                        break;
                     }
                 }
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(dataAdapter);
@@ -214,7 +221,8 @@ namespace library {
         {
             DataSet bdvirtual = new DataSet();
             SqlConnection c = new SqlConnection(constring);
-            SqlDataAdapter da = new SqlDataAdapter("select nombre_usuario_1, nombre_usuario_2, hora_inicio,hora_fin, fecha from Parejas where nombre_usuario_1 like '" + en.nombre_usuario_1 + "';", c);
+            SqlDataAdapter da = new SqlDataAdapter("select nombre_usuario_1, nombre_usuario_2, nombre_plan, hora_inicio, hora_fin, dia from Parejas where " +
+                "(nombre_usuario_1 like '" + en.nombre_usuario_1 + "' or nombre_usuario_2 like '" + en.nombre_usuario_1 + "') and aceptado='yes'", c);
             da.Fill(bdvirtual, "parejas");
             return bdvirtual;
         }
@@ -223,7 +231,7 @@ namespace library {
         {
             DataSet bdvirtual = new DataSet();
             SqlConnection c = new SqlConnection(constring);
-            SqlDataAdapter data = new SqlDataAdapter("Select nombre_usuario_1, nombre_plan, hora_inicio, hora_fin, dia where nombre_usuario_2='" + en.nombre_usuario_2 +
+            SqlDataAdapter data = new SqlDataAdapter("Select nombre_usuario_1, nombre_plan, hora_inicio, hora_fin, dia from Parejas where nombre_usuario_2='" + en.nombre_usuario_2 +
                 "' and aceptado='no'", c);
             data.Fill(bdvirtual, "parejas");
             return bdvirtual;

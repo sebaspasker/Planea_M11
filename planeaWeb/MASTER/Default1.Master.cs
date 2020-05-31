@@ -16,7 +16,7 @@ namespace planeaWeb
                 || path == "/ASPX/Registro.aspx"
                 || path == "/ASPX/BuscarPlan.aspx"
                 || path == "/ASPX/BuscarUsuario.aspx"
-                || path == "/ASPX/WebScrap.aspx"
+                || path == "/ASPX/Webscrap.aspx"
                 || path == "/ASPX/developer.aspx";
         } 
         protected void Page_Load(object sender, EventArgs e)

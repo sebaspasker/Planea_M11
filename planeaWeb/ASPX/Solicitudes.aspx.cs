@@ -20,7 +20,6 @@ namespace planeaWeb {
         {
             if(!Page.IsPostBack)
             {
-                // TODO Falla
                 ENParejas solicitud = new ENParejas();
                 string nombre_usuario = Session["nombre_usuario"].ToString();
                 if(!String.IsNullOrEmpty(nombre_usuario)) {
@@ -31,13 +30,6 @@ namespace planeaWeb {
                         GridView1.DataSource = data.Tables[0];
                         GridView1.DataBind();
                     }
-                  } 
-                }
-                else
-                {
-                    // TODO
-                    //Response.Redirect() 
-                  }
                 }
             }
         }
@@ -46,29 +38,24 @@ namespace planeaWeb {
         {
             GridViewRow row = GridView1.SelectedRow;
             ENParejas pareja = new ENParejas();
-            pareja.nombre_usuario_1 = row.Cells[0].Text;
-            pareja.nombre_plan = row.Cells[1].Text;
+            pareja.nombre_usuario_1 = row.Cells[1].Text;
+            pareja.nombre_plan = row.Cells[2].Text; 
             pareja.nombre_usuario_2 = Session["nombre_usuario"].ToString();
-            if(Filter.filterNombreUsuario(pareja.nombre_usuario_1) &&
-                Filter.filterNombreUsuario(pareja.nombre_usuario_2) &&
-                Filter.filterNombrePlan(pareja.nombre_plan))
+            if(pareja.SeleccionarPareja())
             {
-                if(pareja.SeleccionarPareja())
+                pareja.plan_aceptado = "yes";
+                if(pareja.ModificarPareja())
                 {
-                    pareja.plan_aceptado = "yes";
-                    if(pareja.ModificarPareja())
-                    {
-                        // TODO Imprimir correcto
-                    } 
-                    else
-                    {
-                        // TODO Imprimir error
-                    }
-                }
+                    ErrorSolicitud.Text = "Plan aceptado!";
+                } 
                 else
                 {
-                    // TODO Imprimir error
+                    ErrorSolicitud.Text = "La pareja no se ha podido modificar";
                 }
+            }
+            else
+            {
+                ErrorSolicitud.Text = "No existe la pareja" + pareja.nombre_usuario_1 + " " + pareja.nombre_usuario_2 + " " + pareja.nombre_plan;
             }
         }
     }

@@ -331,7 +331,7 @@ namespace library
 		public DataSet BuscarPlanes(ENPlanes plan) {
 			DataSet bdvirtual = new DataSet();
 			SqlConnection c = new SqlConnection(constring);
-			SqlDataAdapter da = new SqlDataAdapter("select nombre, precio, ciudad, categoria from Planes where nombre='%" + plan.Nombre + "%';", c);
+			SqlDataAdapter da = new SqlDataAdapter("select nombre, precio, ciudad, categoria from Planes where nombre like'%" + plan.Nombre + "%';", c);
 			da.Fill(bdvirtual, "plan");
 			return bdvirtual;
 		}
