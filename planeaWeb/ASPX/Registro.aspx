@@ -43,7 +43,7 @@
             &nbsp;</p>
         <p style="margin-left: 40px">Contraseña:</p>
         <p style="margin-left: 40px">
-            <asp:TextBox ID="TextPasswd" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextPasswd" TextMode="Password" runat="server"></asp:TextBox>
         </p>
         <p style="margin-left: 40px">
             &nbsp;</p>

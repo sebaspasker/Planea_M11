@@ -23,18 +23,18 @@ namespace planeaWeb.ASPX {
                 if(enu.SeleccionarUsuario())
                 {
                     PrintNombreUsuario.Text = nombre_usuario;
+                    HttpCookie userCookie;
+                    userCookie = Request.Cookies["nombre_usuario"];
+                    if(userCookie != null) 
+                    {
+                        userCookie = new HttpCookie("nombre_usuario", nombre_usuario);
+                        userCookie.Expires = DateTime.Now.AddMonths(1);
+                        Response.Cookies.Add(userCookie);
+                    }
                 } 
                 else
                 {
                     Response.Redirect("~/ASPX/principal1.aspx");
-                }
-                HttpCookie userCookie;
-                userCookie = Request.Cookies["nombre_usuario"];
-                if(userCookie != null) 
-                {
-                    userCookie = new HttpCookie("nombre_usuario", nombre_usuario);
-                    userCookie.Expires = DateTime.Now.AddMonths(1);
-                    Response.Cookies.Add(userCookie);
                 }
             }
             else

@@ -58,7 +58,8 @@ namespace library {
                 cambiado = true;
             }
             catch(Exception e) { // TODO Temporal
-                throw e; cambiado = false; }
+                cambiado = false; 
+                throw e; }
             finally { c.Close();  }
 
             return cambiado;
@@ -152,31 +153,37 @@ namespace library {
         /// </summary>
         /// <param name="favorito"></param>
         /// <returns></returns>
-        public bool LeerFavorito(ENFavoritos favorito)
+        public bool SeleccionarFavorito(ENFavoritos favorito)
         {
-            bool encontrado = false;
+            bool cambiado = false;
             DataSet bdvirtual = new DataSet();
             SqlConnection c = new SqlConnection(constring);
             try
             {
-                // TODO falla a la hora de excederse del formato
+                // TODO Hacer filtrado
                 SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Favoritos", c);
-                DataAdapter.Fill(bdvirtual, "favorito");
+                DataAdapter.Fill(bdvirtual, "favoritos");
                 DataTable t = new DataTable();
-                t = bdvirtual.Tables["favorito"];
-                string criteria = "nombre='" + favorito.nombre_usuario + "'";
-                DataRow[] dataRows = t.Select(criteria);
-                if (dataRows != null && dataRows.Length != 0)
+                t = bdvirtual.Tables["favoritos"];
+                string criteria = "nombre_usuario='" + favorito.nombre_usuario + "'";
+                DataRow[] rows = t.Select(criteria);
+                if(rows.Length != 0 && rows != null)
                 {
-                    favorito.nombre_usuario = dataRows[0]["nombre_usuario"].ToString();
-                    favorito.nombre_usuario_favorito = dataRows[0]["nombre_usuario_favorito "].ToString();
-                    encontrado = true;
+                    favorito.nombre_usuario_favorito = rows[0]["nombre_usuario_favorito"].ToString();
                 }
+                cambiado = true;
+            } 
+            catch(Exception e)
+            {
+                cambiado = false;
+                Console.WriteLine(e.Message);
+            } 
+            finally
+            {
+                c.Close();
             }
-            catch (Exception e) { encontrado = false; Console.WriteLine(e.Message + " " + e.ToString()); throw e; }
-            finally { c.Close(); }
 
-            return encontrado;
+            return cambiado;
         }
 
         /// <summary>

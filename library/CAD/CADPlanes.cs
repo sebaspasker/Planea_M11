@@ -21,6 +21,7 @@ namespace library
 		{
 			constring = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
 		}
+    
 		/// <summary>
 		/// Inserta un plan dentro de la tabla de Planes.
 		/// Comprueba que no haya repetición.
@@ -40,7 +41,13 @@ namespace library
 				DataTable t = new DataTable();
 				t = bdvirtual.Tables["plan"];
 				DataRow nuevafila = t.NewRow();
-				nuevafila[0] = Int32.Parse(t.Rows[t.Rows.Count-1]["id"].ToString())+1;
+				if(t.Rows.Count != 0)
+				{
+					nuevafila[0] = Int32.Parse(t.Rows[t.Rows.Count - 1]["id"].ToString()) +1 ;
+				} else
+				{
+					nuevafila[0] = 1;
+				}
 				nuevafila[1] = plan.Nombre;
 				nuevafila[2] = plan.Precio;
 				nuevafila[3] = plan.Ciudad;
@@ -59,6 +66,7 @@ namespace library
 
             return cambiado;
 		}
+    
 		/// <summary>
 		/// Elimina un plan dentro de la tabla de plan.
 		/// Comprueba que exista.
@@ -72,10 +80,9 @@ namespace library
             SqlConnection c = new SqlConnection(constring);
             try
             {
-                // TODO Comprobar que existe el usuario primero y funcionamiento
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from Planes", c);
-                dataAdapter.Fill(bdvirtual, "planes");
-                DataTable t = bdvirtual.Tables["planes"];
+                dataAdapter.Fill(bdvirtual, "plan");
+                DataTable t = bdvirtual.Tables["plan"];
                 for(int i=t.Rows.Count-1; i>=0; i--)
                 {
                     DataRow dr = t.Rows[i];
@@ -101,6 +108,7 @@ namespace library
 
             return eliminado;
 		}
+    
 		/// <summary>
 		/// Busca un plan dentro de la tabla de plan.
 		/// Comprueba si existe
@@ -135,6 +143,7 @@ namespace library
 
             return encontrado;
 		}
+    
 		/// <summary>
 		/// Cambia un plan de la tabla de plan.
 		/// Comprueba si existe
@@ -150,19 +159,19 @@ namespace library
             {
                 // TODO Hacer filtrado
                 SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Planes", c);
-                DataAdapter.Fill(bdvirtual, "planes");
+                DataAdapter.Fill(bdvirtual, "plan");
                 DataTable t = new DataTable();
-                t = bdvirtual.Tables["planes"];
+                t = bdvirtual.Tables["plan"];
                 string criteria = "Nombre='" + plan.Nombre + "'";
                 DataRow[] rows = t.Select(criteria);
                 if(rows.Length != 0 || rows != null)
                 {
-					rows[0]["precio"] = plan.Precio;
+					          rows[0]["precio"] = plan.Precio;
                     rows[0]["ciudad"] = plan.Ciudad;
-					rows[0]["categoria"] = plan.Categoria;
+					          rows[0]["categoria"] = plan.Categoria;
                 }
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(DataAdapter);
-                DataAdapter.Update(bdvirtual, "planes");
+                DataAdapter.Update(bdvirtual, "plan");
                 cambiado = true;
             } 
             catch(Exception e)
@@ -177,6 +186,7 @@ namespace library
 
             return cambiado;
 		}
+    
 		/// <summary>
 		/// Busca el primer plan de la tabla de plan.
 		/// Comprueba si existe el plan pedido.
@@ -219,6 +229,7 @@ namespace library
             }
             return leido;
 		}
+    
 		/// <summary>
 		/// Busca el ultimo plan de la tabla de plan.
 		/// Comprueba si existe el plan pedido
@@ -338,18 +349,41 @@ namespace library
 			return bdvirtual;
 		}
 
-
 		/// <summary>
 		/// Busca en base a la categoria
 		/// </summary>
 		/// <returns></returns>
-		public DataSet BuscarPlanesPreferencia(ENPlanes plan)
+		public List<ENPlanes> BuscarPlanesPreferencia(ENPlanes plan)
 		{
-			DataSet bdvirtual = new DataSet();
-			SqlConnection c = new SqlConnection(constring);
-			SqlDataAdapter da = new SqlDataAdapter("select nombre, precio, ciudad, categoria from Planes where preferencia='%" + plan.Categoria + "%';", c);
-			da.Fill(bdvirtual, "plan");
-			return bdvirtual;
+			List<ENPlanes> planes = new List<ENPlanes>();
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(constring);
+            try
+            {
+                // TODO falla a la hora de excederse del formato
+                SqlDataAdapter DataAdapter = new SqlDataAdapter("select * from Planes", c);
+                DataAdapter.Fill(bdvirtual, "planes");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["planes"];
+                string criteria = "categoria='" + plan.Categoria + "'";
+                DataRow[] dataRows = t.Select(criteria);
+                if(dataRows != null && dataRows.Length != 0)
+                {
+                    foreach(DataRow row in dataRows) {
+                        ENPlanes planlis = new ENPlanes();
+                        planlis.Nombre = row["nombre"].ToString();
+						            planlis.Precio = Int32.Parse(row["precio"].ToString());
+                        planlis.Ciudad = row["ciudad"].ToString();
+                        planlis.Categoria = row["categoria"].ToString();
+                        planes.Add(planlis);
+                    }
+                }
+            }
+            catch(Exception e) {Console.WriteLine(e.Message + " " + e.ToString()); throw e; }
+            finally { c.Close(); }
+
+            return planes;
+
 		}
 	}
 }

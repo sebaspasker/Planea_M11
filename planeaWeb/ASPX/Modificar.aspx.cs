@@ -35,7 +35,7 @@ namespace planeaWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             ENUsuario en = new ENUsuario();
-            nombre_usuario = Request.QueryString["nomUsu"];
+            nombre_usuario = Session["nombre_usuario"].ToString();
             en.nombre_usuario = nombre_usuario;
             ErrorModificar.Text = en.nombre_usuario;
             if(!string.IsNullOrEmpty(en.nombre_usuario))
@@ -137,6 +137,13 @@ namespace planeaWeb
             {
                 ErrorModificar.Text = "Usuario Vacio";
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Request.Cookies.Remove("nombre_usuario");
+            Session["nombre_usuario"] = "";
+            Response.Redirect("~/ASPX/principal1.aspx");
         }
     }
 }

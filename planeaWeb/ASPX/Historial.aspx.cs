@@ -17,7 +17,7 @@ namespace planeaWeb {
         {
             historial_out.Text = "";
             ENParejas pareja = new ENParejas();
-            string usuario = Request.QueryString["nomUsu"];
+            string usuario = Session["nomUsu"].ToString();
             
             if(usuario != "" && usuario != null)
             {

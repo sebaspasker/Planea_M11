@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using library;
+using library.UTILS;
 
 namespace planeaWeb {
     public partial class BuscarPlan : System.Web.UI.Page {
@@ -34,12 +35,9 @@ namespace planeaWeb {
         {
             ENPlanes plan = new ENPlanes();
             plan.Nombre = Nombre.Text;
-            if(Page.IsValid)
-            {
-                DataSet d = plan.BuscarPlanes();
-                GridView1.DataSource = d;
-                GridView1.DataBind();
-            } 
+            DataSet d = plan.BuscarPlanes();
+            GridView1.DataSource = d.Tables["plan"];
+            GridView1.DataBind();
         }
     }
 }

@@ -24,8 +24,8 @@ namespace planeaWeb {
         {
             ENFavoritos favoritos = new ENFavoritos();
             favoritos.nombre_usuario = nombre_usuario.Text;
-            //listaFavoritos = favoritos.BuscarFavoritos();
-            string usuario = Request.QueryString["nomUsu"];
+            listaFavoritos = favoritos.BuscarFavoritos();
+            string usuario = Session["nombre_usuario"].ToString();
             nombre_usuario.Text = usuario;
 
             if(usuario != "" && usuario != null)

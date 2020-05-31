@@ -14,12 +14,12 @@ namespace library.UTILS{
 
         public static bool filterNombre(string nombre)
         {
-            return Regex.IsMatch(nombre, @"^[a-zA-Z]{3,10}$");
+            return Regex.IsMatch(nombre, @"^[a-zA-Z]{3,20}$");
         }
 
         public static bool filterNombreUsuario(string nombre_usuario)
         {
-            return Regex.IsMatch(nombre_usuario, @"^[a-zA-Z0-9_-]{3,12}$");
+            return Regex.IsMatch(nombre_usuario, @"^[a-zA-Z0-9_-]{3,20}$");
         } 
 
         public static bool filterPassword(string password)
@@ -29,7 +29,7 @@ namespace library.UTILS{
 
         public static bool filterApellidos(string apellidos)
         {
-            return Regex.IsMatch(apellidos, @"^[a-zA-Z]\s{3,20}$");
+            return Regex.IsMatch(apellidos, @"^[a-zA-Z\s]{3,20}$");
         }
 
         public static bool filterCiudad(string ciudad)
@@ -57,12 +57,15 @@ namespace library.UTILS{
             if(en.SeleccionarUsuario())
             {
                 return "El usuario ya existe";
-            } 
+            } else if(!filterNombreUsuario(en.nombre_usuario))
+            {
+                return "El nombre de usuario tiene que tener entre 3 y 12";
+            }
             else if(!filterNombre(en.nombre))
             {
-                return "El nombre tiene que tener entre 3 y 12 carácteres sin espaciones";
+                return "El nombre tiene que tener entre 3 y 10 carácteres sin espaciones";
             }
-            else if(!filterNombreUsuario(en.nombre_usuario)) 
+            else if(!filterApellidos(en.apellidos)) 
             {
                 return "Los apellidos tienen que tener entre 3 y 20 carácteres y sin símbolos";
             }
@@ -86,97 +89,19 @@ namespace library.UTILS{
             }
         }
 
-        public string FiltradoUsuario(ENUsuario enu, bool formatoCorto)
+        public static bool filtrarHora(int hora)
         {
-            string mensaje = "TODO_OK";
-            if(enu.nombre_usuario.Length < 5 || enu.nombre_usuario.Length > 12)
-            {
-                mensaje = "El nombre de usuario tiene que tener entre 0 y 12 carácteres";
-            }
-
-            if(!formatoCorto && mensaje == "TODO_OK")
-            {
-                if(enu.SeleccionarUsuario())
-                {
-                    mensaje = "El nombre de usuario ya existe";
-                }
-                else if(enu.password.Length < 5 || enu.password.Length > 20)
-                {
-                    mensaje = "La contraseña tiene que tener entre 5 y 20 carácteres";
-                }
-                else if(enu.nombre.Length < 3 || enu.nombre.Length > 10)
-                {
-                    mensaje = "El nombre tiene que tener entre 3 y 10 carácteres";
-                }
-                else if(enu.apellidos.Length < 5 || enu.apellidos.Length > 20)
-                {
-                    mensaje = "El/Los apellido/s tiene/n que tener entre 5 y 20 carácteres";
-                }
-                else if(enu.ciudad.Length < 3 || enu.ciudad.Length > 10)
-                {
-                    mensaje = "La ciudad tiene que tener entre 3 y 20 carácteres";
-                }
-                else if(enu.preferencia.Length < 3 || enu.preferencia.Length > 12)
-                {
-                    mensaje = "Preferencia incorrecta";
-                }
-                else if(enu.edad < 5 || enu.edad > 110)
-                {
-                    mensaje = "La edad tiene que tener entre 5 y 110 años";
-                }
-
-                if(enu.email.Length < 5 || enu.email.Length > 14)
-                {
-                    mensaje = "El email tiene que tener entre 5 y 14 carácteres";
-                }
-                // TODO Comprobar repeticion email
-            }
-
-            return mensaje;
+            return 0 <= hora && 23 >= hora;          
         }
 
-        public string FiltradoPareja(ENParejas pareja, bool formatoCorto)
+        public static bool filtrarAceptado(string ac)
         {
-            string mensaje = "TODO_OK";
-            int tamanyoUsu1 = pareja.nombre_usuario_1.Length;            
-            int tamanyoUsu2 = pareja.nombre_usuario_2.Length;            
-
-            if(tamanyoUsu1 < 0 || tamanyoUsu1 > 12)
-            {
-                mensaje = "El nombre de usuario tiene que tener entre 0 y 12 carácteres";
-            } 
-            else if(tamanyoUsu2 < 0 || tamanyoUsu2 > 12)
-            {
-                mensaje = "El nombre de usuario tiene que tener entre 0 y 12 carácteres";
-            }
-
-            if(pareja.nombre_plan.Length < 0 || pareja.nombre_plan.Length > 20)
-            {
-                mensaje = "El nombre del plan tiene que tener entre 0 y 20 carácteres";
-            }
-
-            if(!formatoCorto && mensaje == "TODO_OK")
-            {
-                if(pareja.hora_inicio < 0 || pareja.hora_fin > 23)
-                {
-                    mensaje = "La hora de inicio tiene que estar entre las 0 y las 23";
-                }
-                else if(pareja.hora_fin < 0 || pareja.hora_fin > 23)
-                {
-                    mensaje = "La hora de inicio tiene que estar entre las 0 y las 23";
-                }
-                else if(pareja.fecha.Length != 10)
-                {
-                    mensaje = "La fecha tiene que tener 10 carácteres";
-                }
-            }
-
-            return mensaje;
+            return Regex.IsMatch(ac, @"[a-z]{2,3}$");
         }
-            
+
         public static bool filterNombrePlan(string nombre)
         {
-            return Regex.IsMatch(nombre, @"^[A-Za-z]\s{3-20}");
+            return Regex.IsMatch(nombre, @"^[a-zA-Z\s]{3,20}$");
         }
 
         public static bool filterPrecio(int precio)
@@ -201,6 +126,63 @@ namespace library.UTILS{
             else if(!filterPreferencia(plan.Categoria))
             {
                 return "Formato preferencia incorrecto";
+            } 
+            else
+            {
+                return "TODO_OK";
+            }
+        }
+
+        public static string filterFavorito(ENFavoritos favorito)
+        {
+            ENUsuario usuario1 = new ENUsuario();
+            ENUsuario usuario2 = new ENUsuario();
+
+            if(!filterNombreUsuario(favorito.nombre_usuario) ||!filterNombreUsuario(favorito.nombre_usuario_favorito))
+            {
+                return "El nombre de usuario tiene que tener entre 3 y 12 carácteres";
+            }
+            else if(!usuario1.SeleccionarUsuario() ||!usuario2.SeleccionarUsuario())
+            {
+                return "Uno de los nombre de usuario no existe";
+            } 
+            else
+            {
+                return "TODO_OK";
+            }
+        }
+
+        public static string filterPareja(ENParejas pareja)
+        {
+            ENUsuario usuario1 = new ENUsuario();
+            ENUsuario usuario2 = new ENUsuario();
+            ENPlanes plan = new ENPlanes();
+            usuario1.nombre_usuario = pareja.nombre_usuario_1;
+            usuario2.nombre_usuario = pareja.nombre_usuario_2;
+            plan.Nombre = pareja.nombre_plan; 
+            if(!filterNombreUsuario(pareja.nombre_usuario_1) || !filterNombreUsuario(pareja.nombre_usuario_2))
+            {
+                return "El nombre de usuario tiene que tener entre 3 y 12 carácteres";
+            } 
+            else if(!filterNombrePlan(pareja.nombre_plan))
+            {
+                return "El nombre del plan tiene que tener entre 3 y 20 carácteres";
+            }
+            else if(!usuario1.SeleccionarUsuario() || !usuario2.SeleccionarUsuario())
+            {
+                return "Los dos usuarios tienen que existir";
+            }
+            else if(!plan.SeleccionarPlan())
+            {
+                return "El nombre del plan tiene que existir";
+            }
+            else if(!filtrarHora(pareja.hora_fin) ||!filtrarHora(pareja.hora_inicio))
+            {
+                return "La hora del plan tiene que ser entre las 0 y las 23";
+            }
+            else if(!filtrarAceptado(pareja.plan_aceptado))
+            {
+                return "El aceptado tiene que ser entre 2 y 3 carácteres";
             } 
             else
             {
