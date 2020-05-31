@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Web.UI.WebControls;
 using library;
 
@@ -19,7 +24,7 @@ namespace planeaWeb {
         {
             ENFavoritos favoritos = new ENFavoritos();
             favoritos.nombre_usuario = nombre_usuario.Text;
-            listaFavoritos = favoritos.BuscarFavoritos();
+            //listaFavoritos = favoritos.BuscarFavoritos();
             string usuario = Request.QueryString["nomUsu"];
             nombre_usuario.Text = usuario;
 
